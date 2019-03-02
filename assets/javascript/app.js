@@ -38,6 +38,8 @@ $(".answers").on("click", function(event) {
     var relax = question2.possibleAnswers.answers1;
     for (var j = 0; j < relax.length; j++) {
       var relaxAnswers = $("<p/>");
+      relaxAnswers.attr("data-value", relax[j]);
+      relaxAnswers.addClass("answers");
       relaxAnswers.text(relax[j]);
       $("#answersDiv").append(relaxAnswers);
     }
@@ -68,29 +70,86 @@ $(".answers").on("click", function(event) {
   }
 });
 
+$(".answers").on("click", function(event) {
+  $("#answersDiv").empty();
+  selectedAnswer = parseInt(event.currentTarget.dataset.value);
+  if (selectedAnswer === "Massage") {
+    var queryURL =
+      "https://www.eventbriteapi.com/v3/categories/?token=XES5FUKPHLCMR7UUVVUA";
+
+    $.ajax({
+      url: queryURL,
+      method: "GET"
+    })
+
+      //After data comes back about the request
+      .then(function(response) {
+        var categories = response.categories;
+        var mainDiv = $("<div>");
+        for (var i = 0; i < 7; i++) {
+          console.log(categories[i].name);
+          var a = $("<h4>");
+          a.text(categories[i].name);
+          $(mainDiv).append(a);
+          $("#tryDiv").append(mainDiv);
+          //   var mainDiv = $("<div>");
+          //   var a = $("<h4>");
+          //   a.text(results[i].headline.print_headline);
+          //   $(mainDiv).append(a);
+          //   $("#tryDiv").append(mainDiv);
+        }
+      });
+  }
+});
+
 // $("#try").on("click", function() {
-//     function searchResult() {
-//         event.preventDefault();
-//         //$("#article-div").empty;
-//         var queryURL =
-//           "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=" +
-//            +
-//           "&api-key=4pGrPZuacORWCsNMIlizLiGqgm3JkWqY";
-//         console.log(queryURL);
-//         $.ajax({
-//           url: queryURL,
-//           method: "GET"
-//         }).then(function(data) {
-//           var results = something;
-//           $("#tryDiv").empty();
-//           for (var i = 0; i < 7; i++) {
-//             var mainDiv = $("<div>");
-//             var a = $("<h4>");
-//             a.text(results[i].headline.print_headline);
-//             $(mainDiv).append(a);
-//             $("#tryDiv").append(mainDiv);
-//           }
-//         });
+//   var queryURL =
+//     "https://www.eventbriteapi.com/v3/categories/?token=XES5FUKPHLCMR7UUVVUA";
+
+//   $.ajax({
+//     url: queryURL,
+//     method: "GET"
+//   })
+
+//     //After data comes back about the request
+//     .then(function(response) {
+//       var categories = response.categories;
+//       var mainDiv = $("<div>");
+//       for (var i = 0; i < 7; i++) {
+//         console.log(categories[i].name);
+//         var a = $("<h4>");
+//         a.text(categories[i].name);
+//         $(mainDiv).append(a);
+//         $("#tryDiv").append(mainDiv);
+//         //   var mainDiv = $("<div>");
+//         //   var a = $("<h4>");
+//         //   a.text(results[i].headline.print_headline);
+//         //   $(mainDiv).append(a);
+//         //   $("#tryDiv").append(mainDiv);
+//       }
+//     });
+//   //     function searchResult() {
+//   //         event.preventDefault();
+//   //         //$("#article-div").empty;
+//   //         var queryURL =
+//   //           "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=" +
+//   //            +
+//   //           "&api-key=4pGrPZuacORWCsNMIlizLiGqgm3JkWqY";
+//   //         console.log(queryURL);
+//   //         $.ajax({
+//   //           url: queryURL,
+//   //           method: "GET"
+//   //         }).then(function(data) {
+//   //           var results = something;
+//   //           $("#tryDiv").empty();
+//   //           for (var i = 0; i < 7; i++) {
+//   //             var mainDiv = $("<div>");
+//   //             var a = $("<h4>");
+//   //             a.text(results[i].headline.print_headline);
+//   //             $(mainDiv).append(a);
+//   //             $("#tryDiv").append(mainDiv);
+//   //           }
+//   //         });
 // });
 
 // curl -X GET --header "Accept: application/json" --header "user-key: 504af04e6861c274d55e91c18d40ac0d" "https://developers.zomato.com/api/v2.1/cuisines?city_id=280"
@@ -114,33 +173,33 @@ $(".answers").on("click", function(event) {
 
 // axios
 //Evenbrite API
-var queryURL =
-  "https://www.eventbriteapi.com/v3/categories/?token=XES5FUKPHLCMR7UUVVUA";
+// var queryURL =
+//   "https://www.eventbriteapi.com/v3/categories/?token=XES5FUKPHLCMR7UUVVUA";
 
-$.ajax({
-  url: queryURL,
-  method: "GET"
-})
+// $.ajax({
+//   url: queryURL,
+//   method: "GET"
+// })
 
-  //After data comes back about the request
-  .then(function(response) {
-    console.log(queryURL);
-    console.log(response);
-  });
+//   //After data comes back about the request
+//   .then(function(response) {
+//     console.log(queryURL);
+//     console.log(response);
+//   });
 
 //Zomato API
 
-function getData(searchEntry, callback, pageNumber) {
-  $.ajax({
-    url: "https://developers.zomato.com/api/v2.1/categories",
-    type: "GET",
-    dataType: "json",
-    headers: { "user-key": "a9ad92c350c1f901a00604156e7979f5" }
-  })
-    .done(function(data) {
-      console.log(data);
-    })
-    .fail(function(data) {
-      console.log(data.pagination);
-    });
-}
+// function getData(searchEntry, callback, pageNumber) {
+//   $.ajax({
+//     url: "https://developers.zomato.com/api/v2.1/categories",
+//     type: "GET",
+//     dataType: "json",
+//     headers: { "user-key": "a9ad92c350c1f901a00604156e7979f5" }
+//   })
+//     .done(function(data) {
+//       console.log(data);
+//     })
+//     .fail(function(data) {
+//       console.log(data.pagination);
+//     });
+// }
