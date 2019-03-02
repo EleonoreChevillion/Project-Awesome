@@ -39,7 +39,7 @@ $(".answers").on("click", function(event) {
     for (var j = 0; j < relax.length; j++) {
       var relaxAnswers = $("<p/>");
       relaxAnswers.attr("data-value", relax[j]);
-      relaxAnswers.addClass("answers");
+      relaxAnswers.addClass("secondAnswers");
       relaxAnswers.text(relax[j]);
       $("#answersDiv").append(relaxAnswers);
     }
@@ -68,39 +68,43 @@ $(".answers").on("click", function(event) {
       $("#answersDiv").append(weirdAnswers);
     }
   }
+  callApi();
 });
-
-$(".answers").on("click", function(event) {
-  $("#answersDiv").empty();
-  selectedAnswer = parseInt(event.currentTarget.dataset.value);
-  if (selectedAnswer === "Massage") {
-    var queryURL =
-      "https://www.eventbriteapi.com/v3/categories/?token=XES5FUKPHLCMR7UUVVUA";
-
-    $.ajax({
-      url: queryURL,
-      method: "GET"
-    })
-
-      //After data comes back about the request
-      .then(function(response) {
-        var categories = response.categories;
-        var mainDiv = $("<div>");
-        for (var i = 0; i < 7; i++) {
-          console.log(categories[i].name);
-          var a = $("<h4>");
-          a.text(categories[i].name);
-          $(mainDiv).append(a);
-          $("#tryDiv").append(mainDiv);
-          //   var mainDiv = $("<div>");
-          //   var a = $("<h4>");
-          //   a.text(results[i].headline.print_headline);
-          //   $(mainDiv).append(a);
-          //   $("#tryDiv").append(mainDiv);
-        }
-      });
-  }
-});
+function callApi() {
+  $(".secondAnswers").on("click", function(event) {
+    console.log("You clicked");
+    secondAnswer = event.currentTarget.dataset.value;
+    console.log(secondAnswer);
+    if (secondAnswer === "Massage") {
+      eventbriteApi();
+    } else if (secondAnswer === "Walk") {
+      eventbriteApi();
+    } else if (secondAnswer === "Museum") {
+      eventbriteApi();
+    } else {
+      eventbriteApi();
+    }
+  });
+}
+function eventbriteApi() {
+  var queryURL =
+    "https://www.eventbriteapi.com/v3/categories/?token=XES5FUKPHLCMR7UUVVUA";
+  $.ajax({
+    url: queryURL,
+    method: "GET"
+  }).then(function(response) {
+    console.log("LAAAAA" + response);
+    var categories = response.categories;
+    var mainDiv = $("<div>");
+    for (var i = 0; i < 7; i++) {
+      console.log(categories[i].name);
+      var a = $("<h4>");
+      a.text(categories[i].name);
+      $(mainDiv).append(a);
+      $("#tryDiv").append(mainDiv);
+    }
+  });
+}
 
 // $("#try").on("click", function() {
 //   var queryURL =
@@ -203,32 +207,17 @@ $(".answers").on("click", function(event) {
 //       console.log(data.pagination);
 //     });
 // }
-function getData(searchEntry, callback, pageNumber) {
-  $.ajax({
-    url: "https://developers.zomato.com/api/v2.1/categories",
-    type: "GET",
-    dataType: "json",
-    headers: { "user-key": "a9ad92c350c1f901a00604156e7979f5" }
-  })
-    .done(function(data) {
-      console.log(data);
-    })
-    .fail(function(data) {
-      console.log(data.pagination);
-    });
-}
-
-function getData(searchEntry, callback, pageNumber) {
-  $.ajax({
-    url: "https://developers.zomato.com/api/v2.1/categories",
-    type: "GET",
-    dataType: "json",
-    headers: { "user-key": "a9ad92c350c1f901a00604156e7979f5" }
-  })
-    .done(function(data) {
-      console.log(data);
-    })
-    .fail(function(data) {
-      console.log(data.pagination);
-    });
-}
+// function getData(searchEntry, callback, pageNumber) {
+//   $.ajax({
+//     url: "https://developers.zomato.com/api/v2.1/categories",
+//     type: "GET",
+//     dataType: "json",
+//     headers: { "user-key": "a9ad92c350c1f901a00604156e7979f5" }
+//   })
+//     .done(function(data) {
+//       console.log(data);
+//     })
+//     .fail(function(data) {
+//       console.log(data.pagination);
+//     });
+// }
