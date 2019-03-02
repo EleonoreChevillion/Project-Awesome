@@ -67,7 +67,7 @@ $(".answers").on("click", function(event) {
     }
   }
 });
-
+//Evenbrite API
 var queryURL =
   "https://www.eventbriteapi.com/v3/categories/?token=XES5FUKPHLCMR7UUVVUA";
 
@@ -81,3 +81,21 @@ $.ajax({
     console.log(queryURL);
     console.log(response);
   });
+
+  //Zomato API
+
+  function getData(searchEntry, callback, pageNumber) {
+    $.ajax({
+      url: 'https://developers.zomato.com/api/v2.1/categories',
+      type: "GET",
+      dataType: "json",
+          headers: {'user-key':'a9ad92c350c1f901a00604156e7979f5'}
+      })
+      .done(function(data) {
+        console.log(data);
+      })
+      .fail(function(data) {
+        console.log(data.pagination)
+    });
+  };
+  
