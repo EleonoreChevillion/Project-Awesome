@@ -95,21 +95,52 @@ $(".answers").on("click", function(event) {
 
 // curl -X GET --header "Accept: application/json" --header "user-key: 504af04e6861c274d55e91c18d40ac0d" "https://developers.zomato.com/api/v2.1/cuisines?city_id=280"
 
-fetch("https://developers.zomato.com/api/v2.1/cuisines?city_id=280", {
-  headers: {
-    "user-key": "504af04e6861c274d55e91c18d40ac0d"
-  }
-})
-  .then(function(response) {
-    console.log(response);
-    return response.json();
-  })
-  .then(function(data) {
-    console.log(data);
-    var cuisines = data.cuisines;
-    cuisines.forEach(function(blqhqblq) {
-      console.log(cuisine.cuisine.cuisine_name);
-    });
-  });
+// fetch("https://developers.zomato.com/api/v2.1/cuisines?city_id=280", {
+//   headers: {
+//     "user-key": "504af04e6861c274d55e91c18d40ac0d"
+//   }
+// })
+//   .then(function(response) {
+//     console.log(response);
+//     return response.json();
+//   })
+//   .then(function(data) {
+//     console.log(data);
+//     var cuisines = data.cuisines;
+//     cuisines.forEach(function(blqhqblq) {
+//       console.log(cuisine.cuisine.cuisine_name);
+//     });
+//   });
 
 // axios
+//Evenbrite API
+var queryURL =
+  "https://www.eventbriteapi.com/v3/categories/?token=XES5FUKPHLCMR7UUVVUA";
+
+$.ajax({
+  url: queryURL,
+  method: "GET"
+})
+
+  //After data comes back about the request
+  .then(function(response) {
+    console.log(queryURL);
+    console.log(response);
+  });
+
+//Zomato API
+
+function getData(searchEntry, callback, pageNumber) {
+  $.ajax({
+    url: "https://developers.zomato.com/api/v2.1/categories",
+    type: "GET",
+    dataType: "json",
+    headers: { "user-key": "a9ad92c350c1f901a00604156e7979f5" }
+  })
+    .done(function(data) {
+      console.log(data);
+    })
+    .fail(function(data) {
+      console.log(data.pagination);
+    });
+}
