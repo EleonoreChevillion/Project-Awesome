@@ -89,7 +89,7 @@ $.ajax({
       url: 'https://developers.zomato.com/api/v2.1/categories',
       type: "GET",
       dataType: "json",
-          headers: {'user-key':'a9ad92c350c1f901a00604156e7979f5'}
+      headers: {'user-key':'a9ad92c350c1f901a00604156e7979f5'}
       })
       .done(function(data) {
         console.log(data);
