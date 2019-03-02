@@ -67,3 +67,17 @@ $(".answers").on("click", function(event) {
     }
   }
 });
+
+var queryURL =
+  "https://www.eventbriteapi.com/v3/categories/?token=XES5FUKPHLCMR7UUVVUA";
+
+$.ajax({
+  url: queryURL,
+  method: "GET"
+})
+
+  //After data comes back about the request
+  .then(function(response) {
+    console.log(queryURL);
+    console.log(response);
+  });
