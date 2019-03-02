@@ -2,29 +2,73 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="assets/css/reset.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <title>Welcome!</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" href="assets/css/reset.css" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
+  <link href="https://fonts.googleapis.com/css?family=Fugaz+One" rel="stylesheet" />
+  <title>SplashPage</title>
 </head>
 
 <body>
+  <!--Navbar Start-->
+  <nav class="navbar sticky-top navbar-light bg-dark">
+    <a class="navbar-brand" href="#">
+      <span id="brand-name">W</span>
+    </a>
+    <!--The gouping for the buttons-->
+    <div class="btn-group" role="group" aria-label="Basic example">
+      <a href="#"><button type="button" class="btn btn-outline-light mr-3">
+          About Us
+        </button>
+      </a>
+      <a href="#"><button type="button" class="btn btn-outline-light mr-3">
+          Register
+        </button>
+      </a>
+      <a href="#"><button type="button" class="btn btn-outline-light mr-3">
+          Log In
+        </button>
+      </a>
+    </div>
+  </nav>
+  <!--Navbar End-->
+  <div id="bkgvid">
+    <video loop muted autoplay poster="img/videoframe.jpg" class="fullscreen-bg__video">
+      <source src="assets/Pexels Videos 2880.mp4" type="video/ogg" />
+    </video>
+  </div>
+  <!--Page Container-->
+  <div class="container">
+    <!--Row containing Page title & Subtitle-->
+    <div class="row align-self-center mr-3">
+      <div class="col-lg-12 col-md-12 col-sm-12 text-center">
+        <h1 class="page-title">
+          <span class="glow">WerToGo</span>
+        </h1>
+        <span class="page-subtitle">Making the decisions you can't!</span>
+      </div>
+    </div>
+    </br>
 
+    <div class="col-lg-12 col-md-12 col-sm-12 text-center">
+      <img src="assets/app_store_download_180x60.png" />
+      <img src="assets/google_play_download_180x60.png" />
+    </div>
 
-    <script src="assets/javascript/app.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
+    <footer class="page-footer font-small fixed-bottom bg-dark">
+      <div class="footer-copyright text-white text-center py-3">
+        <i class="fab fa-instagram mr-5"></i>
+        <i class="fab fa-twitter mr-5"></i>
+        <i class="fab fa-facebook-f mr-5"></i>
+      </div>
+    </footer>
+  </div>
 </body>
 
 </html>
