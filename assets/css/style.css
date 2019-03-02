@@ -24,14 +24,13 @@
   left: 0;
   border-radius: 3px;
 }
-/* Background Video */
-#bkgvid {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  min-width: 100%;
-  min-height: 100%;
-  filter: grayscale(100%);
+html {
+  background: url("https://media.giphy.com/media/2A52lF7c8hwbeYdEdK/giphy.gif")
+    no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 .page-subtitle {
   font-family: "Fugaz One", cursive;
