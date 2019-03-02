@@ -88,22 +88,63 @@ function callApi() {
 }
 function eventbriteApi() {
   var queryURL =
-    "https://www.eventbriteapi.com/v3/categories/?token=XES5FUKPHLCMR7UUVVUA";
-  $.ajax({
-    url: queryURL,
-    method: "GET"
-  }).then(function(response) {
-    console.log("LAAAAA" + response);
-    var categories = response.categories;
-    var mainDiv = $("<div>");
-    for (var i = 0; i < 7; i++) {
-      console.log(categories[i].name);
-      var a = $("<h4>");
-      a.text(categories[i].name);
-      $(mainDiv).append(a);
-      $("#tryDiv").append(mainDiv);
+    "https://www.eventbriteapi.com/v3/events/search/?categories=103";
+  const instance = axios.create({
+    headers: {
+      get: {
+        Authorization: "Bearer XES5FUKPHLCMR7UUVVUA"
+      }
     }
   });
+
+  instance
+    .get("https://www.eventbriteapi.com/v3/events/search/?categories=103")
+    .then(function(result) {
+      console.log(result.data);
+      var results = result.data;
+      console.log(results.events[0].url);
+
+      for (var i = 0; i < 5; i++) {
+        var mainDiv = $("<div>");
+        mainDiv.addClass("col-md-4");
+        console.log(results.events[i].url);
+        var a = $("<h4>");
+        a.text(results.events[i].name.text);
+        $(mainDiv).append(a);
+
+        var articleImg = $("<img>");
+        articleImg.attr("src", results.events[i].logo.original.url);
+        articleImg.attr("class", "card-img-top");
+        $(mainDiv).append(articleImg);
+        $("#tryDiv").append(mainDiv);
+
+        var c = $("<button>");
+        c.addClass("btn btn-outline-info");
+        c.addClass("moreInfo");
+        c.text("Get me tickets!");
+        $(mainDiv).append(c);
+        $(".moreInfo").on("click", function() {
+          window.location = results.events[i].url;
+        });
+      }
+    });
+}
+
+function zomatoApi() {
+  function getData(searchEntry, callback, pageNumber) {
+    $.ajax({
+      url: "https://developers.zomato.com/api/v2.1/categories",
+      type: "GET",
+      dataType: "json",
+      headers: { "user-key": "a9ad92c350c1f901a00604156e7979f5" }
+    })
+      .done(function(data) {
+        console.log(data);
+      })
+      .fail(function(data) {
+        console.log(data.pagination);
+      });
+  }
 }
 
 // $("#try").on("click", function() {
@@ -221,17 +262,3 @@ function eventbriteApi() {
 //       console.log(data.pagination);
 //     });
 // }
-function getData(searchEntry, callback, pageNumber) {
-  $.ajax({
-    url: "https://developers.zomato.com/api/v2.1/categories",
-    type: "GET",
-    dataType: "json",
-    headers: { "user-key": "a9ad92c350c1f901a00604156e7979f5" }
-  })
-    .done(function(data) {
-      console.log(data);
-    })
-    .fail(function(data) {
-      console.log(data.pagination);
-    });
-}
