@@ -14,17 +14,33 @@
     <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase-messaging.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase-functions.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
+  
     <title>Welcome!</title>
 </head>
 
 <body>
-
+ <!--Navbar Start-->
+ <nav class="navbar sticky-top navbar-light bg-dark">
+    <a class="navbar-brand" href="index.html">
+      <span id="brand-name">WerToGo</span>
+    </a>
+    <!--The gouping for the buttons-->
+    <div class="btn-group" role="group" aria-label="Basic example">
+      <a href="#"><button type="button" class="btn btn-outline-light mr-3">
+          About Us
+        </button>
+      </a>
+    </div>
+  </nav>
+  <!--Navbar End-->
     <div class="content-wrapper">
         <div class="background background-left"></div>
         <div class="background background-right"></div>
         <div class="sing-up-panel active">
             <form>
-                <h1>Register</h1>
+                <h1 class="glow">Log In</h1>
 
                 <div class="input">
                     <input type="text" required id="name">
@@ -42,14 +58,14 @@
                     <label>Password</label>
                 </div>
                 <div class="button-wrapper">
-                    <button class="button-transparent sing-in" type="submit">Login</button>
-                    <button class="sing-up" type="submit">Register</button>
+                    <button class="btn btn-dark mr-3 button-transparent sing-in" type="submit">Log In</button>
+                    <button class="btn btn-dark mr-3 sing-up" type="submit">Sign Up</button>
                 </div>
             </form>
         </div>
         <div class="sing-in-panel">
             <form>
-                <h1>Sign in</h1>
+                <h1 class="glow">Log In</h1>
                 <div class="input">
                     <input type="text" required id="name">
                     <div class="bar"></div>
@@ -62,8 +78,8 @@
                 </div>
                 <div class="button-wrapper">
                     
-                    <button class="sing-in" type="submit">Login</button>
-                    <button class="button-transparent sing-up" type="submit" >Register</button>
+                    <button class="btn btn-dark mr-3 sing-in" type="submit">Log In</button>
+                    <button class="btn btn-dark mr-3 button-transparent sing-up" type="submit" >Sign Up</button>
                 </div>
             </form>
         </div>
@@ -71,6 +87,14 @@
     </div>
     
 <button class="btn btn-primary" value = "Redirect Me" onclick = "Redirect();"></button>
+<!--Footer with our information-->
+<footer class="page-footer font-small fixed-bottom bg-dark">
+    <div class="footer-copyright text-white text-center py-3">
+      <i class="fab fa-instagram mr-5"></i>
+      <i class="fab fa-twitter mr-5"></i>
+      <i class="fab fa-facebook-f mr-5"></i>
+    </div>
+  </footer>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

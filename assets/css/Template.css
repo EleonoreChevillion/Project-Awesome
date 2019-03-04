@@ -1,0 +1,41 @@
+@font-face {
+  font-family: neon;
+  src: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/707108/neon.ttf);
+}
+/* Background Information */
+
+/* Nav Bar Logo */
+#brand-name,
+.glow {
+  color: white;
+  font-family: neon;
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #ff0080, 0 0 30px #ff0080,
+    0 0 40px #ff0080, 0 0 55px #ff0080, 0 0 75px #ff0080;
+}
+.glow {
+  font-size: 15vw;
+}
+.container {
+  position: absolute;
+  top: 150px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+html {
+  background: url("https://media.giphy.com/media/2A52lF7c8hwbeYdEdK/giphy.gif")
+    no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.page-subtitle {
+  font-family: "Fugaz One", cursive;
+  color: white;
+  font-size: 2vw;
+  text-shadow: 0 0 5px black;
+}
+img {
+  
+}
