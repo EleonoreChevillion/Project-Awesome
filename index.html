@@ -5,10 +5,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <link rel="stylesheet" href="assets/css/reset.css" />
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
-  <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/reset.css" />
+    <link rel="stylesheet" href="assets/css/splash.css" />
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
     integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
   <link href="https://fonts.googleapis.com/css?family=Fugaz+One" rel="stylesheet" />
@@ -18,21 +18,17 @@
 <body>
   <!--Navbar Start-->
   <nav class="navbar sticky-top navbar-light bg-dark">
-    <a class="navbar-brand" href="#">
-      <span id="brand-name">W</span>
+    <a class="navbar-brand" href="index.html">
+      <span id="brand-name"></span>
     </a>
     <!--The gouping for the buttons-->
     <div class="btn-group" role="group" aria-label="Basic example">
-      <a href="#"><button type="button" class="btn btn-outline-light mr-3">
+      <a href="about.html"><button type="button" class="btn btn-outline-light mr-3">
           About Us
         </button>
       </a>
       <a href="login.html"><button type="button" class="btn btn-outline-light mr-3">
-          Register
-        </button>
-      </a>
-      <a href="login.html"><button type="button" class="btn btn-outline-light mr-3">
-          Log In
+          Sign Up
         </button>
       </a>
     </div>
@@ -41,21 +37,20 @@
   <!--Page Container-->
   <div class="container">
     <!--Row containing Page title & Subtitle-->
-    <div class="row align-self-center mr-3">
-      <div class="col-lg-12 col-md-12 col-sm-12 text-center">
+    <div class="row justify-content-center">
+      <div class="text-center">
         <h1 class="page-title">
           <span class="glow">WerToGo</span>
         </h1>
         <span class="page-subtitle">Making the decisions you can't!</span>
       </div>
     </div>
-    </br>
-
-    <div class="col-lg-12 col-md-12 col-sm-12 text-center">
-      <img src="assets/app_store_download_180x60.png" />
-      <img src="assets/google_play_download_180x60.png" />
+  </br>
+    <!--Section containing the app store buttons (Currently not functining)-->
+    <div class="text-center justify-content-center">
+      <img src="assets/images/app_store_download_180x60.png" class="img-fluid"/>
     </div>
-
+    <!--Footer with our information-->
     <footer class="page-footer font-small fixed-bottom bg-dark">
       <div class="footer-copyright text-white text-center py-3">
         <i class="fab fa-instagram mr-5"></i>
