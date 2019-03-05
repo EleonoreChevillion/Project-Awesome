@@ -38,6 +38,8 @@
     <div class="content-wrapper">
         <div class="background background-left"></div>
         <div class="background background-right"></div>
+
+        <!--sign up area-->
         <div class="sing-up-panel active">
             <form>
                 <h1 class="glow">Sign Up</h1>
@@ -59,11 +61,15 @@
                 </div>
                 <div class="button-wrapper">
                     <button class="btn btn-dark mr-3 button-transparent sing-in" type="submit">Log In</button>
-                    <button class="btn btn-dark mr-3 sing-up" type="submit">Sign Up</button>
+                    <button class="btn btn-dark mr-3 sing-up" type="submit" onclick="create_account()">Sign Up</button>
+                    <!-- <button onclick="send_verification()"></button> -->
                 </div>
             </form>
         </div>
-        <div class="sing-in-panel">
+
+<!--sign in area-->
+
+        <div id="login-div" class="sing-in-panel">
             <form>
                 <h1 class="glow">Log In</h1>
                 <div class="input">
@@ -78,7 +84,7 @@
                 </div>
                 <div class="button-wrapper">
                     
-                    <button class="btn btn-dark mr-3 sing-in" type="submit">Log In</button>
+                    <button class="btn btn-dark mr-3 sing-in" type="submit"onclick = "login()">Log In</button>
                     <button class="btn btn-dark mr-3 button-transparent sing-up" type="submit" >Sign Up</button>
                 </div>
             </form>
@@ -86,7 +92,16 @@
         <div class="floating-content"></div>
     </div>
     
-<button class="btn btn-primary" value = "Redirect Me" onclick = "Redirect();"></button>
+
+<div id="user-div" class="loggedIn">
+<h3>Welcome User</h3>
+<p id="user-paragraph">Wlecome, you are logged in</p>
+<button onclick="logout()">Logout</button>
+<button onclick="send_verification()"class ="btn btn-dark mr-3" ></button>
+</div>
+
+
+
 <!--Footer with our information-->
 <footer class="page-footer font-small fixed-bottom bg-dark">
     <div class="footer-copyright text-white text-center py-3">
