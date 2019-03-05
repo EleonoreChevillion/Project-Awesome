@@ -50,3 +50,7 @@ var config = {
       // ...
     }
   });
+
+  function Redirect() {
+    window.location.href = "questionnaire.html";
+ }

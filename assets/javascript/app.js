@@ -1,23 +1,128 @@
 var question1 = {
-  question: "What do you want to do",
-  answers: ["Relax", "Eat", "Get drunk", "Something weird"]
+  question: "What do you want to do?",
+  answers: ["Relax", "Turn up", "Culture", "Something else"]
 };
 var question2 = {
-  possibleQuestions: [
-    "How do you want to relax",
-    "What kind of food",
-    "What sort of bar",
-    "Physical or not"
+  question: [
+    "How do you want to relax?",
+    "Ready to have fun?",
+    "What kind of cultural event?",
+    "Do you mean..?"
   ],
-  possibleAnswers: {
-    answers1: ["Massage", "Walk", "Museum", "Coffee"],
-    answers2: ["Spicy", "European", "American", "Asian"],
-    answers3: ["Dive bar", "Cocktail bar", "Wine bar", "Sports bar"],
-    answers4: ["Blow off some steam", "Mind tricks", "Comedy", "Surprise me"]
+  answers: {
+    activity1: [
+      "Something in the nature",
+      "Take me to the spa",
+      "Maybe a drink but somewhere quiet",
+      "Go to the movies"
+    ],
+    activity2: [
+      "Wanna drink",
+      "Wanna eat",
+      "Some music would be nice",
+      "I need a good laugh"
+    ],
+    activity3: [
+      "Go to the theater",
+      "Go to the museum",
+      "Visit landmarks",
+      "Go to a concert"
+    ],
+    activity4: [
+      "Something with sports",
+      "Do some thinking",
+      "Have fun",
+      "Looking for the thrill"
+    ]
   }
 };
-var selectedAnswer = null;
+var question3 = {
+  activity1: {
+    question: [
+      "If you want to walk...",
+      "What kind of spa treatment?",
+      "What kind of bar?",
+      "What kind of cinema?"
+    ],
+    answers: {
+      prop_1: [
+        "Central Park",
+        "Go to the highline",
+        "Go to the beach",
+        "Brooklyn bridge"
+      ],
+      prop_2: ["Massage", "Mani/pedi", "Facial", "Day pass"],
+      prop_3: ["Wine bar", "Cocktail bar", "Speak-easy", "Any kind"],
+      prop_4: [
+        "regular, nothing fancy",
+        "reclining seats",
+        "super fancy",
+        "outdoor"
+      ]
+    }
+  },
+
+  activity2: {
+    question: [
+      "What kind of bar?",
+      "What kind of food?",
+      "When you say music, you mean...",
+      "NY comedy everyone"
+    ],
+    answers: {
+      prop_1: [
+        "Cocktail bar",
+        "Dive bar",
+        "Sports bar",
+        "Rooftop bar",
+        "Speak-easy",
+        "Pub",
+        "Wine bar"
+      ],
+      prop_2: ["Spicy", "European", "American", "Asian"],
+      prop_3: ["Big concert", "Small concert", "Clubbing", "Jazzy bar"],
+      prop_4: ["Comedy show", "Expensive tickets", "Open mics", "TV show"]
+    }
+  },
+
+  activity3: {
+    question: [
+      "What kind of theater?",
+      "Museums vibe",
+      "What kind of landmark?",
+      "What kind of concert"
+    ],
+    answers: {
+      prop_1: ["Ballet", "Opera", "Broadway", "Drama"],
+      prop_2: ["Art", "History", "All for the gram", "A classic"],
+      prop_3: ["Buildings", "Statue of liberty", "guided tour", "Bridges"],
+      prop_4: ["Classic music", "Small concert", "Big concert", "Jazzy bar"]
+    }
+  },
+
+  activity4: {
+    question: [
+      "What do you want to see?",
+      "MASTERMINDS",
+      "Not too much action",
+      "Make me sweat"
+    ],
+    answers: {
+      prop_1: ["Basketball", "Baseball", "American football", "Boxing"],
+      prop_2: ["Escape game", "Scavenger hunt"],
+      prop_3: ["Karaoke", "Lasergame", "Bowling", "Arcade"],
+      prop_4: [
+        "Axe throwing",
+        "Indoor Skydiving",
+        "Room where you break stuff",
+        "Helicopter tour"
+      ]
+    }
+  }
+};
+
 startQuestionnaire();
+
 function startQuestionnaire() {
   $("#question").text(question1.question);
   var firstQuestion = question1.answers;
@@ -34,204 +139,345 @@ $(".answers").on("click", function(event) {
   $("#answersDiv").empty();
   selectedAnswer = parseInt(event.currentTarget.dataset.index);
   if (selectedAnswer === 0) {
-    $("#question").text(question2.possibleQuestions[0]);
-    var relax = question2.possibleAnswers.answers1;
-    for (var j = 0; j < relax.length; j++) {
-      var relaxAnswers = $("<p/>");
-      relaxAnswers.attr("data-value", relax[j]);
-      relaxAnswers.addClass("secondAnswers");
-      relaxAnswers.text(relax[j]);
-      $("#answersDiv").append(relaxAnswers);
+    $("#question").text(question2.question[0]);
+    var activity1 = question2.answers.activity1;
+    for (var j = 0; j < activity1.length; j++) {
+      var activity1_answers = $("<p/>");
+      activity1_answers.attr("data-index", [j]);
+      activity1_answers.addClass("firstActAnswers");
+      activity1_answers.text(activity1[j]);
+      $("#answersDiv").append(activity1_answers);
     }
   } else if (selectedAnswer === 1) {
-    $("#question").text(question2.possibleQuestions[1]);
-    var eat = question2.possibleAnswers.answers2;
-    for (var h = 0; h < eat.length; h++) {
-      var eatAnswers = $("<p/>");
-      eatAnswers.text(eat[h]);
-      $("#answersDiv").append(eatAnswers);
+    $("#question").text(question2.question[1]);
+    var activity2 = question2.answers.activity2;
+    for (var h = 0; h < activity2.length; h++) {
+      var activity2_answers = $("<p/>");
+      activity2_answers.attr("data-index", [h]);
+      activity2_answers.addClass("secondActAnswers");
+      activity2_answers.text(activity2[h]);
+      $("#answersDiv").append(activity2_answers);
     }
   } else if (selectedAnswer === 2) {
-    $("#question").text(question2.possibleQuestions[2]);
-    var drunk = question2.possibleAnswers.answers3;
-    for (var k = 0; k < drunk.length; k++) {
-      var drunkAnswers = $("<p/>");
-      drunkAnswers.text(drunk[k]);
-      $("#answersDiv").append(drunkAnswers);
+    $("#question").text(question2.question[2]);
+    var activity3 = question2.answers.activity3;
+    for (var k = 0; k < activity3.length; k++) {
+      var activity3_answers = $("<p/>");
+      activity3_answers.attr("data-index", [k]);
+      activity3_answers.addClass("thirdActAnswers");
+      activity3_answers.text(activity3[k]);
+      $("#answersDiv").append(activity3_answers);
     }
   } else {
-    $("#question").text(question2.possibleQuestions[3]);
-    var weird = question2.possibleAnswers.answers4;
-    for (var l = 0; l < weird.length; l++) {
-      var weirdAnswers = $("<p/>");
-      weirdAnswers.text(weird[l]);
-      $("#answersDiv").append(weirdAnswers);
+    $("#question").text(question2.question[3]);
+    var activity4 = question2.answers.activity4;
+    for (var l = 0; l < activity4.length; l++) {
+      var activity4_answers = $("<p/>");
+      activity4_answers.attr("data-index", [l]);
+      activity4_answers.addClass("fourthActAnswers");
+      activity4_answers.text(activity4[l]);
+      $("#answersDiv").append(activity4_answers);
     }
   }
-  callApi();
+  thirdQuestions();
 });
-function callApi() {
-  $(".secondAnswers").on("click", function(event) {
-    console.log("You clicked");
-    secondAnswer = event.currentTarget.dataset.value;
-    console.log(secondAnswer);
-    if (secondAnswer === "Massage") {
-      eventbriteApi();
-    } else if (secondAnswer === "Walk") {
-      eventbriteApi();
-    } else if (secondAnswer === "Museum") {
-      eventbriteApi();
+
+function thirdQuestions() {
+  $(".firstActAnswers").on("click", function(event) {
+    $("#answersDiv").empty();
+    selectedAnswer = parseInt(event.currentTarget.dataset.index);
+    if (selectedAnswer === 0) {
+      $("#question").text(question3.activity1.question[0]);
+      var prop1 = question3.activity1.answers.prop_1;
+      for (var i = 0; i < prop1.length; i++) {
+        var prop1_answers = $("<p/>");
+        prop1_answers.attr("data-value", prop1[i]);
+        prop1_answers.addClass("finalProp");
+        prop1_answers.text(prop1[i]);
+        $("#answersDiv").append(prop1_answers);
+      }
+    } else if (selectedAnswer === 1) {
+      $("#question").text(question3.activity1.question[1]);
+      var prop2 = question3.activity1.answers.prop_2;
+      for (var h = 0; h < prop2.length; h++) {
+        var prop2_answers = $("<p/>");
+        prop2_answers.attr("data-value", prop2[h]);
+        prop2_answers.addClass("finalProp");
+        prop2_answers.text(prop2[h]);
+        $("#answersDiv").append(prop2_answers);
+      }
+    } else if (selectedAnswer === 2) {
+      $("#question").text(question3.activity1.question[2]);
+      var prop3 = question3.activity1.answers.prop_3;
+      for (var k = 0; k < prop3.length; k++) {
+        var prop3_answers = $("<p/>");
+        prop3_answers.attr("data-value", prop3[k]);
+        prop3_answers.addClass("finalProp");
+        prop3_answers.text(prop3[k]);
+        $("#answersDiv").append(prop3_answers);
+      }
     } else {
-      eventbriteApi();
+      $("#question").text(question3.activity1.question[3]);
+      var prop4 = question3.activity1.answers.prop_4;
+      for (var l = 0; l < prop4.length; l++) {
+        var prop4_answers = $("<p/>");
+        prop4_answers.attr("data-value", prop4[l]);
+        prop4_answers.addClass("finalProp");
+        prop4_answers.text(prop4[l]);
+        $("#answersDiv").append(prop4_answers);
+      }
+    }
+  });
+  $(".secondActAnswers").on("click", function(event) {
+    $("#answersDiv").empty();
+    selectedAnswer = parseInt(event.currentTarget.dataset.index);
+    if (selectedAnswer === 0) {
+      $("#question").text(question3.activity2.question[0]);
+      var prop1 = question3.activity2.answers.prop_1;
+      for (var i = 0; i < prop1.length; i++) {
+        var prop1_answers = $("<p/>");
+        prop1_answers.attr("data-value", prop1[i]);
+        prop1_answers.addClass("finalProp");
+        prop1_answers.text(prop1[i]);
+        $("#answersDiv").append(prop1_answers);
+      }
+    } else if (selectedAnswer === 1) {
+      $("#question").text(question3.activity2.question[1]);
+      var prop2 = question3.activity2.answers.prop_2;
+      for (var h = 0; h < prop2.length; h++) {
+        var prop2_answers = $("<p/>");
+        prop2_answers.attr("data-value", prop2[h]);
+        prop2_answers.addClass("finalProp");
+        prop2_answers.text(prop2[h]);
+        $("#answersDiv").append(prop2_answers);
+      }
+    } else if (selectedAnswer === 2) {
+      $("#question").text(question3.activity2.question[2]);
+      var prop3 = question3.activity2.answers.prop_3;
+      for (var k = 0; k < prop3.length; k++) {
+        var prop3_answers = $("<p/>");
+        prop3_answers.attr("data-value", prop3[k]);
+        prop3_answers.addClass("finalProp");
+        prop3_answers.text(prop3[k]);
+        $("#answersDiv").append(prop3_answers);
+      }
+    } else {
+      $("#question").text(question3.activity2.question[3]);
+      var prop4 = question3.activity2.answers.prop_4;
+      for (var l = 0; l < prop4.length; l++) {
+        var prop4_answers = $("<p/>");
+        prop4_answers.attr("data-value", prop4[l]);
+        prop4_answers.addClass("finalProp");
+        prop4_answers.text(prop4[l]);
+        $("#answersDiv").append(prop4_answers);
+      }
+    }
+  });
+  $(".thirdActAnswers").on("click", function(event) {
+    $("#answersDiv").empty();
+    selectedAnswer = parseInt(event.currentTarget.dataset.index);
+    if (selectedAnswer === 0) {
+      $("#question").text(question3.activity3.question[0]);
+      var prop1 = question3.activity3.answers.prop_1;
+      for (var i = 0; i < prop1.length; i++) {
+        var prop1_answers = $("<p/>");
+        prop1_answers.attr("data-value", prop1[i]);
+        prop1_answers.addClass("finalProp");
+        prop1_answers.text(prop1[i]);
+        $("#answersDiv").append(prop1_answers);
+      }
+    } else if (selectedAnswer === 1) {
+      $("#question").text(question3.activity3.question[1]);
+      var prop2 = question3.activity3.answers.prop_2;
+      for (var h = 0; h < prop2.length; h++) {
+        var prop2_answers = $("<p/>");
+        prop2_answers.attr("data-value", prop2[h]);
+        prop2_answers.addClass("finalProp");
+        prop2_answers.text(prop2[h]);
+        $("#answersDiv").append(prop2_answers);
+      }
+    } else if (selectedAnswer === 2) {
+      $("#question").text(question3.activity3.question[2]);
+      var prop3 = question3.activity3.answers.prop_3;
+      for (var k = 0; k < prop3.length; k++) {
+        var prop3_answers = $("<p/>");
+        prop3_answers.attr("data-value", prop3[k]);
+        prop3_answers.addClass("finalProp");
+        prop3_answers.text(prop3[k]);
+        $("#answersDiv").append(prop3_answers);
+      }
+    } else {
+      $("#question").text(question3.activity3.question[3]);
+      var prop4 = question3.activity3.answers.prop_4;
+      for (var l = 0; l < prop4.length; l++) {
+        var prop4_answers = $("<p/>");
+        prop4_answers.attr("data-value", prop4[l]);
+        prop4_answers.addClass("finalProp");
+        prop4_answers.text(prop4[l]);
+        $("#answersDiv").append(prop4_answers);
+      }
+    }
+  });
+  $(".fourthActAnswers").on("click", function(event) {
+    $("#answersDiv").empty();
+    selectedAnswer = parseInt(event.currentTarget.dataset.index);
+    if (selectedAnswer === 0) {
+      $("#question").text(question3.activity4.question[0]);
+      var prop1 = question3.activity4.answers.prop_1;
+      for (var i = 0; i < prop1.length; i++) {
+        var prop1_answers = $("<p/>");
+        prop1_answers.attr("data-value", prop1[i]);
+        prop1_answers.addClass("finalProp");
+        prop1_answers.text(prop1[i]);
+        $("#answersDiv").append(prop1_answers);
+      }
+    } else if (selectedAnswer === 1) {
+      $("#question").text(question3.activity4.question[1]);
+      var prop2 = question3.activity4.answers.prop_2;
+      for (var h = 0; h < prop2.length; h++) {
+        var prop2_answers = $("<p/>");
+        prop2_answers.attr("data-value", prop2[h]);
+        prop2_answers.addClass("finalProp");
+        prop2_answers.text(prop2[h]);
+        $("#answersDiv").append(prop2_answers);
+      }
+    } else if (selectedAnswer === 2) {
+      $("#question").text(question3.activity4.question[2]);
+      var prop3 = question3.activity4.answers.prop_3;
+      for (var k = 0; k < prop3.length; k++) {
+        var prop3_answers = $("<p/>");
+        prop3_answers.attr("data-value", prop3[k]);
+        prop3_answers.addClass("finalProp");
+        prop3_answers.text(prop3[k]);
+        $("#answersDiv").append(prop3_answers);
+      }
+    } else {
+      $("#question").text(question3.activity4.question[3]);
+      var prop4 = question3.activity4.answers.prop_4;
+      for (var l = 0; l < prop4.length; l++) {
+        var prop4_answers = $("<p/>");
+        prop4_answers.attr("data-value", prop4[l]);
+        prop4_answers.addClass("finalProp");
+        prop4_answers.text(prop4[l]);
+        $("#answersDiv").append(prop4_answers);
+      }
     }
   });
 }
+
 function eventbriteApi() {
+  $("#answersDiv").empty();
+  $("#question").empty();
+
   var queryURL =
-    "https://www.eventbriteapi.com/v3/categories/?token=XES5FUKPHLCMR7UUVVUA";
-  $.ajax({
-    url: queryURL,
-    method: "GET"
-  }).then(function(response) {
-    console.log("LAAAAA" + response);
-    var categories = response.categories;
-    var mainDiv = $("<div>");
-    for (var i = 0; i < 7; i++) {
-      console.log(categories[i].name);
-      var a = $("<h4>");
-      a.text(categories[i].name);
-      $(mainDiv).append(a);
-      $("#tryDiv").append(mainDiv);
+    "https://www.eventbriteapi.com/v3/events/search/?categories=103";
+  const instance = axios.create({
+    headers: {
+      get: {
+        Authorization: "Bearer XES5FUKPHLCMR7UUVVUA"
+      }
     }
   });
-}
 
-// $("#try").on("click", function() {
-//   var queryURL =
-//     "https://www.eventbriteapi.com/v3/categories/?token=XES5FUKPHLCMR7UUVVUA";
+  instance
+    .get("https://www.eventbriteapi.com/v3/events/search/?categories=108")
+    .then(function(result) {
+      console.log(result.data);
+      var results = result.data;
+      console.log(results.events[0].url);
 
-//   $.ajax({
-//     url: queryURL,
-//     method: "GET"
-//   })
+      for (var i = 0; i < 5; i++) {
+        var mainDiv = $("<div>");
+        mainDiv.addClass("col-md-4");
+        console.log(results.events[i].url);
+        var a = $("<h4>");
+        a.text(results.events[i].name.text);
+        $(mainDiv).append(a);
 
-//     //After data comes back about the request
-//     .then(function(response) {
-//       var categories = response.categories;
-//       var mainDiv = $("<div>");
-//       for (var i = 0; i < 7; i++) {
-//         console.log(categories[i].name);
-//         var a = $("<h4>");
-//         a.text(categories[i].name);
-//         $(mainDiv).append(a);
-//         $("#tryDiv").append(mainDiv);
-//         //   var mainDiv = $("<div>");
-//         //   var a = $("<h4>");
-//         //   a.text(results[i].headline.print_headline);
-//         //   $(mainDiv).append(a);
-//         //   $("#tryDiv").append(mainDiv);
-//       }
-//     });
-//   //     function searchResult() {
-//   //         event.preventDefault();
-//   //         //$("#article-div").empty;
-//   //         var queryURL =
-//   //           "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=" +
-//   //            +
-//   //           "&api-key=4pGrPZuacORWCsNMIlizLiGqgm3JkWqY";
-//   //         console.log(queryURL);
-//   //         $.ajax({
-//   //           url: queryURL,
-//   //           method: "GET"
-//   //         }).then(function(data) {
-//   //           var results = something;
-//   //           $("#tryDiv").empty();
-//   //           for (var i = 0; i < 7; i++) {
-//   //             var mainDiv = $("<div>");
-//   //             var a = $("<h4>");
-//   //             a.text(results[i].headline.print_headline);
-//   //             $(mainDiv).append(a);
-//   //             $("#tryDiv").append(mainDiv);
-//   //           }
-//   //         });
-// });
+        var articleImg = $("<img>");
+        articleImg.attr("src", results.events[i].logo.original.url);
+        articleImg.attr("class", "card-img-top");
+        $(mainDiv).append(articleImg);
+        $("#tryDiv").append(mainDiv);
 
-// curl -X GET --header "Accept: application/json" --header "user-key: 504af04e6861c274d55e91c18d40ac0d" "https://developers.zomato.com/api/v2.1/cuisines?city_id=280"
-
-// fetch("https://developers.zomato.com/api/v2.1/cuisines?city_id=280", {
-//   headers: {
-//     "user-key": "504af04e6861c274d55e91c18d40ac0d"
-//   }
-// })
-//   .then(function(response) {
-//     console.log(response);
-//     return response.json();
-//   })
-//   .then(function(data) {
-//     console.log(data);
-//     var cuisines = data.cuisines;
-//     cuisines.forEach(function(blqhqblq) {
-//       console.log(cuisine.cuisine.cuisine_name);
-//     });
-//   });
-
-// axios
-//Evenbrite API
-// var queryURL =
-//   "https://www.eventbriteapi.com/v3/categories/?token=XES5FUKPHLCMR7UUVVUA";
-
-// $.ajax({
-//   url: queryURL,
-//   method: "GET"
-// })
-
-//   //After data comes back about the request
-//   .then(function(response) {
-//     console.log(queryURL);
-//     console.log(response);
-//   });
-
-//Zomato API
-
-// function getData(searchEntry, callback, pageNumber) {
-//   $.ajax({
-//     url: "https://developers.zomato.com/api/v2.1/categories",
-//     type: "GET",
-//     dataType: "json",
-//     headers: { "user-key": "a9ad92c350c1f901a00604156e7979f5" }
-//   })
-//     .done(function(data) {
-//       console.log(data);
-//     })
-//     .fail(function(data) {
-//       console.log(data.pagination);
-//     });
-// }
-// function getData(searchEntry, callback, pageNumber) {
-//   $.ajax({
-//     url: "https://developers.zomato.com/api/v2.1/categories",
-//     type: "GET",
-//     dataType: "json",
-//     headers: { "user-key": "a9ad92c350c1f901a00604156e7979f5" }
-//   })
-//     .done(function(data) {
-//       console.log(data);
-//     })
-//     .fail(function(data) {
-//       console.log(data.pagination);
-//     });
-// }
-function getData(searchEntry, callback, pageNumber) {
-  $.ajax({
-    url: "https://developers.zomato.com/api/v2.1/categories",
-    type: "GET",
-    dataType: "json",
-    headers: { "user-key": "a9ad92c350c1f901a00604156e7979f5" }
-  })
-    .done(function(data) {
-      console.log(data);
-    })
-    .fail(function(data) {
-      console.log(data.pagination);
+        var c = $("<button>");
+        c.addClass("btn btn-outline-info");
+        c.addClass("moreInfo");
+        c.text("Get me tickets!");
+        $(mainDiv).append(c);
+        $(".moreInfo").on("click", function() {
+          window.location = results.events[i].url;
+        });
+      }
     });
 }
+
+function zomatoApi() {
+  fetch(
+    "https://developers.zomato.com/api/v2.1/search?entity_id=280&entity_type=city&q=Italian",
+    {
+      headers: {
+        "user-key": "504af04e6861c274d55e91c18d40ac0d"
+      }
+    }
+  )
+    .then(function(response) {
+      console.log(response);
+      return response.json();
+    })
+    .then(function(data) {
+      console.log(data);
+      var restaurants = data.restaurants;
+      for (var i = 0; i < restaurants.length; i++) {
+        console.log(restaurants[0].restaurant.name);
+        console.log(restaurants[0].restaurant.events_url);
+        console.log(restaurants[0].restaurant.average_cost_for_two);
+        console.log(restaurants[0].restaurant.location.locality);
+
+        var mainDiv = $("<div>");
+        mainDiv.addClass("col-md-4");
+        var restName = $("<h4>");
+        restName.text(restaurants[i].restaurant.name);
+        $(mainDiv).append(restName);
+
+        var restLocation = $("<p>");
+        restLocation.text(restaurants[i].restaurant.location.locality);
+        $(mainDiv).append(restLocation);
+
+        var restPrice = $("<p>");
+        restPrice.text(
+          "Average cost for 2: $" +
+            restaurants[i].restaurant.average_cost_for_two
+        );
+        $(mainDiv).append(restPrice);
+
+        var restUrl = $("<button>");
+        restUrl.addClass("btn btn-outline-info");
+        restUrl.addClass("moreInfo");
+        restUrl.text("More Info!");
+        $(mainDiv).append(restUrl);
+        $(".moreInfo").on("click", function() {
+          window.location = restaurants[i].restaurant.events_url;
+        });
+
+        $("#tryDiv").append(mainDiv);
+      }
+    });
+}
+
+// function callApi() {
+//   $(".secondAnswers").on("click", function(event) {
+//     console.log("You clicked");
+//     secondAnswer = event.currentTarget.dataset.value;
+//     console.log(secondAnswer);
+//     if (secondAnswer === "Massage") {
+//       eventbriteApi();
+//     } else if (secondAnswer === "Walk") {
+//       eventbriteApi();
+//     } else if (secondAnswer === "Museum") {
+//       eventbriteApi();
+//     } else {
+//       eventbriteApi();
+//     }
+//   });
+// }
