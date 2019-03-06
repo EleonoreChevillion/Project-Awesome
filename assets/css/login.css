@@ -53,8 +53,8 @@ h1 {
   right: 0;
   height: 100%;
 }
-.content-wrapper .sing-in-panel,
-.content-wrapper .sing-up-panel {
+.content-wrapper .sign-in-panel,
+.content-wrapper .sign-up-panel {
   position: absolute;
   right: 0;
   width: 60%;
@@ -69,30 +69,30 @@ h1 {
   transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 10;
 }
-.content-wrapper .sing-in-panel form,
-.content-wrapper .sing-up-panel form {
+.content-wrapper .sign-in-panel form,
+.content-wrapper .sign-up-panel form {
   text-align: center;
 }
-.content-wrapper .sing-in-panel.active,
-.content-wrapper .sing-up-panel.active {
+.content-wrapper .sign-in-panel.active,
+.content-wrapper .sign-up-panel.active {
   pointer-events: auto;
   opacity: 1;
   visibility: visible;
   transform: translateX(0px);
 }
-.content-wrapper .sing-in-panel .button-wrapper,
-.content-wrapper .sing-up-panel .button-wrapper {
+.content-wrapper .sign-in-panel .button-wrapper,
+.content-wrapper .sign-up-panel .button-wrapper {
   margin-top: 15px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
 }
-.content-wrapper .sing-in-panel {
+.content-wrapper .sign-in-panel {
   right: 0;
   transform: translateX(100px);
 }
-.content-wrapper .sing-up-panel {
+.content-wrapper .sign-up-panel {
   left: 0;
   transform: translateX(-100px);
 }
