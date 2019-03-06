@@ -133,54 +133,56 @@ function startQuestionnaire() {
     answersDisplay.addClass("answers");
     $("#answersDiv").append(answersDisplay);
   }
+  secondQuestion();
 }
-
-$(".answers").on("click", function(event) {
-  $("#answersDiv").empty();
-  selectedAnswer = parseInt(event.currentTarget.dataset.index);
-  if (selectedAnswer === 0) {
-    $("#question").text(question2.question[0]);
-    var activity1 = question2.answers.activity1;
-    for (var j = 0; j < activity1.length; j++) {
-      var activity1_answers = $("<p/>");
-      activity1_answers.attr("data-index", [j]);
-      activity1_answers.addClass("firstActAnswers");
-      activity1_answers.text(activity1[j]);
-      $("#answersDiv").append(activity1_answers);
+function secondQuestion() {
+  $(".answers").on("click", function(event) {
+    $("#answersDiv").empty();
+    selectedAnswer = parseInt(event.currentTarget.dataset.index);
+    if (selectedAnswer === 0) {
+      $("#question").text(question2.question[0]);
+      var activity1 = question2.answers.activity1;
+      for (var j = 0; j < activity1.length; j++) {
+        var activity1_answers = $("<p/>");
+        activity1_answers.attr("data-index", [j]);
+        activity1_answers.addClass("firstActAnswers");
+        activity1_answers.text(activity1[j]);
+        $("#answersDiv").append(activity1_answers);
+      }
+    } else if (selectedAnswer === 1) {
+      $("#question").text(question2.question[1]);
+      var activity2 = question2.answers.activity2;
+      for (var h = 0; h < activity2.length; h++) {
+        var activity2_answers = $("<p/>");
+        activity2_answers.attr("data-index", [h]);
+        activity2_answers.addClass("secondActAnswers");
+        activity2_answers.text(activity2[h]);
+        $("#answersDiv").append(activity2_answers);
+      }
+    } else if (selectedAnswer === 2) {
+      $("#question").text(question2.question[2]);
+      var activity3 = question2.answers.activity3;
+      for (var k = 0; k < activity3.length; k++) {
+        var activity3_answers = $("<p/>");
+        activity3_answers.attr("data-index", [k]);
+        activity3_answers.addClass("thirdActAnswers");
+        activity3_answers.text(activity3[k]);
+        $("#answersDiv").append(activity3_answers);
+      }
+    } else {
+      $("#question").text(question2.question[3]);
+      var activity4 = question2.answers.activity4;
+      for (var l = 0; l < activity4.length; l++) {
+        var activity4_answers = $("<p/>");
+        activity4_answers.attr("data-index", [l]);
+        activity4_answers.addClass("fourthActAnswers");
+        activity4_answers.text(activity4[l]);
+        $("#answersDiv").append(activity4_answers);
+      }
     }
-  } else if (selectedAnswer === 1) {
-    $("#question").text(question2.question[1]);
-    var activity2 = question2.answers.activity2;
-    for (var h = 0; h < activity2.length; h++) {
-      var activity2_answers = $("<p/>");
-      activity2_answers.attr("data-index", [h]);
-      activity2_answers.addClass("secondActAnswers");
-      activity2_answers.text(activity2[h]);
-      $("#answersDiv").append(activity2_answers);
-    }
-  } else if (selectedAnswer === 2) {
-    $("#question").text(question2.question[2]);
-    var activity3 = question2.answers.activity3;
-    for (var k = 0; k < activity3.length; k++) {
-      var activity3_answers = $("<p/>");
-      activity3_answers.attr("data-index", [k]);
-      activity3_answers.addClass("thirdActAnswers");
-      activity3_answers.text(activity3[k]);
-      $("#answersDiv").append(activity3_answers);
-    }
-  } else {
-    $("#question").text(question2.question[3]);
-    var activity4 = question2.answers.activity4;
-    for (var l = 0; l < activity4.length; l++) {
-      var activity4_answers = $("<p/>");
-      activity4_answers.attr("data-index", [l]);
-      activity4_answers.addClass("fourthActAnswers");
-      activity4_answers.text(activity4[l]);
-      $("#answersDiv").append(activity4_answers);
-    }
-  }
-  thirdQuestions();
-});
+    thirdQuestions();
+  });
+}
 
 function thirdQuestions() {
   $(".firstActAnswers").on("click", function(event) {
@@ -227,6 +229,7 @@ function thirdQuestions() {
         $("#answersDiv").append(prop4_answers);
       }
     }
+    callApi();
   });
   $(".secondActAnswers").on("click", function(event) {
     $("#answersDiv").empty();
@@ -272,6 +275,7 @@ function thirdQuestions() {
         $("#answersDiv").append(prop4_answers);
       }
     }
+    callApi();
   });
   $(".thirdActAnswers").on("click", function(event) {
     $("#answersDiv").empty();
@@ -317,6 +321,7 @@ function thirdQuestions() {
         $("#answersDiv").append(prop4_answers);
       }
     }
+    callApi();
   });
   $(".fourthActAnswers").on("click", function(event) {
     $("#answersDiv").empty();
@@ -362,15 +367,32 @@ function thirdQuestions() {
         $("#answersDiv").append(prop4_answers);
       }
     }
+    callApi();
   });
 }
 
+function callApi() {
+  $(".finalProp").on("click", function(event) {
+    console.log("You clicked");
+    secondAnswer = event.currentTarget.dataset.value;
+    console.log(secondAnswer);
+    if (secondAnswer === "Central Park") {
+      eventbriteApi();
+    } else if (secondAnswer === "Walk") {
+      eventbriteApi();
+    } else if (secondAnswer === "Museum") {
+      eventbriteApi();
+    } else {
+      eventbriteApi();
+    }
+  });
+}
 function eventbriteApi() {
   $("#answersDiv").empty();
   $("#question").empty();
 
-  var queryURL =
-    "https://www.eventbriteapi.com/v3/events/search/?categories=103";
+  // var queryURL =
+  //   "https://www.eventbriteapi.com/v3/events/search/?categories=103";
   const instance = axios.create({
     headers: {
       get: {
@@ -380,7 +402,7 @@ function eventbriteApi() {
   });
 
   instance
-    .get("https://www.eventbriteapi.com/v3/events/search/?categories=108")
+    .get("https://www.eventbriteapi.com/v3/events/search/?subcategories=3002")
     .then(function(result) {
       console.log(result.data);
       var results = result.data;
@@ -465,19 +487,7 @@ function zomatoApi() {
     });
 }
 
-// function callApi() {
-//   $(".secondAnswers").on("click", function(event) {
-//     console.log("You clicked");
-//     secondAnswer = event.currentTarget.dataset.value;
-//     console.log(secondAnswer);
-//     if (secondAnswer === "Massage") {
-//       eventbriteApi();
-//     } else if (secondAnswer === "Walk") {
-//       eventbriteApi();
-//     } else if (secondAnswer === "Museum") {
-//       eventbriteApi();
-//     } else {
-//       eventbriteApi();
-//     }
-//   });
-// }
+$("#restart").on("click", function(event) {
+  $("#answersDiv").empty();
+  startQuestionnaire();
+});
