@@ -98,6 +98,35 @@ function logout(){
 
 // Initialize Firebase
 var config = {
+<<<<<<< HEAD
+=======
+  apiKey: "AIzaSyCJPmR2V6_XlC7y5dKsKlDZQU2PRICNBrk",
+  authDomain: "project-awesome-jaeje.firebaseapp.com",
+  databaseURL: "https://project-awesome-jaeje.firebaseio.com",
+  projectId: "project-awesome-jaeje",
+  storageBucket: "project-awesome-jaeje.appspot.com",
+  messagingSenderId: "741517517090"
+};
+firebase.initializeApp(config);
+
+firebase.auth().onAuthStateChanged(function(user) {
+  console.log("USER STATUS CHANGED " + user);
+  if (user) {
+    // User is signed in.
+    //   var displayName = user.displayName;
+    //   var email = user.email;
+    //   var emailVerified = user.emailVerified;
+    //   var photoURL = user.photoURL;
+    //   var isAnonymous = user.isAnonymous;
+    //   var uid = user.uid;
+    //   var providerData = user.providerData;
+    // ...
+  } else {
+    // User is signed out.
+    // ...
+  }
+});
+>>>>>>> a3375f80345c647d5fe54f17de23f13f0f07bf07
     apiKey: "AIzaSyCJPmR2V6_XlC7y5dKsKlDZQU2PRICNBrk",
     authDomain: "project-awesome-jaeje.firebaseapp.com",
     databaseURL: "https://project-awesome-jaeje.firebaseio.com",
@@ -131,6 +160,4 @@ function Redirect() {
 $("#login").on("click", function() {
   window.location = href = "././postlogin.html";
 });
-$("#signup").on("click", function() {
-  window.location = href = "././postlogin.html";
-});
+

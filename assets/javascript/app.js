@@ -1,3 +1,9 @@
+var state = {
+  locations: [],
+  categories: [],
+  subcategories: []
+};
+
 var question1 = {
   question: "What do you want to do?",
   answers: ["Relax", "Turn up", "Culture", "Something else"]
@@ -79,7 +85,7 @@ var question3 = {
         "Pub",
         "Wine bar"
       ],
-      prop_2: ["Spicy", "European", "American", "Asian"],
+      prop_2: ["Mexican", "French", "American", "Asian"],
       prop_3: ["Big concert", "Small concert", "Clubbing", "Jazzy bar"],
       prop_4: ["Comedy show", "Expensive tickets", "Open mics", "TV show"]
     }
@@ -256,7 +262,7 @@ function thirdQuestions() {
       for (var h = 0; h < prop2.length; h++) {
         var prop2_answers = $("<p/>");
         prop2_answers.attr("data-value", prop2[h]);
-        prop2_answers.addClass("finalProp");
+        prop2_answers.addClass("foodProp");
         prop2_answers.text(prop2[h]);
         $("#answersDiv").append(prop2_answers);
       }
@@ -383,11 +389,12 @@ function thirdQuestions() {
 //this function takes info from data-value to execute search? 
 function callApi() {
   $(".finalProp").on("click", function(event) {
+    $("#apiDiv").empty();
     console.log("You clicked");
     secondAnswer = event.currentTarget.dataset.value;
     console.log(secondAnswer);
     if (secondAnswer === "Central Park") {
-      eventbriteApi();
+      eventbriteApi(3002);
     } else if (secondAnswer === "Walk") {
       eventbriteApi();
     } else if (secondAnswer === "Museum") {
@@ -395,6 +402,10 @@ function callApi() {
     } else {
       eventbriteApi();
     }
+  });
+  $(".foodProp").on("click", function(event) {
+    finalAnswer = event.currentTarget.dataset.value;
+    zomatoApi(finalAnswer);
   });
 }
 
@@ -406,6 +417,7 @@ function eventbriteApi() {
   //in more info from the API
   $("#tryDiv").empty();
 
+function eventbriteApi(q) {
   // var queryURL =
   //   "https://www.eventbriteapi.com/v3/events/search/?categories=103";
   const instance = axios.create({
@@ -417,15 +429,26 @@ function eventbriteApi() {
   });
 
   instance
-    .get("https://www.eventbriteapi.com/v3/events/search/?subcategories=3002")
+    .get(
+      "https://www.eventbriteapi.com/v3/events/search/?subcategories=" +
+        q +
+        "&location.address=newyork"
+    )
+
     .then(function(result) {
       console.log(result.data);
       var results = result.data;
       console.log(results.events[0].url);
-
-      for (var i = 0; i < 5; i++) {
+      console.log(results.length);
+      // var filtered = results.events.filter(function(event) {
+      //   if (event.end.timezone === "America/New_York") {
+      //     return true;
+      //   }
+      // });
+      // console.log(filtered);
+      for (var i = 0; i < 4; i++) {
         var mainDiv = $("<div>");
-        mainDiv.addClass("col-md-4");
+        mainDiv.addClass("col-md-3");
         console.log(results.events[i].url);
         var a = $("<h4>");
         a.text(results.events[i].name.text);
@@ -435,7 +458,7 @@ function eventbriteApi() {
         articleImg.attr("src", results.events[i].logo.original.url);
         articleImg.attr("class", "card-img-top");
         $(mainDiv).append(articleImg);
-        $("#tryDiv").append(mainDiv);
+        $("#apiDiv").append(mainDiv);
 
         var c = $("<button>");
         c.addClass("btn btn-outline-info");
@@ -449,9 +472,10 @@ function eventbriteApi() {
     });
 }
 
-function zomatoApi() {
+function zomatoApi(r) {
   fetch(
-    "https://developers.zomato.com/api/v2.1/search?entity_id=280&entity_type=city&q=Italian",
+    "https://developers.zomato.com/api/v2.1/search?entity_id=280&entity_type=city&q=" +
+      r,
     {
       headers: {
         "user-key": "504af04e6861c274d55e91c18d40ac0d"
@@ -465,17 +489,22 @@ function zomatoApi() {
     .then(function(data) {
       console.log(data);
       var restaurants = data.restaurants;
-      for (var i = 0; i < restaurants.length; i++) {
+      for (var i = 0; i < 4; i++) {
         console.log(restaurants[0].restaurant.name);
         console.log(restaurants[0].restaurant.events_url);
         console.log(restaurants[0].restaurant.average_cost_for_two);
         console.log(restaurants[0].restaurant.location.locality);
 
         var mainDiv = $("<div>");
-        mainDiv.addClass("col-md-4");
+        mainDiv.addClass("col-md-3");
         var restName = $("<h4>");
         restName.text(restaurants[i].restaurant.name);
         $(mainDiv).append(restName);
+
+        var restImg = $("<img>");
+        restImg.attr("src", restaurants[i].restaurant.featured_image);
+        restImg.attr("class", "card-img-top");
+        $(mainDiv).append(restImg);
 
         var restLocation = $("<p>");
         restLocation.text(restaurants[i].restaurant.location.locality);
@@ -497,12 +526,14 @@ function zomatoApi() {
           window.location = restaurants[i].restaurant.events_url;
         });
 
-        $("#tryDiv").append(mainDiv);
+        $("#apiDiv").append(mainDiv);
       }
     });
 }
 
 $("#restart").on("click", function(event) {
+  $("#apiDiv").empty();
   $("#answersDiv").empty();
+  $("#question").empty();
   startQuestionnaire();
 });
