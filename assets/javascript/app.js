@@ -135,6 +135,8 @@ function startQuestionnaire() {
   }
   secondQuestion();
 }
+
+//second level of questions, does not append things to tryDiv
 function secondQuestion() {
   $(".answers").on("click", function(event) {
     $("#answersDiv").empty();
@@ -183,8 +185,10 @@ function secondQuestion() {
     thirdQuestions();
   });
 }
-
+// Third level of questions, this is where we need to reset #tryDiv
 function thirdQuestions() {
+
+  //first set of questions that append to tryDiv
   $(".firstActAnswers").on("click", function(event) {
     $("#answersDiv").empty();
     selectedAnswer = parseInt(event.currentTarget.dataset.index);
@@ -231,6 +235,8 @@ function thirdQuestions() {
     }
     callApi();
   });
+
+//second set of questions that append info to the tryDiv
   $(".secondActAnswers").on("click", function(event) {
     $("#answersDiv").empty();
     selectedAnswer = parseInt(event.currentTarget.dataset.index);
@@ -277,6 +283,8 @@ function thirdQuestions() {
     }
     callApi();
   });
+
+  //third set of answers that append to the tryDiv
   $(".thirdActAnswers").on("click", function(event) {
     $("#answersDiv").empty();
     selectedAnswer = parseInt(event.currentTarget.dataset.index);
@@ -323,6 +331,8 @@ function thirdQuestions() {
     }
     callApi();
   });
+
+  //fourth set of answers that appends to tryDiv
   $(".fourthActAnswers").on("click", function(event) {
     $("#answersDiv").empty();
     selectedAnswer = parseInt(event.currentTarget.dataset.index);
@@ -370,7 +380,7 @@ function thirdQuestions() {
     callApi();
   });
 }
-
+//this function takes info from data-value to execute search? 
 function callApi() {
   $(".finalProp").on("click", function(event) {
     console.log("You clicked");
@@ -387,9 +397,14 @@ function callApi() {
     }
   });
 }
+
+//eventbrite API using AXIOS to get eventbrite info
 function eventbriteApi() {
   $("#answersDiv").empty();
   $("#question").empty();
+  //This resets the tryDiv so that it empties out before pulling
+  //in more info from the API
+  $("#tryDiv").empty();
 
   // var queryURL =
   //   "https://www.eventbriteapi.com/v3/events/search/?categories=103";

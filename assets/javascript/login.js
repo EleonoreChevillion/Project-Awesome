@@ -1,25 +1,3 @@
-<<<<<<< HEAD
-$(".sing-in").click(function(e) {
-  var button = $(this);
-
-  if (button.hasClass("button-transparent")) {
-    e.preventDefault();
-    $(".floating-content").addClass("active");
-    $(".sing-in-panel").addClass("active");
-    $(".sing-up-panel").removeClass("active");
-  }
-});
-
-$(".sing-up").click(function(e) {
-  var button = $(this);
-
-  if (button.hasClass("button-transparent")) {
-    e.preventDefault();
-    $(".floating-content").removeClass("active");
-    $(".sing-in-panel").removeClass("active");
-    $(".sing-up-panel").addClass("active");
-  }
-=======
 $(".sign-in").click(function(e) {
 	var button = $(this);
 
@@ -42,7 +20,6 @@ $(".sign-up").click(function(e) {
 		$(".sign-up-panel").addClass("active");
 	}
 
->>>>>>> d3aa11f158c87ba9a4cd406a89a10af50a8034e0
 });
 
 //log in function
@@ -50,8 +27,8 @@ $(".sign-up").click(function(e) {
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     // User is signed in.
-    document.getElementById("user-div").style.display = "block";
-    document.getElementById("login-div").style.display = "none";
+    // document.getElementById("user-div").style.display = "block";
+    // document.getElementById("login-div").style.display = "none";
 
     var user = firebase.auth().currentUser;
     if(user != null){
@@ -59,12 +36,12 @@ firebase.auth().onAuthStateChanged(function(user) {
       let email_id = user.email;
       let email_verified = user.emailVerified;
 
-      document.getElementById("user-paragraph").innerHTML = "Welcome User : " +email_id;
+      // document.getElementById("user-paragraph").innerHTML = "Welcome User : " +email_id;
     }
   } else {
     // No user is signed in.
-    document.getElementById("user-div").style.display = "none";
-    document.getElementById("login-div").style.display = "block";
+    // document.getElementById("user-div").style.display = "none";
+    // document.getElementById("login-div").style.display = "block";
   }
 });
 
@@ -121,34 +98,6 @@ function logout(){
 
 // Initialize Firebase
 var config = {
-<<<<<<< HEAD
-  apiKey: "AIzaSyCJPmR2V6_XlC7y5dKsKlDZQU2PRICNBrk",
-  authDomain: "project-awesome-jaeje.firebaseapp.com",
-  databaseURL: "https://project-awesome-jaeje.firebaseio.com",
-  projectId: "project-awesome-jaeje",
-  storageBucket: "project-awesome-jaeje.appspot.com",
-  messagingSenderId: "741517517090"
-};
-firebase.initializeApp(config);
-
-firebase.auth().onAuthStateChanged(function(user) {
-  console.log("USER STATUS CHANGED " + user);
-  if (user) {
-    // User is signed in.
-    //   var displayName = user.displayName;
-    //   var email = user.email;
-    //   var emailVerified = user.emailVerified;
-    //   var photoURL = user.photoURL;
-    //   var isAnonymous = user.isAnonymous;
-    //   var uid = user.uid;
-    //   var providerData = user.providerData;
-    // ...
-  } else {
-    // User is signed out.
-    // ...
-  }
-});
-=======
     apiKey: "AIzaSyCJPmR2V6_XlC7y5dKsKlDZQU2PRICNBrk",
     authDomain: "project-awesome-jaeje.firebaseapp.com",
     databaseURL: "https://project-awesome-jaeje.firebaseio.com",
@@ -175,7 +124,6 @@ firebase.auth().onAuthStateChanged(function(user) {
   //     // ...
   //   }
   // });
->>>>>>> d3aa11f158c87ba9a4cd406a89a10af50a8034e0
 
 function Redirect() {
   window.location.href = "questionnaire.html";
