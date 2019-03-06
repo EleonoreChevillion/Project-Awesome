@@ -17,7 +17,7 @@
 }
 .container {
   position: absolute;
-  top: 150px;
+  top: 120px;
   right: 0;
   bottom: 0;
   left: 0;
@@ -30,6 +30,7 @@ html {
   -o-background-size: cover;
   background-size: cover;
 }
+
 .page-subtitle {
   font-family: "Fugaz One", cursive;
   color: white;
@@ -37,6 +38,6 @@ html {
   text-shadow: 0 0 5px black;
 }
 img {
-  width: 200px;
-  height: 120px;
+  width: 180px;
+  height: 100px;
 }
