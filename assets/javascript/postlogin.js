@@ -59,17 +59,17 @@ $(document).ready(function() {
       }
     )
       .then(function(response) {
-        console.log(response);
+        // console.log(response);
         return response.json();
       })
       .then(function(data) {
         console.log(data);
         var restaurants = data.restaurants;
         for (var i = 0; i < 10; i++) {
-          console.log(restaurants[0].restaurant.name);
-          console.log(restaurants[0].restaurant.events_url);
-          console.log(restaurants[0].restaurant.average_cost_for_two);
-          console.log(restaurants[0].restaurant.location.locality);
+          // console.log(restaurants[0].restaurant.name);
+          // console.log(restaurants[0].restaurant.events_url);
+          // console.log(restaurants[0].restaurant.average_cost_for_two);
+          // console.log(restaurants[0].restaurant.location.locality);
 
           var mainDiv = $("<div>");
           mainDiv.addClass("col-md-3");
@@ -180,11 +180,11 @@ function randomEvents() {
       )
 
       .then(function(result) {
-        console.log("in here");
-        console.log(result.data);
+        // console.log("in here");
+        // console.log(result.data);
         var results = result.data;
-        console.log(results.events[0].url);
-        console.log(results.length);
+        // console.log(results.events[0].url);
+        // console.log(results.length);
         // var filtered = results.events.filter(function(event) {
         //   if (event.end.timezone === "America/New_York") {
         //     return true;
@@ -194,7 +194,7 @@ function randomEvents() {
         for (var i = 0; i < 10; i++) {
           var mainDiv = $("<div>");
           mainDiv.addClass("col-md-3");
-          console.log(results.events[i].url);
+          // console.log(results.events[i].url);
           var a = $("<h4>");
           a.text(results.events[i].name.text);
           $(mainDiv).append(a);
@@ -215,5 +215,18 @@ function randomEvents() {
           });
         }
       });
+  }
+
+  foursquare();
+  function foursquare(){
+
+    $.ajax({
+      type: "GET",
+      dataType: "jsonp",
+      cache: false,
+      url: 'https://api.foursquare.com/v2/venues/trending/' + '?client_id=RV0DYSYUJD1ZXHAY1LBBXQDQ2YNRBRMSAWR1BPHK54RKWHTQ&client_secret=OHAMSCG5X4TVLVHIHXNI2HS3YRSR4QKDQLOK1MWE42EV0NES',
+    }).then(function(data) {
+      console.log(url);
+    })
   }
 });
