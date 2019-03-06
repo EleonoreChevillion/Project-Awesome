@@ -5,9 +5,10 @@ $(document).ready(function() {
 
   //goes back to the random events and the quizz button
   $("#home").on("click", function() {
-    $("#apiDiv").empty();
+    $("#apiDiv").css("display", "none");
     randomEvents();
-    $("#quizz").css("display", "block");
+    $("#randomDiv").css("display", "flex");
+    $("#quizz").css("display", "inline");
   });
 
   //click the quizz button to go to questionnaire page
