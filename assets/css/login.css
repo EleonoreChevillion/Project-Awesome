@@ -16,6 +16,7 @@
 .glow {
   font-size: 3vw;
 }
+/* Container where the login div lives */
 .container {
   position: absolute;
   top: 150px;
@@ -23,6 +24,7 @@
   bottom: 0;
   left: 0;
 }
+/* background for the body of the page */
 body {
   background-image: url("https://media.giphy.com/media/2A5yv5Kv4UJauAOWK3/giphy.gif");
   background-size: cover;
@@ -31,6 +33,8 @@ body {
   min-width: 100%;
   min-height: 100%;
 }
+
+/* Style to match our UI theme, overriding the Firebase style */
 h1.firebaseui-title {
   color: white;
   font-family: neon;
@@ -121,5 +125,51 @@ button.firebaseui-id-submit.firebaseui-button.mdl-button.mdl-js-button.mdl-butto
   display: none;
 }
 div.firebaseui-textfield.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label.is-upgraded {
-  color: white;
+  color: white !important;
+}
+.firebaseui-textfield.mdl-textfield .firebaseui-input {
+  border-color: white !important;
+}
+.firebaseui-label {
+  color: white !important;
+  direction: ltr;
+  font-size: 16px;
+  text-align: left;
+}
+.firebaseui-textfield.mdl-textfield .firebaseui-input {
+  border-color: white;
+}
+..mdl-textfield--floating-label.is-dirty .mdl-textfield__label,
+.mdl-textfield--floating-label.is-focused .mdl-textfield__label {
+  color: white !important;
+}
+.firebaseui-input,
+.firebaseui-input-invalid {
+  border-radius: 0;
+  color: white !important;
+  direction: ltr;
+  font-size: 16px;
+  width: 100%;
+}
+.mdl-textfield--floating-label.is-dirty .mdl-textfield__label,
+.mdl-textfield--floating-label.is-focused .mdl-textfield__label {
+  color: white !important;
+}
+.mdl-textfield--floating-label.is-dirty .mdl-textfield__label,
+.mdl-textfield--floating-label.is-focused .mdl-textfield__label {
+  color: white !important;
+}
+.firebaseui-input,
+.firebaseui-input-invalid {
+  border-radius: 0;
+  color: white !important;
+  direction: ltr;
+  font-size: 16px;
+  width: 100%;
+}
+.firebaseui-label {
+  color: white !important;
+  direction: ltr;
+  font-size: 16px;
+  text-align: left;
 }

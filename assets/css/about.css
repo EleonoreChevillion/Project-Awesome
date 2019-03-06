@@ -1,0 +1,62 @@
+@font-face {
+  font-family: neon;
+  src: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/707108/neon.ttf);
+}
+/* Background Information */
+
+/* Nav Bar Logo */
+#brand-name,
+.glow,
+.name {
+  color: white;
+  font-family: neon;
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #ff0080, 0 0 30px #ff0080,
+    0 0 40px #ff0080, 0 0 55px #ff0080, 0 0 75px #ff0080;
+}
+.glow {
+  font-size: 15vw;
+}
+.container {
+  position: absolute;
+  top: 120px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+html {
+  background: url("https://media.giphy.com/media/2A52lF7c8hwbeYdEdK/giphy.gif")
+    no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.aboutPeopleRow .peopleBox .people .image,
+.peoplePopUp .image {
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  list-style: none;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+.profilepic {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  background-color: white;
+  border-radius: 30%;
+  box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #ff0080, 0 0 30px #ff0080,
+    0 0 40px #ff0080, 0 0 55px #ff0080, 0 0 75px #ff0080;
+}
