@@ -16,207 +16,160 @@
 .glow {
   font-size: 3vw;
 }
-body,
-html {
-  margin: 0;
-  height: 100%;
-  font-family: "Open Sans";
-  font-size: 1em;
-  overflow: hidden;
-}
-
-h1 {
-  font-family: "Oswald";
-  font-weight: 400;
-  letter-spacing: 1px;
-  color: #DDDDDD;
-  margin-bottom: 55px;
-}
-
-.content-wrapper {
+/* Container where the login div lives */
+.container {
   position: absolute;
-  width: 100%;
-  height: 100%;
-  box-shadow: 2px 2px 20px 0 rgba(0, 0, 0, 0.25);
-}
-.content-wrapper .background {
-  width: 40%;
-  height: 100%;
-  position: absolute;
-  background-size: cover;
-  background-position: center;
-  /* Login background image*/
-  background-image: url("https://media.giphy.com/media/8L17eD04mcbugGY6gK/giphy.gif");
-}
-.content-wrapper .background.background-right {
-  background-image: url("https://media.giphy.com/media/2A5yv5Kv4UJauAOWK3/giphy.gif");
-  right: 0;
-  height: 100%;
-}
-.content-wrapper .sign-in-panel,
-.content-wrapper .sign-up-panel {
-  position: absolute;
-  right: 0;
-  width: 60%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  pointer-events: none;
-  opacity: 0;
-  visibility: hidden;
-  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  z-index: 10;
-}
-.content-wrapper .sign-in-panel form,
-.content-wrapper .sign-up-panel form {
-  text-align: center;
-}
-.content-wrapper .sign-in-panel.active,
-.content-wrapper .sign-up-panel.active {
-  pointer-events: auto;
-  opacity: 1;
-  visibility: visible;
-  transform: translateX(0px);
-}
-.content-wrapper .sign-in-panel .button-wrapper,
-.content-wrapper .sign-up-panel .button-wrapper {
-  margin-top: 15px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-}
-.content-wrapper .sign-in-panel {
-  right: 0;
-  transform: translateX(100px);
-}
-.content-wrapper .sign-up-panel {
-  left: 0;
-  transform: translateX(-100px);
-}
-.content-wrapper .floating-content {
-  position: absolute;
-  left: 0;
-  width: 60%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 0 30px 0 rgba(233, 223, 223, 0.25);
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  background-color: grey;
-}
-.content-wrapper .floating-content::before {
-  display: block;
-  content: "";
-  position: absolute;
-  z-index: 1;
-  left: 0;
+  top: 150px;
   right: 0;
   bottom: 0;
-  top: 0;
-  background: linear-gradient(to top, rgba(140, 189, 224, 0.15) 0%, #434C5F 100%);
-}
-.content-wrapper .floating-content.active {
-  margin-left: 40%;
-}
-
-/** Input
- ---------------------------------------------------------*/
-.input {
-  position: relative;
-  width: 300px;
-  margin-bottom: 25px;
-}
-.input input {
-  background: transparent;
-  outline: none;
-  font-size: 1em;
-  padding: 10px 10px 10px 5px;
-  display: block;
-  box-sizing: border-box;
-  width: 100%;
-  border: none;
-  color: white;
-  font-family: "Open Sans";
-  border-bottom: 1px solid #DDDDDD;
-}
-.input label {
-  color: #DDDDDD;
-  font-size: 0.85em;
-  font-weight: normal;
-  position: absolute;
-  pointer-events: none;
-  left: 5px;
-  font-family: "Open Sans";
-  top: 15px;
-  transition: 0.195s ease all;
-  text-transform: uppercase;
-}
-/* the bar is the line below input, changes coloron select*/
-.bar {
-  position: relative;
-  display: block;
-  width: 0;
-  height: 2px;
-  width: 0;
-  bottom: 1px;
   left: 0;
-  background: rgb(46, 218, 218);
-  transition: all 0.195s ease;
+}
+/* background for the body of the page */
+body {
+  background-image: url("https://media.giphy.com/media/2A5yv5Kv4UJauAOWK3/giphy.gif");
+  background-size: cover;
+  background-repeat: no-repeat;
+  /* Preserve aspet ratio */
+  min-width: 100%;
+  min-height: 100%;
 }
 
-input:focus ~ .bar,
-input:valid ~ .bar {
+/* Style to match our UI theme, overriding the Firebase style */
+h1.firebaseui-title {
+  color: white;
+  font-family: neon;
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #ff0080, 0 0 30px #ff0080,
+    0 0 40px #ff0080, 0 0 55px #ff0080, 0 0 75px #ff0080;
+  text-align: center;
+}
+form {
+  background-color: #3e4551;
+  height: 100%;
+}
+button.firebaseui-id-secondary-link.firebaseui-button.mdl-button.mdl-js-button.mdl-button--primary {
+  display: inline-block;
+  font-weight: 400;
+  color: white;
+  border: 1px solid white;
+  border-radius: 0.25rem;
+  text-align: center;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  font-family: inherit;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 0.25rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+button.firebaseui-id-secondary-link.firebaseui-button.mdl-button.mdl-js-button.mdl-button--primary:hover {
+  display: inline-block;
+  font-weight: 400;
+  color: #212529;
+  background-color: white;
+  border: 1px solid white;
+  border-radius: 0.25rem;
+  text-align: center;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  font-family: inherit;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 0.25rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+button.firebaseui-id-submit.firebaseui-button.mdl-button.mdl-js-button.mdl-button--raised.mdl-button--colored {
+  display: inline-block;
+  font-weight: 400;
+  color: white;
+  background: none;
+  border: 1px solid white;
+  border-radius: 0.25rem;
+  text-align: center;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  font-family: inherit;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 0.25rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+button.firebaseui-id-submit.firebaseui-button.mdl-button.mdl-js-button.mdl-button--raised.mdl-button--colored:hover {
+  display: inline-block;
+  font-weight: 400;
+  color: #212529;
+  background-color: white;
+  border: 1px solid white;
+  border-radius: 0.25rem;
+  text-align: center;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  font-family: inherit;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 0.25rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.firebaseui-card-footer {
+  display: none;
+}
+div.firebaseui-textfield.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label.is-upgraded {
+  color: white !important;
+}
+.firebaseui-textfield.mdl-textfield .firebaseui-input {
+  border-color: white !important;
+}
+.firebaseui-label {
+  color: white !important;
+  direction: ltr;
+  font-size: 16px;
+  text-align: left;
+}
+.firebaseui-textfield.mdl-textfield .firebaseui-input {
+  border-color: white;
+}
+..mdl-textfield--floating-label.is-dirty .mdl-textfield__label,
+.mdl-textfield--floating-label.is-focused .mdl-textfield__label {
+  color: white !important;
+}
+.firebaseui-input,
+.firebaseui-input-invalid {
+  border-radius: 0;
+  color: white !important;
+  direction: ltr;
+  font-size: 16px;
   width: 100%;
 }
-
-input:focus ~ label,
-input:valid ~ label,
-textarea:focus ~ label,
-textarea:valid ~ label {
-  top: -10px;
-  font-size: 0.55em;
-  color: #DDDDDD;
+.mdl-textfield--floating-label.is-dirty .mdl-textfield__label,
+.mdl-textfield--floating-label.is-focused .mdl-textfield__label {
+  color: white !important;
 }
-
-/** Buttons*/
-/* .button-square,
-.button-transparent,
-
-button {
-  font-family: "Oswald";
-  position: relative;
-  display: inline-block;
-  padding: 12px 25px;
-  margin: 20px 0;
-  background-color: rgb(164, 46, 218);
-  color: #DDDDDD;
+.mdl-textfield--floating-label.is-dirty .mdl-textfield__label,
+.mdl-textfield--floating-label.is-focused .mdl-textfield__label {
+  color: white !important;
+}
+.firebaseui-input,
+.firebaseui-input-invalid {
   border-radius: 0;
-  transition: all 0.3s;
-  letter-spacing: 2px;
-  font-weight: 600;
-  font-size: 0.85em;
-  outline: none;
-  cursor: pointer;
-  border: none;
-  text-transform: uppercase;
+  color: white !important;
+  direction: ltr;
+  font-size: 16px;
+  width: 100%;
 }
-.button-square:hover,
-.button-transparent:hover,
-button:hover {
-    background-color: rgb(40, 161, 60);
+.firebaseui-label {
+  color: white !important;
+  direction: ltr;
+  font-size: 16px;
+  text-align: left;
 }
-
-.button-transparent {
-  justify-content: center;
-  align-items: center;
-  color: #DDDDDD;
-  background-color: transparent;
-}
-.button-transparent:hover {
-  background-color: rgba(228, 198, 28, 0.637);
-} */
