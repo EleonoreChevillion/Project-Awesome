@@ -1,23 +1,23 @@
-$(".sing-in").click(function(e) {
+$(".sign-in").click(function(e) {
 	var button = $(this);
 
 	if (button.hasClass("button-transparent")) {
 		e.preventDefault();
 		$(".floating-content").addClass("active");
-		$(".sing-in-panel").addClass("active");
-		$(".sing-up-panel").removeClass("active");
+		$(".sign-in-panel").addClass("active");
+		$(".sign-up-panel").removeClass("active");
 	}
 
 });
 
-$(".sing-up").click(function(e) {
+$(".sign-up").click(function(e) {
 	var button = $(this);
 
 	if (button.hasClass("button-transparent")) {
 		e.preventDefault();
 		$(".floating-content").removeClass("active");
-		$(".sing-in-panel").removeClass("active");
-		$(".sing-up-panel").addClass("active");
+		$(".sign-in-panel").removeClass("active");
+		$(".sign-up-panel").addClass("active");
 	}
 
 });
@@ -62,8 +62,8 @@ Redirect();
 }
 //create an account aka register
 function create_account(){
-  let userEmail = document.getElementById("name").value;
-  let userPassword = document.getElementById("password").value;
+  let userEmail = document.getElementById("req_email").value;
+  let userPassword = document.getElementById("req_password").value;
 
   firebase.auth().createUserWithEmailAndPassword(userEmail, userPassword).catch(function(error) {
     // Handle Errors here.
