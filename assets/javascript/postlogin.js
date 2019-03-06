@@ -1,85 +1,53 @@
 $(document).ready(function() {
+  
+  
   randomEvents();
-  function randomEvents() {
-    const instance = axios.create({
-      headers: {
-        get: {
-          Authorization: "Bearer XES5FUKPHLCMR7UUVVUA"
-        }
-      }
-    });
 
-    instance
-      .get(
-        "https://www.eventbriteapi.com/v3/events/search/?location.address=newyork"
-      )
+  //goes back to the random events and the quizz button
+  $("#home").on("click", function() {
+    $("#apiDiv").empty();
+    randomEvents();
+    $("#quizz").css("display", "block");
+  });
 
-      .then(function(result) {
-        console.log("in here");
-        console.log(result.data);
-        var results = result.data;
-        console.log(results.events[0].url);
-        console.log(results.length);
-        // var filtered = results.events.filter(function(event) {
-        //   if (event.end.timezone === "America/New_York") {
-        //     return true;
-        //   }
-        // });
-        // console.log(filtered);
-        for (var i = 0; i < 10; i++) {
-          var mainDiv = $("<div>");
-          mainDiv.addClass("col-md-3");
-          console.log(results.events[i].url);
-          var a = $("<h4>");
-          a.text(results.events[i].name.text);
-          $(mainDiv).append(a);
-
-          var articleImg = $("<img>");
-          articleImg.attr("src", results.events[i].logo.original.url);
-          articleImg.attr("class", "card-img-top");
-          $(mainDiv).append(articleImg);
-
-          var c = $("<button>");
-          c.addClass("btn btn-outline-info");
-          c.addClass("moreInfo");
-          c.text("Get me tickets!");
-          $(mainDiv).append(c);
-          $("#randomDiv").append(mainDiv);
-          $(".moreInfo").on("click", function() {
-            window.location = results.events[i].url;
-          });
-        }
-      });
-  }
-
+  //click the quizz button to go to questionnaire page
   $("#quizz").on("click", function() {
     window.location = href = "././questionnaire.html";
   });
 
+  //click the restaurants button to get random selection of restaurants
   $("#restaurants").on("click", function() {
     $("#apiDiv").empty();
+    $("#randomDiv").css("display", "none");
     $("#quizz").css("display", "none");
     zomatoApi();
   });
 
+  //click the culture button to get random selection of cultural events
   $("#culture").on("click", function() {
     $("#apiDiv").empty();
+    $("#randomDiv").css("display", "none");
     $("#quizz").css("display", "none");
     eventbriteApi(113);
   });
 
+  //click the sports button to get random selection of sports events
   $("#sports").on("click", function() {
     $("#apiDiv").empty();
+    $("#randomDiv").css("display", "none");
     $("#quizz").css("display", "none");
     eventbriteApi(108);
   });
 
+  //click the music button to get random selection of sports events
   $("#music").on("click", function() {
     $("#apiDiv").empty();
+    $("#randomDiv").css("display", "none");
     $("#quizz").css("display", "none");
     eventbriteApi(103);
   });
 
+//Zomato API using fetch to get zomato info, appends elements to apiDiv (name of restaurant - average cost - picture of the restaurant - button to go to the url)
   function zomatoApi() {
     fetch(
       "https://developers.zomato.com/api/v2.1/search?entity_id=280&entity_type=city",
@@ -96,7 +64,7 @@ $(document).ready(function() {
       .then(function(data) {
         console.log(data);
         var restaurants = data.restaurants;
-        for (var i = 0; i < 4; i++) {
+        for (var i = 0; i < 10; i++) {
           console.log(restaurants[0].restaurant.name);
           console.log(restaurants[0].restaurant.events_url);
           console.log(restaurants[0].restaurant.average_cost_for_two);
@@ -138,6 +106,7 @@ $(document).ready(function() {
       });
   }
 
+  //eventbrite API using AXIOS to get eventbrite info, appends elements to apiDiv (title - picture of the event - button to go to the url)
   function eventbriteApi(q) {
     // var queryURL =
     //   "https://www.eventbriteapi.com/v3/events/search/?categories=103";
@@ -187,6 +156,59 @@ $(document).ready(function() {
           c.addClass("moreInfo");
           c.text("Get me tickets!");
           $(mainDiv).append(c);
+          $(".moreInfo").on("click", function() {
+            window.location = results.events[i].url;
+          });
+        }
+      });
+  }
+
+  //eventbrite API, gets random events
+function randomEvents() {
+    const instance = axios.create({
+      headers: {
+        get: {
+          Authorization: "Bearer XES5FUKPHLCMR7UUVVUA"
+        }
+      }
+    });
+
+    instance
+      .get(
+        "https://www.eventbriteapi.com/v3/events/search/?location.address=newyork"
+      )
+
+      .then(function(result) {
+        console.log("in here");
+        console.log(result.data);
+        var results = result.data;
+        console.log(results.events[0].url);
+        console.log(results.length);
+        // var filtered = results.events.filter(function(event) {
+        //   if (event.end.timezone === "America/New_York") {
+        //     return true;
+        //   }
+        // });
+        // console.log(filtered);
+        for (var i = 0; i < 10; i++) {
+          var mainDiv = $("<div>");
+          mainDiv.addClass("col-md-3");
+          console.log(results.events[i].url);
+          var a = $("<h4>");
+          a.text(results.events[i].name.text);
+          $(mainDiv).append(a);
+
+          var articleImg = $("<img>");
+          articleImg.attr("src", results.events[i].logo.original.url);
+          articleImg.attr("class", "card-img-top");
+          $(mainDiv).append(articleImg);
+
+          var c = $("<button>");
+          c.addClass("btn btn-outline-info");
+          c.addClass("moreInfo");
+          c.text("Get me tickets!");
+          $(mainDiv).append(c);
+          $("#randomDiv").append(mainDiv);
           $(".moreInfo").on("click", function() {
             window.location = results.events[i].url;
           });
