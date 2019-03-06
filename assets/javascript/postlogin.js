@@ -2,94 +2,66 @@ $("#quizz").on("click", function() {
   window.location = href = "././questionnaire.html";
 });
 
-eventbriteRandom();
-function eventbriteRandom() {
-  $("#answersDiv").empty();
-  $("#question").empty();
+$("#restaurants").on("click", function() {
+  $("#apiDiv").empty();
+  $("#quizz").css("display", "none");
+  zomatoApi();
+});
 
-  // var queryURL =
-  //   "https://www.eventbriteapi.com/v3/events/search/?categories=103";
-  const instance = axios.create({
-    headers: {
-      get: {
-        Authorization: "Bearer XES5FUKPHLCMR7UUVVUA"
+function zomatoApi() {
+  fetch(
+    "https://developers.zomato.com/api/v2.1/search?entity_id=280&entity_type=city",
+    {
+      headers: {
+        "user-key": "504af04e6861c274d55e91c18d40ac0d"
       }
     }
-  });
+  )
+    .then(function(response) {
+      console.log(response);
+      return response.json();
+    })
+    .then(function(data) {
+      console.log(data);
+      var restaurants = data.restaurants;
+      for (var i = 0; i < 4; i++) {
+        console.log(restaurants[0].restaurant.name);
+        console.log(restaurants[0].restaurant.events_url);
+        console.log(restaurants[0].restaurant.average_cost_for_two);
+        console.log(restaurants[0].restaurant.location.locality);
 
-  instance
-    .get(
-      "https://www.eventbriteapi.com/v3/events/search?location.address=newyork&location.within=10km&expand=venue"
-    )
-    .then(function(result) {
-      console.log(result.data);
-      var results = result.data;
-      console.log(results.events[0].url);
-
-      for (var i = 0; i < 5; i++) {
         var mainDiv = $("<div>");
-        mainDiv.addClass("col-md-4");
-        console.log(results.events[i].url);
-        var a = $("<h4>");
-        a.text(results.events[i].name.text);
-        $(mainDiv).append(a);
+        mainDiv.addClass("col-md-3");
+        var restName = $("<h4>");
+        restName.text(restaurants[i].restaurant.name);
+        $(mainDiv).append(restName);
 
-        var articleImg = $("<img>");
-        articleImg.attr("src", results.events[i].logo.original.url);
-        articleImg.attr("class", "card-img-top");
-        $(mainDiv).append(articleImg);
+        var restImg = $("<img>");
+        restImg.attr("src", restaurants[i].restaurant.featured_image);
+        restImg.attr("class", "card-img-top");
+        $(mainDiv).append(restImg);
 
-        var c = $("<button>");
-        c.addClass("btn btn-outline-info");
-        c.addClass("moreInfo");
-        c.text("Get me tickets!");
-        $(mainDiv).append(c);
+        var restLocation = $("<p>");
+        restLocation.text(restaurants[i].restaurant.location.locality);
+        $(mainDiv).append(restLocation);
+
+        var restPrice = $("<p>");
+        restPrice.text(
+          "Average cost for 2: $" +
+            restaurants[i].restaurant.average_cost_for_two
+        );
+        $(mainDiv).append(restPrice);
+
+        var restUrl = $("<button>");
+        restUrl.addClass("btn btn-outline-info");
+        restUrl.addClass("moreInfo");
+        restUrl.text("More Info!");
+        $(mainDiv).append(restUrl);
         $(".moreInfo").on("click", function() {
-          window.location = results.events[i].url;
+          window.location = restaurants[i].restaurant.events_url;
         });
-        $("#randomDiv").append(mainDiv);
+
+        $("#apiDiv").append(mainDiv);
       }
     });
 }
-// function eventbriteApi() {
-//   fetch(
-//     "https://www.eventbriteapi.com/v3/events/search?location.address=newyork&location.within=10km&expand=venue",
-//     {
-//       headers: {
-//         Bearer: "XES5FUKPHLCMR7UUVVUA"
-//       }
-//     }
-//   )
-//     .then(function(response) {
-//       console.log(response);
-//       return response.json();
-//     })
-//     .then(function(result) {
-//       console.log(result.data);
-//       var results = result.data;
-//       console.log(results.events[0].url);
-
-//       for (var i = 0; i < 5; i++) {
-//         var mainDiv = $("<div>");
-//         mainDiv.addClass("col-md-4");
-//         var a = $("<h4>");
-//         a.text(results.events[i].name.text);
-//         $(mainDiv).append(a);
-
-//         var articleImg = $("<img>");
-//         articleImg.attr("src", results.events[i].logo.original.url);
-//         articleImg.attr("class", "card-img-top");
-//         $(mainDiv).append(articleImg);
-
-//         var c = $("<button>");
-//         c.addClass("btn btn-outline-info");
-//         c.addClass("moreInfo");
-//         c.text("Get me tickets!");
-//         $(mainDiv).append(c);
-//         $(".moreInfo").on("click", function() {
-//           window.location = results.events[i].url;
-//         });
-//         $("#activityrandom").append(mainDiv);
-//       }
-//     });
-// }

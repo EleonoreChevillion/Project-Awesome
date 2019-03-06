@@ -121,7 +121,6 @@ function logout(){
 
 // Initialize Firebase
 var config = {
-<<<<<<< HEAD
   apiKey: "AIzaSyCJPmR2V6_XlC7y5dKsKlDZQU2PRICNBrk",
   authDomain: "project-awesome-jaeje.firebaseapp.com",
   databaseURL: "https://project-awesome-jaeje.firebaseio.com",
@@ -148,7 +147,6 @@ firebase.auth().onAuthStateChanged(function(user) {
     // ...
   }
 });
-=======
     apiKey: "AIzaSyCJPmR2V6_XlC7y5dKsKlDZQU2PRICNBrk",
     authDomain: "project-awesome-jaeje.firebaseapp.com",
     databaseURL: "https://project-awesome-jaeje.firebaseio.com",
@@ -175,7 +173,6 @@ firebase.auth().onAuthStateChanged(function(user) {
   //     // ...
   //   }
   // });
->>>>>>> d3aa11f158c87ba9a4cd406a89a10af50a8034e0
 
 function Redirect() {
   window.location.href = "questionnaire.html";
@@ -183,6 +180,4 @@ function Redirect() {
 $("#login").on("click", function() {
   window.location = href = "././postlogin.html";
 });
-$("#signup").on("click", function() {
-  window.location = href = "././postlogin.html";
-});
+
