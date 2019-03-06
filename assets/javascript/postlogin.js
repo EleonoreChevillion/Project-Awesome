@@ -15,6 +15,7 @@ $(document).ready(function() {
       )
 
       .then(function(result) {
+        console.log("in here");
         console.log(result.data);
         var results = result.data;
         console.log(results.events[0].url);
@@ -43,9 +44,9 @@ $(document).ready(function() {
           c.addClass("moreInfo");
           c.text("Get me tickets!");
           $(mainDiv).append(c);
+          $("#randomDiv").append(mainDiv);
           $(".moreInfo").on("click", function() {
             window.location = results.events[i].url;
-            $("#randomDiv").append(mainDiv);
           });
         }
       });
