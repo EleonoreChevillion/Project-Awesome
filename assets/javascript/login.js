@@ -1,25 +1,3 @@
-<<<<<<< HEAD
-$(".sing-in").click(function(e) {
-  var button = $(this);
-
-  if (button.hasClass("button-transparent")) {
-    e.preventDefault();
-    $(".floating-content").addClass("active");
-    $(".sing-in-panel").addClass("active");
-    $(".sing-up-panel").removeClass("active");
-  }
-});
-
-$(".sing-up").click(function(e) {
-  var button = $(this);
-
-  if (button.hasClass("button-transparent")) {
-    e.preventDefault();
-    $(".floating-content").removeClass("active");
-    $(".sing-in-panel").removeClass("active");
-    $(".sing-up-panel").addClass("active");
-  }
-=======
 $(".sign-in").click(function(e) {
 	var button = $(this);
 
@@ -42,7 +20,6 @@ $(".sign-up").click(function(e) {
 		$(".sign-up-panel").addClass("active");
 	}
 
->>>>>>> d3aa11f158c87ba9a4cd406a89a10af50a8034e0
 });
 
 //log in function
@@ -50,8 +27,8 @@ $(".sign-up").click(function(e) {
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     // User is signed in.
-    document.getElementById("user-div").style.display = "block";
-    document.getElementById("login-div").style.display = "none";
+    // document.getElementById("user-div").style.display = "block";
+    // document.getElementById("login-div").style.display = "none";
 
     var user = firebase.auth().currentUser;
     if(user != null){
@@ -59,12 +36,12 @@ firebase.auth().onAuthStateChanged(function(user) {
       let email_id = user.email;
       let email_verified = user.emailVerified;
 
-      document.getElementById("user-paragraph").innerHTML = "Welcome User : " +email_id;
+      // document.getElementById("user-paragraph").innerHTML = "Welcome User : " +email_id;
     }
   } else {
     // No user is signed in.
-    document.getElementById("user-div").style.display = "none";
-    document.getElementById("login-div").style.display = "block";
+    // document.getElementById("user-div").style.display = "none";
+    // document.getElementById("login-div").style.display = "block";
   }
 });
 
