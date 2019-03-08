@@ -61,13 +61,13 @@ ui.start("#firebaseui-auth-container", uiConfig);
 
 var mainApp = {};
 
-(function() {
+// (function() {
   var firebase = app_fireBase;
   var uid = null;
   firebase.auth().onAuthStateChanged(function(user) {
     if (user && !window.location.href.includes("login.html")) {
       // User  is signed in
-
+      $("#loginBtn").hide();
 
     } else if (!window.location.href.includes("login.html")) {
       window.location.replace("login.html");
@@ -77,7 +77,7 @@ var mainApp = {};
 
   
 
-})();
+// })();
 
 //logout function
 

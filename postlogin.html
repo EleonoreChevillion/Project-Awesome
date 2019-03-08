@@ -7,8 +7,8 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
-    <link rel="stylesheet" href="assets/css/reset.css" />
-    <link rel="stylesheet" href="assets/css/postlogin.css" />
+  <link rel="stylesheet" href="assets/css/reset.css" />
+  <link rel="stylesheet" href="assets/css/postlogin.css" />
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
     integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
   <link href="https://fonts.googleapis.com/css?family=Fugaz+One" rel="stylesheet" />
@@ -17,72 +17,73 @@
 
 <body>
   <!--Navbar Start-->
-    <!--Navbar Start-->
-    <nav class="navbar sticky-top navbar-light bg-dark">
-      <a class="navbar-brand" href="index.html">
-        <span id="brand-name">Wertogo</span>
+  <!--Navbar Start-->
+  <nav class="navbar sticky-top navbar-light bg-dark">
+    <a class="navbar-brand" href="index.html">
+      <span id="brand-name">Wertogo</span>
+    </a>
+    <!--The gouping for the buttons-->
+    <div class="btn-group" role="group" aria-label="Basic example">
+      <a href="about.html"><button type="button" class="btn btn-outline-light mr-3">
+          About Us
+        </button>
       </a>
-      <!--The gouping for the buttons-->
-      <div class="btn-group" role="group" aria-label="Basic example">
-        <a href="about.html"><button type="button" class="btn btn-outline-light mr-3">
-            About Us
-          </button>
-        </a>
-        <a href="login.html"><button type="button" class="btn btn-outline-light mr-3">
-            Sign Up
-          </button>
-        </a>
-        <!--Profile section for navbar-->
-        <div class="dropdown">
-          <button class="btn btn-outline-light mr-3 dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Account
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-            <button class="dropdown-item" type="button" id="logoutBtn">Profile (COMING SOON)</button>
-            <button class="dropdown-item" type="button">Logout</button>
-            <button class="dropdown-item" type="button">Badges (COMING SOON)</button>
-          </div>
+      <a href="login.html"><button type="button" class="btn btn-outline-light mr-3">
+          Sign Up
+        </button>
+      </a>
+      <!--Profile section for navbar-->
+      <div class="dropdown">
+        <button class="btn btn-outline-light mr-3 dropdown-toggle" type="button" id="dropdownMenu2"
+          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Account
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+          <button class="dropdown-item" type="button">Profile (COMING SOON)</button>
+          <button class="dropdown-item" type="button" id="logoutBtn">Logout</button>
+          <button class="dropdown-item" type="button">Badges (COMING SOON)</button>
         </div>
       </div>
-    </nav>
-    <!--Navbar End-->
+    </div>
+  </nav>
+  <!--Navbar End-->
 
-    <!--Secondary Navigation bar-->
+  <!--Secondary Navigation bar-->
   <nav id="subnav" class="navbar">
     <!--The gouping for the buttons-->
     <div class="btn-group" role="group" aria-label="Basic example">
-        <a><button type="button" class="btn btn-outline-light mr-3" id="music">
-            Music
-          </button>
-          
-        </a>
-        <a><button type="button" class="btn btn-outline-light mr-3" id="sports">
-            Sports
-          </button>
+      <a><button type="button" class="btn btn-outline-light mr-3" id="music">
+          Music
+        </button>
+
+      </a>
+      <a><button type="button" class="btn btn-outline-light mr-3" id="sports">
+          Sports
+        </button>
         <a><button type="button" class="btn btn-outline-light mr-3" id="culture">
             Culture
           </button>
-          
-        </a>
-      <a><button type="button" class="btn btn-outline-light mr-3" id="restaurants">
-          Restaurants
-        </button>
-        
-      </a>
-      <a><button type="button" class="btn btn-outline-light mr-3" id="home">
-        Home
-      </button>
-      
-    </a>
 
-    
+        </a>
+        <a><button type="button" class="btn btn-outline-light mr-3" id="restaurants">
+            Restaurants
+          </button>
+
+        </a>
+        <a><button type="button" class="btn btn-outline-light mr-3" id="home">
+            Home
+          </button>
+
+        </a>
+
+
 
     </div>
-    
+
   </nav>
-  
+
   <!--Second Navbar End-->
-  
+
   <!--Page Container-->
   <div class="container">
     <!--Row containing Page-->
@@ -90,42 +91,36 @@
       <div class="text-center">
         <button id="quizz">Start Quizz</button>
       </div>
-    <div class="row"id="apiDiv"></div>
-  <div class="row" id="randomDiv"></div>
+      <div class="row" id="apiDiv"></div>
+      <div class="row" id="randomDiv"></div>
 
-  
-    
-    
 
-    
-    <!--Section containing the app store buttons (Currently not functining)-->
 
-    <!--Footer with our information-->
-  </div>
-  <footer class="page-footer font-small fixed-bottom bg-dark">
-        <div class="footer-copyright text-white text-center py-3">
-          <i class="fab fa-instagram mr-5"></i>
-          <i class="fab fa-twitter mr-5"></i>
-          <i class="fab fa-facebook-f mr-5"></i>
-        </div>
-      </footer>
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+
+
+      <!--Section containing the app store buttons (Currently not functining)-->
+
+      <!--Footer with our information-->
+    </div>
+    <footer class="page-footer font-small fixed-bottom bg-dark">
+      <div class="footer-copyright text-white text-center py-3">
+        <i class="fab fa-instagram mr-5"></i>
+        <i class="fab fa-twitter mr-5"></i>
+        <i class="fab fa-facebook-f mr-5"></i>
+      </div>
+    </footer>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase.js"></script>
-<!--Firebase CDN for built in UI-->
-<script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+    <!--Firebase CDN for built in UI-->
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
     <script src="assets/javascript/postlogin.js"></script>
     <script src="assets/javascript/api.js"></script>
-    <!-- <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-      crossorigin="anonymous"
-    ></script> -->
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-      crossorigin="anonymous"
-    ></script>
+      crossorigin="anonymous"></script>
     <script src="assets/javascript/login.js"></script>
 </body>
 

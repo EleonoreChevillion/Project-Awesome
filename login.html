@@ -1,56 +1,48 @@
 <!DOCTYPE html>
 <html lang="en" class="login">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="assets/css/login.css" />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-      crossorigin="anonymous"
-    />
-    
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
-      integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
-      crossorigin="anonymous"
-    />
 
-    <title>Welcome!</title>
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" href="assets/css/login.css" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
 
-  <body>
-    <!--Navbar Start-->
-    <nav class="navbar sticky-top navbar-light bg-dark">
-      <a class="navbar-brand" href="index.html">
-        <span id="brand-name">WerToGo</span>
-      </a>
-      <!--The gouping for the buttons-->
-      <div class="btn-group" role="group" aria-label="Basic example">
-        <a href="about.html"
-          ><button type="button" class="btn btn-outline-light mr-3">
-            About Us
-          </button>
-          <a href="login.html"><button type="button" class="btn btn-outline-light mr-3">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
+
+  <title>Welcome!</title>
+</head>
+
+<body>
+  <!--Navbar Start-->
+  <nav class="navbar sticky-top navbar-light bg-dark">
+    <a class="navbar-brand" href="index.html">
+      <span id="brand-name">WerToGo</span>
+    </a>
+    <!--The gouping for the buttons-->
+    <div class="btn-group" role="group" aria-label="Basic example">
+      <a href="about.html"><button type="button" class="btn btn-outline-light mr-3">
+          About Us
+        </button></a>
+      <!-- <a href="login.html"><button type="button" class="btn btn-outline-light mr-3">
             Sign Up
           </button>
-        </a>
+        </a> -->
+    </div>
+  </nav>
+  <!--Navbar End-->
+
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col text-center justify-content-center">
+        <div id="firebaseui-auth-container"></div>
+        <div id="loader">Loading...</div>
       </div>
-    </nav>
-    <!--Navbar End-->
-
-
-
-    <div class="container">
-      <div class="row">
-        <div class="col text-center justify-content-center">
-          <div id="firebaseui-auth-container"></div>
-          <div id="loader">Loading...</div>
-        </div>
-      </div>
+    </div>
 
 
 
@@ -64,12 +56,13 @@
       </div>
     </footer>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<!--Firebase authentication link-->
-<script src="https://www.gstatic.com/firebasejs/5.8.5/firebase.js"></script>
-<!--Firebase CDN for built in UI-->
-<script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
-<link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
-<script src="assets/javascript/login.js"></script>
-  </body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!--Firebase authentication link-->
+    <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase.js"></script>
+    <!--Firebase CDN for built in UI-->
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+    <script src="assets/javascript/login.js"></script>
+</body>
+
 </html>
