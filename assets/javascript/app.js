@@ -163,6 +163,10 @@ function startQuestionnaire() {
   $("#more").css("display", "none");
   $("#question").text(question1.question);
   var firstQuestion = question1.answers;
+  // var eventImg = $("<img>");
+  //   eventImg.attr("src", "./assets/images/eventimg1.jpg");
+  //   eventImg.attr("class", "eventsImg");
+  //   $("#pictures").append(eventImg);
   for (var i = 0; i < firstQuestion.length; i++) {
     var answersDisplay = $("<button/>");
     // var answersbutton = $("<label/>");
@@ -171,6 +175,8 @@ function startQuestionnaire() {
     // answersDisplay.text(firstQuestion[i]);
     answersDisplay.addClass("startAnswers answers btn btn-secondary btn-lg btn-block");
     $("#answersDiv").append(answersDisplay);
+
+    
   }
  
   secondQuestion();
@@ -192,6 +198,7 @@ function secondQuestion() {
     $("#answersDiv").empty();
     selectedAnswer = parseInt(event.currentTarget.dataset.index);
     if (selectedAnswer === 0) {
+      // $(".eventsImg").attr("src", "./assets/images/relaxImg.jpg");
       $("#question").text(question2.question[0]);
       var activity1 = question2.answers.activity1;
       for (var j = 0; j < activity1.length; j++) {
