@@ -1,0 +1,45 @@
+@font-face {
+  font-family: neon;
+  src: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/707108/neon.ttf);
+}
+/* Background Information */
+
+/* Nav Bar Logo */
+#brand-name,
+.glow,
+.name {
+  color: white;
+  font-family: neon;
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #ff0080, 0 0 30px #ff0080,
+    0 0 40px #ff0080, 0 0 55px #ff0080, 0 0 75px #ff0080;
+}
+.glow {
+  font-size: 15vw;
+}
+#subnav {
+  background-color: #505050;
+}
+body {
+  background-color: #aaaaaa;
+}
+h5 {
+  color: Black;
+  text-shadow: 1 1 1px black;
+  font-family: "Open Sans Condensed", sans-serif;
+}
+
+.top-buffer {
+  margin-top: 20px;
+}
+.moreInfo {
+  margin-top: 7px;
+}
+#randCard {
+  border: solid black 2px;
+  box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #ff0080;
+  background-color: #eaeaea;
+}
+#randImg {
+  width: 100px;
+  height: 100px;
+}

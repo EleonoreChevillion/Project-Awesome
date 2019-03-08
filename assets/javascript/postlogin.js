@@ -1,6 +1,4 @@
 $(document).ready(function() {
-  
-  
   randomEvents();
 
   //goes back to the random events and the quizz button
@@ -48,7 +46,7 @@ $(document).ready(function() {
     eventbriteApi(103);
   });
 
-//Zomato API using fetch to get zomato info, appends elements to apiDiv (name of restaurant - average cost - picture of the restaurant - button to go to the url)
+  //Zomato API using fetch to get zomato info, appends elements to apiDiv (name of restaurant - average cost - picture of the restaurant - button to go to the url)
   function zomatoApi() {
     fetch(
       "https://developers.zomato.com/api/v2.1/search?entity_id=280&entity_type=city",
@@ -140,7 +138,7 @@ $(document).ready(function() {
         // console.log(filtered);
         for (var i = 0; i < 10; i++) {
           var mainDiv = $("<div>");
-          mainDiv.addClass("col-md-3");
+          mainDiv.addClass("col-md-");
           console.log(results.events[i].url);
           var a = $("<h4>");
           a.text(results.events[i].name.text);
@@ -165,7 +163,7 @@ $(document).ready(function() {
   }
 
   //eventbrite API, gets random events
-function randomEvents() {
+  function randomEvents() {
     const instance = axios.create({
       headers: {
         get: {
@@ -173,7 +171,7 @@ function randomEvents() {
         }
       }
     });
-
+    // THIS IS THE RANDOMDIV
     instance
       .get(
         "https://www.eventbriteapi.com/v3/events/search/?location.address=newyork"
@@ -193,21 +191,23 @@ function randomEvents() {
         // console.log(filtered);
         for (var i = 0; i < 10; i++) {
           var mainDiv = $("<div>");
-          mainDiv.addClass("col-md-3");
+          mainDiv.addClass("col-md-2 text-center mr-3 ml-3 top-buffer");
+          $(mainDiv).attr("id", "randCard");
           // console.log(results.events[i].url);
-          var a = $("<h4>");
+          var a = $("<h5>");
           a.text(results.events[i].name.text);
           $(mainDiv).append(a);
 
           var articleImg = $("<img>");
           articleImg.attr("src", results.events[i].logo.original.url);
-          articleImg.attr("class", "card-img-top");
+          articleImg.attr("class", "card-img-top img-fluid");
+          $(articleImg).attr("id", "randImg");
           $(mainDiv).append(articleImg);
 
           var c = $("<button>");
-          c.addClass("btn btn-outline-info");
+          c.addClass("btn btn-secondary");
           c.addClass("moreInfo");
-          c.text("Get me tickets!");
+          c.text("I Want It!");
           $(mainDiv).append(c);
           $("#randomDiv").append(mainDiv);
           $(".moreInfo").on("click", function() {
@@ -217,34 +217,17 @@ function randomEvents() {
       });
   }
 
-  // foursquare();
-  // function foursquare(){
-    
-  //   // $.ajax({
-  //   //   type: "GET",
-  //   //   dataType: "jsonp",
-  //   //   cache: false,
-  //   //   url: 'https://api.foursquare.com/v2/venues/trending/' + '&client_id=RV0DYSYUJD1ZXHAY1LBBXQDQ2YNRBRMSAWR1BPHK54RKWHTQ&client_secret=OHAMSCG5X4TVLVHIHXNI2HS3YRSR4QKDQLOK1MWE42EV0NES',
-  //   // }).then(function(data) {
-  //   //   console.log(url);
-  //   // })
-  //   $.ajax({
-  //     type: "GET",
-  //     dataType: "jsonp",
-  //     cache: false,
-  //     url:"https://api.foursquare.com/v2/venues/trending&client_id=RV0DYSYUJD1ZXHAY1LBBXQDQ2YNRBRMSAWR1BPHK54RKWHTQ&client_secret=OHAMSCG5X4TVLVHIHXNI2HS3YRSR4QKDQLOK1MWE42EV0NES",
-      
-  //     // data: url +
-  //     //         '&client_id='+ "RV0DYSYUJD1ZXHAY1LBBXQDQ2YNRBRMSAWR1BPHK54RKWHTQ" +
-  //     //         '&client_secret='+ "OHAMSCG5X4TVLVHIHXNI2HS3YRSR4QKDQLOK1MWE42EV0NES" +
-  //     //         '&v=20140806' +
-  //     //         '&m=foursquare',
-      
-
-  //   }).then(function (data) {
-  //         var result = data.response.venue;
-  //         console.log(url);
-  //     })
-  // }
-
+  foursquare();
+  function foursquare() {
+    $.ajax({
+      type: "GET",
+      dataType: "jsonp",
+      cache: false,
+      url:
+        "https://api.foursquare.com/v2/venues/trending/" +
+        "?client_id=RV0DYSYUJD1ZXHAY1LBBXQDQ2YNRBRMSAWR1BPHK54RKWHTQ&client_secret=OHAMSCG5X4TVLVHIHXNI2HS3YRSR4QKDQLOK1MWE42EV0NES"
+    }).then(function(data) {
+      console.log(url);
+    });
+  }
 });

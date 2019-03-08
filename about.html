@@ -1,112 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="assets/css/reset.css" />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="assets/css/about.css" />
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
-      integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
-      crossorigin="anonymous"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Fugaz+One"
-      rel="stylesheet"
-    />
-    <title>SplashPage</title>
-  </head>
 
-  <body>
-    <!--Navbar Start-->
-    <nav class="navbar sticky-top navbar-light bg-dark">
-      <a class="navbar-brand" href="index.html">
-        <span id="brand-name">WerToGo</span>
-      </a>
-      <!--The gouping for the buttons-->
-      <div class="btn-group" role="group" aria-label="Basic example">
-        <a href="about.html"
-          ><button type="button" class="btn btn-outline-light mr-3">
-            About Us
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" href="assets/css/reset.css" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+  <link rel="stylesheet" href="assets/css/about.css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
+  <link href="https://fonts.googleapis.com/css?family=Fugaz+One" rel="stylesheet" />
+  <title>SplashPage</title>
+</head>
+
+<body>
+  <!--Navbar Start-->
+  <nav class="navbar sticky-top navbar-light bg-dark">
+    <a class="navbar-brand" href="index.html">
+      <span id="brand-name">WerToGo</span>
+    </a>
+    <!--The gouping for the buttons-->
+    <div class="btn-group" role="group" aria-label="Basic example">
+        <a><button type="button" class="btn btn-outline-light mr-3" id="home">
+            Home
           </button>
         </a>
-        <a href="login.html"
-          ><button type="button" class="btn btn-outline-light mr-3">
-            Sign Up
-          </button>
-        </a>
-      </div>
-    </nav>
-    <!--Navbar End-->
-    <!--Page Container-->
-    <div class="container">
-      <div class="row">
-        <div class="col col-lg-4 text-center justify-content-center">
-          <div class="profile">
-            <img
-              class="profilepic img-fluid"
-              src="assets/images/Eleonor.jpg"
-            />
-            <h2 class="name">Eleonore Chevillion</h2>
-          </div>
-        </div>
-        <div class="col col-lg-4 text-center justify-content-center">
-          <div class="profile">
-            <img
-              class="profilepic img-fluid"
-              src="assets/images/juan.jpg"
-            />
-            <h2 class="name">Juan Hernandez</h2>
-          </div>
-        </div>
-        <div class="col col-lg-4 text-center justify-content-center">
-          <div class="profile">
-            <img
-              class="profilepic img-fluid"
-              src="assets/images/profiletemp.png"
-            />
-            <h2 class="name">Jay Yum</h2>
-          </div>
+        
+      <!--Profile section for navbar-->
+      <div class="dropdown">
+        <button class="btn btn-outline-light mr-3 dropdown-toggle" type="button" id="dropdownMenu2"
+          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Account
+        </button>
+
+        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+          <button class="dropdown-item" type="button">Profile (COMING SOON)</button>
+          <button class="dropdown-item" type="button" id="logoutBtn">Logout</button>
+          <button class="dropdown-item" type="button">Badges (COMING SOON)</button>
         </div>
       </div>
-        <br />
-        <div class="row">
-          <div class="col col-lg-6">
-            <div class="profile text-center justify-content-center">
-              <img
-                class="profilepic img-fluid"
-                src="assets/images/profiletemp.png"
-              />
-              <h2 class="name">Ashley Arndt</h2>
-            </div>
-          </div>
-          <div class="col col-lg-6">
-            <div class="profile text-center justify-content-center">
-              <img
-                class="profilepic img-fluid"
-                src="assets/images/LinkedInHeadshop.jpeg"
-              />
-              <h2 class="name">Edwin Jaquez</h2>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!--Footer-->
-      <footer class="page-footer font-small fixed-bottom bg-dark">
-        <div class="footer-copyright text-white text-center py-3">
-          <i class="fab fa-instagram mr-5"></i>
-          <i class="fab fa-twitter mr-5"></i>
-          <i class="fab fa-facebook-f mr-5"></i>
-        </div>
-      </footer>
     </div>
-  </body>
+  </nav>
+  <!--Navbar End-->
+  <!--Page Container-->
+  <div class="container">
+    <div class="row">
+      <div class="col col-lg-4 text-center justify-content-center">
+        <div class="profile">
+          <img class="profilepic img-fluid" src="assets/images/Eleonor.jpg" />
+          <h2 class="name">Eleonore Chevillion</h2>
+        </div>
+      </div>
+      <div class="col col-lg-4 text-center justify-content-center">
+        <div class="profile">
+          <img class="profilepic img-fluid" src="assets/images/juan.jpg" />
+          <h2 class="name">Juan Hernandez</h2>
+        </div>
+      </div>
+      <div class="col col-lg-4 text-center justify-content-center">
+        <div class="profile">
+          <img class="profilepic img-fluid" src="assets/images/profiletemp.png" />
+          <h2 class="name">Jay Yum</h2>
+        </div>
+      </div>
+    </div>
+    <br />
+    <div class="row">
+      <div class="col col-lg-6">
+        <div class="profile text-center justify-content-center">
+          <img class="profilepic img-fluid" src="assets/images/profiletemp.png" />
+          <h2 class="name">Ashley Arndt</h2>
+        </div>
+      </div>
+      <div class="col col-lg-6">
+        <div class="profile text-center justify-content-center">
+          <img class="profilepic img-fluid" src="assets/images/LinkedInHeadshop.jpeg" />
+          <h2 class="name">Edwin Jaquez</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--Footer-->
+  <footer class="page-footer font-small fixed-bottom bg-dark">
+    <div class="footer-copyright text-white text-center py-3">
+      <i class="fab fa-instagram mr-5"></i>
+      <i class="fab fa-twitter mr-5"></i>
+      <i class="fab fa-facebook-f mr-5"></i>
+    </div>
+  </footer>
+  </div>
+  <!--Firebase CDN for built in UI-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!--Firebase authentication link-->
+    <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase.js"></script>
+    <!--Firebase CDN for built in UI-->
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+    <script src="assets/javascript/login.js"></script>
+</body>
+
 </html>
