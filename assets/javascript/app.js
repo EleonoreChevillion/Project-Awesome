@@ -51,13 +51,14 @@ var question3 = {
         "I’m basically Spiderman",
         "Let’s jump ship"
       ],
-      prop_2: ["Open up a book", "Look at pretty pictures", "Controlla", "Primping"],
+      prop_2: [
+        "Open up a book",
+        "Look at pretty pictures",
+        "Controlla",
+        "Primping"
+      ],
       prop_3: ["Classical", "Feelin jazzy", "Folk", "Reggae"],
-      prop_4: [
-        "Spa",
-        "Yoga",
-        "Surprise me",
-      ]
+      prop_4: ["Spa", "Yoga", "Surprise me"]
     }
   },
 
@@ -69,15 +70,14 @@ var question3 = {
       "Interested in..."
     ],
     answers: {
-      prop_1: [
-        "RAVE",
-        "Slap the bag",
-        "Headbang",
-        "SHOTS!",
-     
-      ],
+      prop_1: ["RAVE", "Slap the bag", "Headbang", "SHOTS!"],
       prop_2: ["Slam Dunk", "Slap Shot", "Homerun", "Touchdown"],
-      prop_3: ["Literally Jammin", "Alt Nation", "Don’t Stop Make It Pop", "Kanye All Day"],
+      prop_3: [
+        "Literally Jammin",
+        "Alt Nation",
+        "Don’t Stop Make It Pop",
+        "Kanye All Day"
+      ],
       prop_4: ["Loki super fun", "Cheesin", "NSFW", "Let’s fight about it"]
     }
   },
@@ -90,10 +90,25 @@ var question3 = {
       "Theater time!"
     ],
     answers: {
-      prop_1: ["Hold that note", "Where are the words?", "Seriously, where are the words?", "Mamma Mia!"],
-      prop_2: ["Luke, I am Your Father.", "Epix & Chill", "Black Swan", "I need a laugh"],
+      prop_1: [
+        "Hold that note",
+        "Where are the words?",
+        "Seriously, where are the words?",
+        "Mamma Mia!"
+      ],
+      prop_2: [
+        "Luke, I am Your Father.",
+        "Epix & Chill",
+        "Black Swan",
+        "I need a laugh"
+      ],
       prop_3: ["Let’s jump ship", "Nerdin out", "DIY", "1337"],
-      prop_4: ["The theatre has my heart", "Mamma Mia!", "I need a laugh", "I like to move it move it"]
+      prop_4: [
+        "The theatre has my heart",
+        "Mamma Mia!",
+        "I need a laugh",
+        "I like to move it move it"
+      ]
     }
   },
 
@@ -107,7 +122,15 @@ var question3 = {
     answers: {
       prop_1: ["Indian", "Mexican", "Moroccan", "Thai", "Caribbean"],
       prop_2: ["American", "Soul food", "BBQ", "Fast food", "Pizza", "Tex-Mex"],
-      prop_3: ["French", "Italian", "Spanish", "German", "British", "Fondue", "Eastern European"],
+      prop_3: [
+        "French",
+        "Italian",
+        "Spanish",
+        "German",
+        "British",
+        "Fondue",
+        "Eastern European"
+      ],
       prop_4: [
         "Chinese",
         "Thai",
@@ -116,7 +139,6 @@ var question3 = {
         "Korean",
         "Ramen",
         "Vietnamese"
-      
       ]
     }
   }
@@ -128,13 +150,14 @@ startQuestionnaire();
 // The questions are all appended to the element with id question
 // All questions are paragraphs but can definetly be changed to another element
 
-
-  $("#home").on("click", function() {
-    window.location = href = "././postlogin.html";
-  });
+$("#home").on("click", function() {
+  window.location = href = "././postlogin.html";
+});
 
 //first level of questions, does not append things to apiDiv
 function startQuestionnaire() {
+  $("#restart").css("display", "none");
+  $("#more").css("display", "none");
   $("#question").text(question1.question);
   var firstQuestion = question1.answers;
   for (var i = 0; i < firstQuestion.length; i++) {
@@ -150,6 +173,8 @@ function startQuestionnaire() {
 //second level of questions, does not append things to apiDiv
 function secondQuestion() {
   $(".startAnswers").on("click", function(event) {
+    $("#more").css("display", "none");
+    $("#restart").css("display", "flex");
     $("#answersDiv").empty();
     selectedAnswer = parseInt(event.currentTarget.dataset.index);
     if (selectedAnswer === 0) {
@@ -395,6 +420,7 @@ function thirdQuestions() {
 //this function gives each endpoint an API path
 function callApi() {
   $(".finalProp").on("click", function(event) {
+    $("#more").css("display", "flex");
     $("#apiDiv").empty();
     console.log("You clicked");
     secondAnswer = event.currentTarget.dataset.value;
@@ -407,51 +433,51 @@ function callApi() {
       eventbriteApi(9005);
     } else if (secondAnswer === "Let’s jump ship") {
       eventbriteApi(9006);
-    }else if (secondAnswer === "Open up a book") {
+    } else if (secondAnswer === "Open up a book") {
       eventbriteApi(19006);
-    }else if (secondAnswer === "Look at pretty pictures") {
+    } else if (secondAnswer === "Look at pretty pictures") {
       eventbriteApi(19004);
-    }else if (secondAnswer === "Controlla") {
+    } else if (secondAnswer === "Controlla") {
       eventbriteApi(19002);
-    }else if (secondAnswer === "Primping") {
+    } else if (secondAnswer === "Primping") {
       eventbriteApi(6004);
-    }else if (secondAnswer === "Classical") {
+    } else if (secondAnswer === "Classical") {
       eventbriteApi(3003);
-    }else if (secondAnswer === "Feelin jazzy") {
+    } else if (secondAnswer === "Feelin jazzy") {
       eventbriteApi(3002);
-    }else if (secondAnswer === "Folk") {
+    } else if (secondAnswer === "Folk") {
       eventbriteApi(3007);
-    }else if (secondAnswer === "Spa") {
+    } else if (secondAnswer === "Spa") {
       eventbriteApi(7004);
-    }else if (secondAnswer === "Yoga") {
+    } else if (secondAnswer === "Yoga") {
       eventbriteApi(7005);
-    }else if (secondAnswer === "Surprise me") {
+    } else if (secondAnswer === "Surprise me") {
       eventbriteApi(7999);
-    }else if (secondAnswer === "RAVE") {
+    } else if (secondAnswer === "RAVE") {
       eventbriteApi(3006);
-    }else if (secondAnswer === "Slap the bag") {
+    } else if (secondAnswer === "Slap the bag") {
       eventbriteApi(10002);
-    }else if (secondAnswer === "Headbang") {
+    } else if (secondAnswer === "Headbang") {
       eventbriteApi(3017);
-    }else if (secondAnswer === "SHOTS!") {
+    } else if (secondAnswer === "SHOTS!") {
       eventbriteApi(10004);
-    }else if (secondAnswer === "Slam Dunk") {
+    } else if (secondAnswer === "Slam Dunk") {
       eventbriteApi(8006);
-    }else if (secondAnswer === "Slap Shot") {
+    } else if (secondAnswer === "Slap Shot") {
       eventbriteApi(8014);
-    }else if (secondAnswer === "Homerun") {
+    } else if (secondAnswer === "Homerun") {
       eventbriteApi(8008);
-    }else if (secondAnswer === "Touchdown") {
+    } else if (secondAnswer === "Touchdown") {
       eventbriteApi(8007);
-    }else if (secondAnswer === "Literally Jammin") {
+    } else if (secondAnswer === "Literally Jammin") {
       eventbriteApi(3015);
-    }else if (secondAnswer === "Alt Nation") {
+    } else if (secondAnswer === "Alt Nation") {
       eventbriteApi(3001);
-    }else if (secondAnswer === "Don’t Stop Make It Pop") {
+    } else if (secondAnswer === "Don’t Stop Make It Pop") {
       eventbriteApi(3013);
-    }else if (secondAnswer === "Kanye All Day") {
+    } else if (secondAnswer === "Kanye All Day") {
       eventbriteApi(3008);
-    }else if (secondAnswer === "Loki super fun") {
+    } else if (secondAnswer === "Loki super fun") {
       eventbriteApi(19001);
     } else if (secondAnswer === "Cheesin") {
       eventbriteApi(19004);
@@ -459,36 +485,37 @@ function callApi() {
       eventbriteApi(4006);
     } else if (secondAnswer === "Let’s fight about it") {
       eventbriteApi(8016);
-    }else if (secondAnswer === "Hold that note") {
+    } else if (secondAnswer === "Hold that note") {
       eventbriteApi(5005);
-    }else if (secondAnswer === "Where are the words?") {
+    } else if (secondAnswer === "Where are the words?") {
       eventbriteApi(5006);
-    }else if (secondAnswer === "Seriously, where are the words?") {
+    } else if (secondAnswer === "Seriously, where are the words?") {
       eventbriteApi(3003);
-    }else if (secondAnswer === "Mamma Mia!") {
+    } else if (secondAnswer === "Mamma Mia!") {
       eventbriteApi(5002);
-    }else if (secondAnswer === "Luke, I am Your Father.") {
+    } else if (secondAnswer === "Luke, I am Your Father.") {
       eventbriteApi(4002);
-    }else if (secondAnswer === "Epix & Chill") {
+    } else if (secondAnswer === "Epix & Chill") {
       eventbriteApi(4001);
-    }else if (secondAnswer === "Black Swan") {
+    } else if (secondAnswer === "Black Swan") {
       eventbriteApi(5003);
-    }else if (secondAnswer === "I need a laugh") {
+    } else if (secondAnswer === "I need a laugh") {
       eventbriteApi(5010);
-    }else if (secondAnswer === "Nerdin out") {
+    } else if (secondAnswer === "Nerdin out") {
       eventbriteApi(4005);
-    }else if (secondAnswer === "DIY") {
+    } else if (secondAnswer === "DIY") {
       eventbriteApi(19003);
-    }else if (secondAnswer === "1337") {
+    } else if (secondAnswer === "1337") {
       eventbriteApi(19002);
-    }else if (secondAnswer === "The theatre has my heart") {
+    } else if (secondAnswer === "The theatre has my heart") {
       eventbriteApi(5001);
-    }else if (secondAnswer === "I like to move it move it") {
+    } else if (secondAnswer === "I like to move it move it") {
       eventbriteApi(5004);
     }
   });
   $(".foodProp").on("click", function(event) {
-      $("#apiDiv").empty();
+    $("#apiDiv").empty();
+    $("#more").css("display", "flex");
     finalAnswer = event.currentTarget.dataset.value;
     zomatoApi(finalAnswer);
   });
@@ -496,11 +523,11 @@ function callApi() {
 
 //eventbrite API using AXIOS to get eventbrite info, appends elements to apiDiv (title - picture of the event - button to go to the url)
 function eventbriteApi(q) {
-  // $("#answersDiv").empty();
-  // $("#question").empty();
+  $("#answersDiv").empty();
+  $("#question").empty();
   // //This resets the tryDiv so that it empties out before pulling
   // //in more info from the API
-  // $("#tryDiv").empty();
+  $("#apiDiv").empty();
   // var queryURL =
   //   "https://www.eventbriteapi.com/v3/events/search/?categories=103";
   const instance = axios.create({
@@ -529,34 +556,48 @@ function eventbriteApi(q) {
       //   }
       // });
       // console.log(filtered);
-      for (var i = 0; i < 4; i++) {
-        var mainDiv = $("<div>");
-        mainDiv.addClass("col-md-3");
-        console.log(results.events[i].url);
-        var a = $("<h4>");
-        a.text(results.events[i].name.text);
-        $(mainDiv).append(a);
+      var i = 0;
+      var m = 4;
+      loop();
+      $("#more").on("click", function(event) {
+        $("#apiDiv").empty();
+        i += 4;
+        m = i + 4;
+        loop();
+      });
+      function loop() {
+        for (i; i < m; i++) {
+          var mainDiv = $("<div>");
+          mainDiv.addClass("col-md-3");
+          console.log(results.events[i].url);
+          var a = $("<h4>");
+          a.text(results.events[i].name.text);
+          $(mainDiv).append(a);
 
-        var articleImg = $("<img>");
-        articleImg.attr("src", results.events[i].logo.original.url);
-        articleImg.attr("class", "card-img-top");
-        $(mainDiv).append(articleImg);
-        $("#apiDiv").append(mainDiv);
+          var articleImg = $("<img>");
+          articleImg.attr("src", results.events[i].logo.original.url);
+          articleImg.attr("class", "card-img-top");
+          $(mainDiv).append(articleImg);
+          $("#apiDiv").append(mainDiv);
 
-        var c = $("<button>");
-        c.addClass("btn btn-outline-info");
-        c.addClass("moreInfo");
-        c.text("Get me tickets!");
-        $(mainDiv).append(c);
-        $(".moreInfo").on("click", function() {
-          window.location = results.events[i].url;
-        });
+          var c = $("<button>");
+          c.addClass("btn btn-outline-info");
+          c.addClass("moreInfo");
+          c.text("Get me tickets!");
+          $(mainDiv).append(c);
+          $(".moreInfo").on("click", function() {
+            window.location = results.events[i].url;
+          });
+        }
       }
     });
 }
 
 //Zomato API using fetch to get zomato info, appends elements to apiDiv (name of restaurant - average cost - picture of the restaurant - button to go to the url)
 function zomatoApi(r) {
+  $("#answersDiv").empty();
+  $("#question").empty();
+  $("#apiDiv").empty();
   fetch(
     "https://developers.zomato.com/api/v2.1/search?entity_id=280&entity_type=city&q=" +
       r,
@@ -573,44 +614,56 @@ function zomatoApi(r) {
     .then(function(data) {
       console.log(data);
       var restaurants = data.restaurants;
-      for (var i = 0; i < 4; i++) {
-        console.log(restaurants[0].restaurant.name);
-        console.log(restaurants[0].restaurant.events_url);
-        console.log(restaurants[0].restaurant.average_cost_for_two);
-        console.log(restaurants[0].restaurant.location.locality);
 
-        var mainDiv = $("<div>");
-        mainDiv.addClass("col-md-3");
-        var restName = $("<h4>");
-        restName.text(restaurants[i].restaurant.name);
-        $(mainDiv).append(restName);
+      var i = 0;
+      var p = 4;
+      restloop();
+      $("#more").on("click", function(event) {
+        $("#apiDiv").empty();
+        i += 4;
+        p = i + 4;
+        restloop();
+      });
+      function restloop() {
+        for (i; i < p; i++) {
+          console.log(restaurants[0].restaurant.name);
+          console.log(restaurants[0].restaurant.events_url);
+          console.log(restaurants[0].restaurant.average_cost_for_two);
+          console.log(restaurants[0].restaurant.location.locality);
 
-        var restImg = $("<img>");
-        restImg.attr("src", restaurants[i].restaurant.featured_image);
-        restImg.attr("class", "card-img-top");
-        $(mainDiv).append(restImg);
+          var mainDiv = $("<div>");
+          mainDiv.addClass("col-md-3");
+          var restName = $("<h4>");
+          restName.text(restaurants[i].restaurant.name);
+          $(mainDiv).append(restName);
 
-        var restLocation = $("<p>");
-        restLocation.text(restaurants[i].restaurant.location.locality);
-        $(mainDiv).append(restLocation);
+          var restImg = $("<img>");
+          restImg.attr("src", restaurants[i].restaurant.featured_image);
+          restImg.attr("class", "card-img-top");
+          $(mainDiv).append(restImg);
 
-        var restPrice = $("<p>");
-        restPrice.text(
-          "Average cost for 2: $" +
-            restaurants[i].restaurant.average_cost_for_two
-        );
-        $(mainDiv).append(restPrice);
+          var restLocation = $("<p>");
+          restLocation.text(restaurants[i].restaurant.location.locality);
+          $(mainDiv).append(restLocation);
 
-        var restUrl = $("<button>");
-        restUrl.addClass("btn btn-outline-info");
-        restUrl.addClass("moreInfo");
-        restUrl.text("More Info!");
-        $(mainDiv).append(restUrl);
-        $(".moreInfo").on("click", function() {
-          window.location = restaurants[i].restaurant.events_url;
-        });
+          var restPrice = $("<p>");
+          restPrice.text(
+            "Average cost for 2: $" +
+              restaurants[i].restaurant.average_cost_for_two
+          );
+          $(mainDiv).append(restPrice);
 
-        $("#apiDiv").append(mainDiv);
+          var restUrl = $("<button>");
+          restUrl.addClass("btn btn-outline-info");
+          restUrl.addClass("moreInfo");
+          restUrl.text("More Info!");
+          $(mainDiv).append(restUrl);
+          $(".moreInfo").on("click", function() {
+            window.location = restaurants[i].restaurant.events_url;
+          });
+
+          $("#apiDiv").append(mainDiv);
+        }
       }
     });
 }

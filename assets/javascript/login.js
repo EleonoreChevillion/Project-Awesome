@@ -10,6 +10,7 @@ var config = {
   storageBucket: "project-awesome-jaeje.appspot.com",
   messagingSenderId: "741517517090"
 };
+
 firebase.initializeApp(config);
 
 app_fireBase = firebase;
@@ -60,25 +61,38 @@ ui.start("#firebaseui-auth-container", uiConfig);
 
 var mainApp = {};
 
-(function() {
+// (function() {
   var firebase = app_fireBase;
   var uid = null;
   firebase.auth().onAuthStateChanged(function(user) {
     if (user && !window.location.href.includes("login.html")) {
-      // User  is signed in.
-      $("#logout").show();
+      // User  is signed in
+      $("#loginBtn").hide();
+
     } else if (!window.location.href.includes("login.html")) {
       window.location.replace("login.html");
-      $("#logout").hide();
+      $("#logoutBtn").hide();
     }
   });
 
-  mainApp.logOut = logOut;
-})();
-function logOut() {
-  firebase.auth().signOut();
-  window.location.replace("login.html");
-  console.log("I AM FUCKING WORKING!");
-}
+  
 
-$("#logout").on("Click", logOut);
+// })();
+
+//logout function
+
+//logout functionality 
+$("#logoutBtn").on("click", function(){
+  alert("YOU ARE LOGGING OUT");
+  firebase.auth().signOut().then(function() {
+      // Sign-out successful.
+      window.location.replace("login.html");
+      console.log("I AM FUCKING WORKING!");
+    }, function(error) {
+      // An error happened.
+    });
+
+});
+
+
+
