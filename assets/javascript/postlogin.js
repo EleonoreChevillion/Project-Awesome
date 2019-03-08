@@ -1,6 +1,4 @@
 $(document).ready(function() {
-  
-  
   randomEvents();
 
   //goes back to the random events and the quizz button
@@ -48,7 +46,7 @@ $(document).ready(function() {
     eventbriteApi(103);
   });
 
-//Zomato API using fetch to get zomato info, appends elements to apiDiv (name of restaurant - average cost - picture of the restaurant - button to go to the url)
+  //Zomato API using fetch to get zomato info, appends elements to apiDiv (name of restaurant - average cost - picture of the restaurant - button to go to the url)
   function zomatoApi() {
     fetch(
       "https://developers.zomato.com/api/v2.1/search?entity_id=280&entity_type=city",
@@ -165,7 +163,7 @@ $(document).ready(function() {
   }
 
   //eventbrite API, gets random events
-function randomEvents() {
+  function randomEvents() {
     const instance = axios.create({
       headers: {
         get: {
@@ -218,15 +216,40 @@ function randomEvents() {
   }
 
   foursquare();
-  function foursquare(){
+  function foursquare() {
+    fetch(
+      "https://api.foursquare.com/v2/venues/trending?client_id=RV0DYSYUJD1ZXHAY1LBBXQDQ2YNRBRMSAWR1BPHK54RKWHTQ&client_secret=OHAMSCG5X4TVLVHIHXNI2HS3YRSR4QKDQLOK1MWE42EV0NES&v=20180323&ll=40.7243,-74.0018"
+    )
+      .then(function(response) {
+        console.log("RESPONSE", response);
+        return response.json();
+      })
+      .then(function(data) {
+        console.log("DATA", data);
+        // var results = response.venues;
+        // for (var i = 0; i < 10; i++) {
+        //   var mainDiv = $("<div>");
+        //   mainDiv.addClass("col-md-3");
+        //   // console.log(results.events[i].url);
+        //   var a = $("<h4>");
+        //   a.text(results.events[i].name.text);
+        //   $(mainDiv).append(a);
 
-    $.ajax({
-      type: "GET",
-      dataType: "jsonp",
-      cache: false,
-      url: 'https://api.foursquare.com/v2/venues/trending/' + '?client_id=RV0DYSYUJD1ZXHAY1LBBXQDQ2YNRBRMSAWR1BPHK54RKWHTQ&client_secret=OHAMSCG5X4TVLVHIHXNI2HS3YRSR4QKDQLOK1MWE42EV0NES',
-    }).then(function(data) {
-      console.log(url);
-    })
+        //   var articleImg = $("<img>");
+        //   articleImg.attr("src", results.events[i].logo.original.url);
+        //   articleImg.attr("class", "card-img-top");
+        //   $(mainDiv).append(articleImg);
+
+        // var c = $("<button>");
+        // c.addClass("btn btn-outline-info");
+        // c.addClass("moreInfo");
+        // c.text("Get me tickets!");
+        // $(mainDiv).append(c);
+        // $("#randomDiv").append(mainDiv);
+        // $(".moreInfo").on("click", function() {
+        //   window.location = results.events[i].url;
+        // });
+        // }
+      });
   }
 });
