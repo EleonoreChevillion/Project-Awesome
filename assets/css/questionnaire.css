@@ -1,0 +1,9 @@
+.answers {
+    position: relative;
+    display: block;
+    padding: .75rem 1.25rem;
+    background-color: lightgrey;
+    border-color: lightgrey;
+    color: black;
+    width: 50%;
+}

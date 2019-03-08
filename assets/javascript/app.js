@@ -161,10 +161,12 @@ function startQuestionnaire() {
   $("#question").text(question1.question);
   var firstQuestion = question1.answers;
   for (var i = 0; i < firstQuestion.length; i++) {
-    var answersDisplay = $("<p/>");
+    var answersDisplay = $("<button/>");
+    // var answersbutton = $("<label/>");
     answersDisplay.attr("data-index", [i]);
     answersDisplay.text(firstQuestion[i]);
-    answersDisplay.addClass("startAnswers answers");
+    // answersDisplay.text(firstQuestion[i]);
+    answersDisplay.addClass("startAnswers answers btn btn-secondary btn-lg btn-block");
     $("#answersDiv").append(answersDisplay);
   }
   secondQuestion();
@@ -181,9 +183,9 @@ function secondQuestion() {
       $("#question").text(question2.question[0]);
       var activity1 = question2.answers.activity1;
       for (var j = 0; j < activity1.length; j++) {
-        var activity1_answers = $("<p/>");
+        var activity1_answers = $("<button/>");
         activity1_answers.attr("data-index", [j]);
-        activity1_answers.addClass("firstActAnswers answers");
+        activity1_answers.addClass("firstActAnswers answers btn btn-secondary btn-lg btn-block");
         activity1_answers.text(activity1[j]);
         $("#answersDiv").append(activity1_answers);
       }
@@ -191,9 +193,9 @@ function secondQuestion() {
       $("#question").text(question2.question[1]);
       var activity2 = question2.answers.activity2;
       for (var h = 0; h < activity2.length; h++) {
-        var activity2_answers = $("<p/>");
+        var activity2_answers = $("<button/>");
         activity2_answers.attr("data-index", [h]);
-        activity2_answers.addClass("secondActAnswers answers");
+        activity2_answers.addClass("secondActAnswers answers btn btn-secondary btn-lg btn-block");
         activity2_answers.text(activity2[h]);
         $("#answersDiv").append(activity2_answers);
       }
@@ -201,9 +203,9 @@ function secondQuestion() {
       $("#question").text(question2.question[2]);
       var activity3 = question2.answers.activity3;
       for (var k = 0; k < activity3.length; k++) {
-        var activity3_answers = $("<p/>");
+        var activity3_answers = $("<button/>");
         activity3_answers.attr("data-index", [k]);
-        activity3_answers.addClass("thirdActAnswers answers");
+        activity3_answers.addClass("thirdActAnswers answers btn btn-secondary btn-lg btn-block");
         activity3_answers.text(activity3[k]);
         $("#answersDiv").append(activity3_answers);
       }
@@ -211,9 +213,9 @@ function secondQuestion() {
       $("#question").text(question2.question[3]);
       var activity4 = question2.answers.activity4;
       for (var l = 0; l < activity4.length; l++) {
-        var activity4_answers = $("<p/>");
+        var activity4_answers = $("<button/>");
         activity4_answers.attr("data-index", [l]);
-        activity4_answers.addClass("fourthActAnswers answers");
+        activity4_answers.addClass("fourthActAnswers answers btn btn-secondary btn-lg btn-block");
         activity4_answers.text(activity4[l]);
         $("#answersDiv").append(activity4_answers);
       }
@@ -232,9 +234,9 @@ function thirdQuestions() {
       $("#question").text(question3.activity1.question[0]);
       var prop1 = question3.activity1.answers.prop_1;
       for (var i = 0; i < prop1.length; i++) {
-        var prop1_answers = $("<p/>");
-        prop1_answers.attr("data-value", prop1[i]);
-        prop1_answers.addClass("finalProp answers");
+        var prop1_answers = $("<button/>");
+        prop1_answers.attr("data-textue", prop1[i]);
+        prop1_answers.addClass("finalProp answers btn btn-secondary btn-lg btn-block");
         prop1_answers.text(prop1[i]);
         $("#answersDiv").append(prop1_answers);
       }
@@ -242,9 +244,9 @@ function thirdQuestions() {
       $("#question").text(question3.activity1.question[1]);
       var prop2 = question3.activity1.answers.prop_2;
       for (var h = 0; h < prop2.length; h++) {
-        var prop2_answers = $("<p/>");
-        prop2_answers.attr("data-value", prop2[h]);
-        prop2_answers.addClass("finalProp answers");
+        var prop2_answers = $("<button/>");
+        prop2_answers.attr("data-textue", prop2[h]);
+        prop2_answers.addClass("finalProp answers btn btn-secondary btn-lg btn-block");
         prop2_answers.text(prop2[h]);
         $("#answersDiv").append(prop2_answers);
       }
@@ -252,9 +254,9 @@ function thirdQuestions() {
       $("#question").text(question3.activity1.question[2]);
       var prop3 = question3.activity1.answers.prop_3;
       for (var k = 0; k < prop3.length; k++) {
-        var prop3_answers = $("<p/>");
-        prop3_answers.attr("data-value", prop3[k]);
-        prop3_answers.addClass("finalProp answers");
+        var prop3_answers = $("<button/>");
+        prop3_answers.attr("data-textue", prop3[k]);
+        prop3_answers.addClass("finalProp answers btn btn-secondary btn-lg btn-block");
         prop3_answers.text(prop3[k]);
         $("#answersDiv").append(prop3_answers);
       }
@@ -262,9 +264,9 @@ function thirdQuestions() {
       $("#question").text(question3.activity1.question[3]);
       var prop4 = question3.activity1.answers.prop_4;
       for (var l = 0; l < prop4.length; l++) {
-        var prop4_answers = $("<p/>");
-        prop4_answers.attr("data-value", prop4[l]);
-        prop4_answers.addClass("finalProp answers");
+        var prop4_answers = $("<button/>");
+        prop4_answers.attr("data-textue", prop4[l]);
+        prop4_answers.addClass("finalProp answers btn btn-secondary btn-lg btn-block");
         prop4_answers.text(prop4[l]);
         $("#answersDiv").append(prop4_answers);
       }
@@ -280,9 +282,9 @@ function thirdQuestions() {
       $("#question").text(question3.activity2.question[0]);
       var prop1 = question3.activity2.answers.prop_1;
       for (var i = 0; i < prop1.length; i++) {
-        var prop1_answers = $("<p/>");
-        prop1_answers.attr("data-value", prop1[i]);
-        prop1_answers.addClass("finalProp answers");
+        var prop1_answers = $("<button/>");
+        prop1_answers.attr("data-textue", prop1[i]);
+        prop1_answers.addClass("finalProp answers btn btn-secondary btn-lg btn-block");
         prop1_answers.text(prop1[i]);
         $("#answersDiv").append(prop1_answers);
       }
@@ -290,9 +292,9 @@ function thirdQuestions() {
       $("#question").text(question3.activity2.question[1]);
       var prop2 = question3.activity2.answers.prop_2;
       for (var h = 0; h < prop2.length; h++) {
-        var prop2_answers = $("<p/>");
-        prop2_answers.attr("data-value", prop2[h]);
-        prop2_answers.addClass("foodProp answers");
+        var prop2_answers = $("<button/>");
+        prop2_answers.attr("data-textue", prop2[h]);
+        prop2_answers.addClass("foodProp answers btn btn-secondary btn-lg btn-block");
         prop2_answers.text(prop2[h]);
         $("#answersDiv").append(prop2_answers);
       }
@@ -300,9 +302,9 @@ function thirdQuestions() {
       $("#question").text(question3.activity2.question[2]);
       var prop3 = question3.activity2.answers.prop_3;
       for (var k = 0; k < prop3.length; k++) {
-        var prop3_answers = $("<p/>");
-        prop3_answers.attr("data-value", prop3[k]);
-        prop3_answers.addClass("finalProp answers");
+        var prop3_answers = $("<button/>");
+        prop3_answers.attr("data-textue", prop3[k]);
+        prop3_answers.addClass("finalProp answers btn btn-secondary btn-lg btn-block");
         prop3_answers.text(prop3[k]);
         $("#answersDiv").append(prop3_answers);
       }
@@ -310,9 +312,9 @@ function thirdQuestions() {
       $("#question").text(question3.activity2.question[3]);
       var prop4 = question3.activity2.answers.prop_4;
       for (var l = 0; l < prop4.length; l++) {
-        var prop4_answers = $("<p/>");
-        prop4_answers.attr("data-value", prop4[l]);
-        prop4_answers.addClass("finalProp answers");
+        var prop4_answers = $("<button/>");
+        prop4_answers.attr("data-textue", prop4[l]);
+        prop4_answers.addClass("finalProp answers btn btn-secondary btn-lg btn-block");
         prop4_answers.text(prop4[l]);
         $("#answersDiv").append(prop4_answers);
       }
@@ -328,9 +330,9 @@ function thirdQuestions() {
       $("#question").text(question3.activity3.question[0]);
       var prop1 = question3.activity3.answers.prop_1;
       for (var i = 0; i < prop1.length; i++) {
-        var prop1_answers = $("<p/>");
-        prop1_answers.attr("data-value", prop1[i]);
-        prop1_answers.addClass("finalProp answers");
+        var prop1_answers = $("<button/>");
+        prop1_answers.attr("data-textue", prop1[i]);
+        prop1_answers.addClass("finalProp answers btn btn-secondary btn-lg btn-block");
         prop1_answers.text(prop1[i]);
         $("#answersDiv").append(prop1_answers);
       }
@@ -338,9 +340,9 @@ function thirdQuestions() {
       $("#question").text(question3.activity3.question[1]);
       var prop2 = question3.activity3.answers.prop_2;
       for (var h = 0; h < prop2.length; h++) {
-        var prop2_answers = $("<p/>");
-        prop2_answers.attr("data-value", prop2[h]);
-        prop2_answers.addClass("finalProp answers");
+        var prop2_answers = $("<button/>");
+        prop2_answers.attr("data-textue", prop2[h]);
+        prop2_answers.addClass("finalProp answers btn btn-secondary btn-lg btn-block");
         prop2_answers.text(prop2[h]);
         $("#answersDiv").append(prop2_answers);
       }
@@ -348,9 +350,9 @@ function thirdQuestions() {
       $("#question").text(question3.activity3.question[2]);
       var prop3 = question3.activity3.answers.prop_3;
       for (var k = 0; k < prop3.length; k++) {
-        var prop3_answers = $("<p/>");
-        prop3_answers.attr("data-value", prop3[k]);
-        prop3_answers.addClass("finalProp answers");
+        var prop3_answers = $("<button/>");
+        prop3_answers.attr("data-textue", prop3[k]);
+        prop3_answers.addClass("finalProp answers btn btn-secondary btn-lg btn-block");
         prop3_answers.text(prop3[k]);
         $("#answersDiv").append(prop3_answers);
       }
@@ -358,9 +360,9 @@ function thirdQuestions() {
       $("#question").text(question3.activity3.question[3]);
       var prop4 = question3.activity3.answers.prop_4;
       for (var l = 0; l < prop4.length; l++) {
-        var prop4_answers = $("<p/>");
-        prop4_answers.attr("data-value", prop4[l]);
-        prop4_answers.addClass("finalProp answers");
+        var prop4_answers = $("<button/>");
+        prop4_answers.attr("data-textue", prop4[l]);
+        prop4_answers.addClass("finalProp answers btn btn-secondary btn-lg btn-block");
         prop4_answers.text(prop4[l]);
         $("#answersDiv").append(prop4_answers);
       }
@@ -376,9 +378,9 @@ function thirdQuestions() {
       $("#question").text(question3.activity4.question[0]);
       var prop1 = question3.activity4.answers.prop_1;
       for (var i = 0; i < prop1.length; i++) {
-        var prop1_answers = $("<p/>");
-        prop1_answers.attr("data-value", prop1[i]);
-        prop1_answers.addClass("foodProp answers");
+        var prop1_answers = $("<button/>");
+        prop1_answers.attr("data-textue", prop1[i]);
+        prop1_answers.addClass("foodProp answers btn btn-secondary btn-lg btn-block");
         prop1_answers.text(prop1[i]);
         $("#answersDiv").append(prop1_answers);
       }
@@ -386,9 +388,9 @@ function thirdQuestions() {
       $("#question").text(question3.activity4.question[1]);
       var prop2 = question3.activity4.answers.prop_2;
       for (var h = 0; h < prop2.length; h++) {
-        var prop2_answers = $("<p/>");
-        prop2_answers.attr("data-value", prop2[h]);
-        prop2_answers.addClass("foodProp answers");
+        var prop2_answers = $("<button/>");
+        prop2_answers.attr("data-textue", prop2[h]);
+        prop2_answers.addClass("foodProp answers btn btn-secondary btn-lg btn-block");
         prop2_answers.text(prop2[h]);
         $("#answersDiv").append(prop2_answers);
       }
@@ -396,9 +398,9 @@ function thirdQuestions() {
       $("#question").text(question3.activity4.question[2]);
       var prop3 = question3.activity4.answers.prop_3;
       for (var k = 0; k < prop3.length; k++) {
-        var prop3_answers = $("<p/>");
-        prop3_answers.attr("data-value", prop3[k]);
-        prop3_answers.addClass("foodProp answers");
+        var prop3_answers = $("<button/>");
+        prop3_answers.attr("data-textue", prop3[k]);
+        prop3_answers.addClass("foodProp answers btn btn-secondary btn-lg btn-block");
         prop3_answers.text(prop3[k]);
         $("#answersDiv").append(prop3_answers);
       }
@@ -406,9 +408,9 @@ function thirdQuestions() {
       $("#question").text(question3.activity4.question[3]);
       var prop4 = question3.activity4.answers.prop_4;
       for (var l = 0; l < prop4.length; l++) {
-        var prop4_answers = $("<p/>");
-        prop4_answers.attr("data-value", prop4[l]);
-        prop4_answers.addClass("foodProp answers");
+        var prop4_answers = $("<button/>");
+        prop4_answers.attr("data-textue", prop4[l]);
+        prop4_answers.addClass("foodProp answers btn btn-secondary btn-lg btn-block");
         prop4_answers.text(prop4[l]);
         $("#answersDiv").append(prop4_answers);
       }
@@ -423,7 +425,7 @@ function callApi() {
     $("#more").css("display", "flex");
     $("#apiDiv").empty();
     console.log("You clicked");
-    secondAnswer = event.currentTarget.dataset.value;
+    secondAnswer = event.currentTarget.dataset.textue;
     console.log(secondAnswer);
     if (secondAnswer === "Adventure!") {
       eventbriteApi(9001);
@@ -516,7 +518,7 @@ function callApi() {
   $(".foodProp").on("click", function(event) {
     $("#apiDiv").empty();
     $("#more").css("display", "flex");
-    finalAnswer = event.currentTarget.dataset.value;
+    finalAnswer = event.currentTarget.dataset.textue;
     zomatoApi(finalAnswer);
   });
 }
