@@ -19,3 +19,27 @@
 #subnav {
   background-color: #505050;
 }
+body {
+  background-color: #aaaaaa;
+}
+h5 {
+  color: Black;
+  text-shadow: 0 0 5px black, 0 0 10px white;
+  font-family: "Open Sans Condensed", sans-serif;
+}
+
+.top-buffer {
+  margin-top: 20px;
+}
+.moreInfo {
+  margin-top: 7px;
+}
+#randCard {
+  border: solid black 2px;
+  box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #ff0080, 0 0 30px #ff0080;
+  background-color: #eaeaea;
+}
+#randImg {
+  width: 100px;
+  height: 100px;
+}
