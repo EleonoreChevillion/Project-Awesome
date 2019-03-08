@@ -410,11 +410,11 @@ function callApi() {
 
 //eventbrite API using AXIOS to get eventbrite info
 function eventbriteApi(q) {
-  // $("#answersDiv").empty();
-  // $("#question").empty();
+  $("#answersDiv").empty();
+  $("#question").empty();
   // //This resets the tryDiv so that it empties out before pulling
   // //in more info from the API
-  // $("#tryDiv").empty();
+  $("#apiDiv").empty();
   // var queryURL =
   //   "https://www.eventbriteapi.com/v3/events/search/?categories=103";
   const instance = axios.create({
