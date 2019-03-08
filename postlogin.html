@@ -32,11 +32,23 @@
             Sign Up
           </button>
         </a>
+        <!--Profile section for navbar-->
+        <div class="dropdown">
+          <button class="btn btn-outline-light mr-3 dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Account
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+            <button class="dropdown-item" type="button" id="logoutBtn">Profile (COMING SOON)</button>
+            <button class="dropdown-item" type="button">Logout</button>
+            <button class="dropdown-item" type="button">Badges (COMING SOON)</button>
+          </div>
+        </div>
       </div>
     </nav>
     <!--Navbar End-->
+
     <!--Secondary Navigation bar-->
-  <nav id="subnav" class="navbar sticky-top">
+  <nav id="subnav" class="navbar">
     <!--The gouping for the buttons-->
     <div class="btn-group" role="group" aria-label="Basic example">
         <a><button type="button" class="btn btn-outline-light mr-3" id="music">
@@ -62,11 +74,15 @@
       </button>
       
     </a>
+
+    
+
     </div>
     
   </nav>
   
-  <!--Navbar End-->
+  <!--Second Navbar End-->
+  
   <!--Page Container-->
   <div class="container">
     <!--Row containing Page-->
@@ -95,7 +111,10 @@
       </footer>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="assets/javascript/postlogin.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase.js"></script>
+<!--Firebase CDN for built in UI-->
+<script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+    <script src="assets/javascript/login.js"></script>
     <script src="assets/javascript/api.js"></script>
     <!-- <script
       src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
@@ -107,6 +126,7 @@
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"
     ></script>
+    <!-- <script src="assets/javascript/login.js"></script> -->
 </body>
 
 </html>
