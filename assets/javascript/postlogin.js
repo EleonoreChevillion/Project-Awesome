@@ -217,16 +217,34 @@ function randomEvents() {
       });
   }
 
-  foursquare();
-  function foursquare(){
+  // foursquare();
+  // function foursquare(){
+    
+  //   // $.ajax({
+  //   //   type: "GET",
+  //   //   dataType: "jsonp",
+  //   //   cache: false,
+  //   //   url: 'https://api.foursquare.com/v2/venues/trending/' + '&client_id=RV0DYSYUJD1ZXHAY1LBBXQDQ2YNRBRMSAWR1BPHK54RKWHTQ&client_secret=OHAMSCG5X4TVLVHIHXNI2HS3YRSR4QKDQLOK1MWE42EV0NES',
+  //   // }).then(function(data) {
+  //   //   console.log(url);
+  //   // })
+  //   $.ajax({
+  //     type: "GET",
+  //     dataType: "jsonp",
+  //     cache: false,
+  //     url:"https://api.foursquare.com/v2/venues/trending&client_id=RV0DYSYUJD1ZXHAY1LBBXQDQ2YNRBRMSAWR1BPHK54RKWHTQ&client_secret=OHAMSCG5X4TVLVHIHXNI2HS3YRSR4QKDQLOK1MWE42EV0NES",
+      
+  //     // data: url +
+  //     //         '&client_id='+ "RV0DYSYUJD1ZXHAY1LBBXQDQ2YNRBRMSAWR1BPHK54RKWHTQ" +
+  //     //         '&client_secret='+ "OHAMSCG5X4TVLVHIHXNI2HS3YRSR4QKDQLOK1MWE42EV0NES" +
+  //     //         '&v=20140806' +
+  //     //         '&m=foursquare',
+      
 
-    $.ajax({
-      type: "GET",
-      dataType: "jsonp",
-      cache: false,
-      url: 'https://api.foursquare.com/v2/venues/trending/' + '?client_id=RV0DYSYUJD1ZXHAY1LBBXQDQ2YNRBRMSAWR1BPHK54RKWHTQ&client_secret=OHAMSCG5X4TVLVHIHXNI2HS3YRSR4QKDQLOK1MWE42EV0NES',
-    }).then(function(data) {
-      console.log(url);
-    })
-  }
+  //   }).then(function (data) {
+  //         var result = data.response.venue;
+  //         console.log(url);
+  //     })
+  // }
+
 });
