@@ -145,9 +145,6 @@ var question3 = {
 };
 
 startQuestionnaire();
-
-
-
 //STYLING//
 // All answers elements have a class of answers
 // The questions are all appended to the element with id question
@@ -172,21 +169,12 @@ function startQuestionnaire() {
     answersDisplay.addClass("startAnswers answers btn btn-secondary btn-lg btn-block");
     $("#answersDiv").append(answersDisplay);
   }
- 
   secondQuestion();
-  
 }
 
 //second level of questions, does not append things to apiDiv
 function secondQuestion() {
-  
- 
   $(".startAnswers").on("click", function(event) {
-  //   if (!$(this).hasClass("animated bounceOutRight")){
-  //     $(this).removeClass("animated bounceOutRight");
-  // } else {
-  //     $(this).addClass("animated bounceOutRight");
-  // }
     $("#more").css("display", "none");
     $("#restart").css("display", "flex");
     $("#answersDiv").empty();
@@ -240,7 +228,6 @@ function secondQuestion() {
 function thirdQuestions() {
   //first set of questions that append to tryDiv
   $(".firstActAnswers").on("click", function(event) {
-    
     $("#answersDiv").empty();
     selectedAnswer = parseInt(event.currentTarget.dataset.index);
     if (selectedAnswer === 0) {
@@ -307,7 +294,7 @@ function thirdQuestions() {
       for (var h = 0; h < prop2.length; h++) {
         var prop2_answers = $("<button/>");
         prop2_answers.attr("data-textue", prop2[h]);
-        prop2_answers.addClass("finalProp answers btn btn-secondary btn-lg btn-block");
+        prop2_answers.addClass("foodProp answers btn btn-secondary btn-lg btn-block");
         prop2_answers.text(prop2[h]);
         $("#answersDiv").append(prop2_answers);
       }
@@ -561,8 +548,7 @@ function eventbriteApi(q) {
     )
 
     .then(function(result) {
-     
-        console.log(result.data);
+      console.log(result.data);
       var results = result.data;
       console.log(results.events[0].url);
       console.log(results.length);
@@ -573,21 +559,12 @@ function eventbriteApi(q) {
       // });
       // console.log(filtered);
       var i = 0;
-      var m;
-      if (m>results.events.length){
-        m = results.events.length;
-      } else {
-        m = 4
-      }
+      var m = 4;
       loop();
       $("#more").on("click", function(event) {
-        if (m>results.events.length){
-          m = results.events.length;
-        } else {
         $("#apiDiv").empty();
         i += 4;
         m = i + 4;
-        }
         loop();
       });
       function loop() {
@@ -615,9 +592,6 @@ function eventbriteApi(q) {
           });
         }
       }
-      
-
-       
     });
 }
 
@@ -647,7 +621,6 @@ function zomatoApi(r) {
       var p = 4;
       restloop();
       $("#more").on("click", function(event) {
-        event.preventDefault();
         $("#apiDiv").empty();
         i += 4;
         p = i + 4;
@@ -703,5 +676,3 @@ $("#restart").on("click", function(event) {
   $("#question").empty();
   startQuestionnaire();
 });
-
-
