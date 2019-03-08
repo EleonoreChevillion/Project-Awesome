@@ -24,7 +24,7 @@ body {
 }
 h5 {
   color: Black;
-  text-shadow: 0 0 5px black, 0 0 10px white;
+  text-shadow: 1 1 1px black;
   font-family: "Open Sans Condensed", sans-serif;
 }
 
@@ -36,7 +36,7 @@ h5 {
 }
 #randCard {
   border: solid black 2px;
-  box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #ff0080, 0 0 30px #ff0080;
+  box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #ff0080;
   background-color: #eaeaea;
 }
 #randImg {
