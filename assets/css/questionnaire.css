@@ -15,8 +15,7 @@
 } */
 
 #brand-name,
-.glow,
-.name {
+.glow {
   color: white;
   font-family: neon;
   text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #ff0080, 0 0 30px #ff0080,
@@ -24,6 +23,9 @@
 }
 .glow {
   font-size: 15vw;
+  /* CSS Animation for Banner */
+  -webkit-animation: flicker-in-1 2s linear both;
+  animation: flicker-in-1 2s linear both;
 }
 
 body {

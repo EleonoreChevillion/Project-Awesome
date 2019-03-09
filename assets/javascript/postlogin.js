@@ -71,7 +71,8 @@ $(document).ready(function() {
 
           var mainDiv = $("<div>");
           mainDiv.addClass("col-md-3");
-          var restName = $("<h4>");
+          $(mainDiv).attr("id", "randCard");
+          var restName = $("<h5>");
           restName.text(restaurants[i].restaurant.name);
           $(mainDiv).append(restName);
 
@@ -92,7 +93,7 @@ $(document).ready(function() {
           $(mainDiv).append(restPrice);
 
           var restUrl = $("<button>");
-          restUrl.addClass("btn btn-outline-info");
+          restUrl.addClass("btn btn-dark");
           restUrl.addClass("moreInfo");
           restUrl.text("More Info!");
           $(mainDiv).append(restUrl);
@@ -138,20 +139,21 @@ $(document).ready(function() {
         // console.log(filtered);
         for (var i = 0; i < 10; i++) {
           var mainDiv = $("<div>");
-          mainDiv.addClass("col-md-");
+          mainDiv.addClass("col-md-3");
+          $(mainDiv).attr("id", "randCard");
           console.log(results.events[i].url);
-          var a = $("<h4>");
+          var a = $("<h5>");
           a.text(results.events[i].name.text);
           $(mainDiv).append(a);
 
           var articleImg = $("<img>");
           articleImg.attr("src", results.events[i].logo.original.url);
-          articleImg.attr("class", "card-img-top");
+          articleImg.attr("class", "card-img-top img-fluid");
           $(mainDiv).append(articleImg);
           $("#apiDiv").append(mainDiv);
 
           var c = $("<button>");
-          c.addClass("btn btn-outline-info");
+          c.addClass("btn btn-dark");
           c.addClass("moreInfo");
           c.text("Get me tickets!");
           $(mainDiv).append(c);
@@ -217,17 +219,17 @@ $(document).ready(function() {
       });
   }
 
-  foursquare();
-  function foursquare() {
-    $.ajax({
-      type: "GET",
-      dataType: "jsonp",
-      cache: false,
-      url:
-        "https://api.foursquare.com/v2/venues/trending/" +
-        "?client_id=RV0DYSYUJD1ZXHAY1LBBXQDQ2YNRBRMSAWR1BPHK54RKWHTQ&client_secret=OHAMSCG5X4TVLVHIHXNI2HS3YRSR4QKDQLOK1MWE42EV0NES"
-    }).then(function(data) {
-      console.log(url);
-    });
-  }
+  // foursquare();
+  // function foursquare() {
+  //   $.ajax({
+  //     type: "GET",
+  //     dataType: "jsonp",
+  //     cache: false,
+  //     url:
+  //       "https://api.foursquare.com/v2/venues/trending/" +
+  //       "?client_id=RV0DYSYUJD1ZXHAY1LBBXQDQ2YNRBRMSAWR1BPHK54RKWHTQ&client_secret=OHAMSCG5X4TVLVHIHXNI2HS3YRSR4QKDQLOK1MWE42EV0NES"
+  //   }).then(function(data) {
+  //     console.log(url);
+  //   });
+  // }
 });
