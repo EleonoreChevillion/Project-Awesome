@@ -71,7 +71,7 @@ var question3 = {
     ],
     answers: {
       prop_1: ["RAVE", "Slap the bag", "Headbang", "SHOTS!"],
-      prop_2: ["Slam Dunk", "Slap Shot", "Homerun", "Touchdown"],
+      prop_2: ["Slam Dunk", "Slap Shot", "Homerun", "Net working"],
       prop_3: [
         "Literally Jammin",
         "Alt Nation",
@@ -611,8 +611,8 @@ function callApi() {
       eventbriteApi(8014);
     } else if (secondAnswer === "Homerun") {
       eventbriteApi(8008);
-    } else if (secondAnswer === "Touchdown") {
-      eventbriteApi(8007);
+    } else if (secondAnswer === "Net working") {
+      eventbriteApi(8012);
     } else if (secondAnswer === "Literally Jammin") {
       eventbriteApi(3015);
     } else if (secondAnswer === "Alt Nation") {
