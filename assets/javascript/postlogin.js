@@ -3,9 +3,9 @@ $(document).ready(function() {
 
   //goes back to the random events and the quizz button
   $("#home").on("click", function() {
-    $("#description").css("display", "block");
     $("#apiDiv").css("display", "none");
     randomEvents();
+    $("#description").css("display", "flex");
     $("#randomDiv").css("display", "flex");
     $("#quizz").css("display", "inline");
   });
@@ -19,36 +19,40 @@ $(document).ready(function() {
   $("#restaurants").on("click", function() {
     $("#description").css("display", "none");
     $("#apiDiv").empty();
+    $("#apiDiv").css("display", "flex");
+    zomatoApi();
     $("#randomDiv").css("display", "none");
     $("#quizz").css("display", "none");
-    zomatoApi();
   });
 
   //click the culture button to get random selection of cultural events
   $("#culture").on("click", function() {
     $("#description").css("display", "none");
     $("#apiDiv").empty();
+    $("#apiDiv").css("display", "flex");
+    eventbriteApi(113);
     $("#randomDiv").css("display", "none");
     $("#quizz").css("display", "none");
-    eventbriteApi(113);
   });
 
   //click the sports button to get random selection of sports events
   $("#sports").on("click", function() {
     $("#description").css("display", "none");
     $("#apiDiv").empty();
+    $("#apiDiv").css("display", "flex");
+    eventbriteApi(108);
     $("#randomDiv").css("display", "none");
     $("#quizz").css("display", "none");
-    eventbriteApi(108);
   });
 
   //click the music button to get random selection of sports events
   $("#music").on("click", function() {
     $("#description").css("display", "none");
     $("#apiDiv").empty();
+    $("#apiDiv").css("display", "flex");
+    eventbriteApi(103);
     $("#randomDiv").css("display", "none");
     $("#quizz").css("display", "none");
-    eventbriteApi(103);
   });
 
   //Zomato API using fetch to get zomato info, appends elements to apiDiv (name of restaurant - average cost - picture of the restaurant - button to go to the url)
