@@ -44,3 +44,6 @@ h5 {
   width: 100px;
   height: 100px;
 }
+p {
+  text-align: justify;
+}
