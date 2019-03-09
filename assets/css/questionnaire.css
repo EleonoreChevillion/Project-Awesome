@@ -1,20 +1,60 @@
-.answers {
-    position: relative;
-    display: block;
-    padding: .75rem 1.25rem;
-    background-color: lightgrey;
-    border-color: lightgrey;
-    color: black;
-    width: 50%;
-    
+/* .answers {
+  position: relative;
+  display: block;
+  padding: 0.75rem 1.25rem;
+  background-color: lightgrey;
+  border-color: lightgrey;
+  color: black;
+  width: 50%;
 }
 
 .animated {
-    animation-duration: 5s;
-    /* animation-delay: 4s; */
-    animation-iteration-count: infinite;
+  animation-duration: 5s;
+  /* animation-delay: 4s; */
+/* animation-iteration-count: infinite;
+} */
+
+#brand-name,
+.glow {
+  color: white;
+  font-family: neon;
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #ff0080, 0 0 30px #ff0080,
+    0 0 40px #ff0080, 0 0 55px #ff0080, 0 0 75px #ff0080;
+}
+.glow {
+  font-size: 15vw;
+  /* CSS Animation for Banner */
+  -webkit-animation: flicker-in-1 2s linear both;
+  animation: flicker-in-1 2s linear both;
 }
 
-/* .eventsImg {
-    width: 120%;
-} */
+body {
+  background-color: #aaaaaa;
+}
+h5 {
+  color: Black;
+  text-shadow: 1 1 1px black;
+  font-family: "Open Sans Condensed", sans-serif;
+}
+
+.container {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.eventsImg {
+  width: 120%;
+  margin-right: 10px;
+}
+#randCard {
+  border: solid black 2px;
+  box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #ff0080;
+  background-color: #eaeaea;
+}
+#randImg {
+  width: 100px;
+  height: 100px;
+}
+.moreInfo {
+  margin-top: 7px;
+}

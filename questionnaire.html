@@ -1,82 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Questionnaire</title>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>Questionnaire</title>
-  
-  
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="assets/css/questionnaire.css" />
-    
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
-    
-</head>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+      integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Fugaz+One"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css"
+    />
+  </head>
 
-<body>
-  <!--navbar-->
-  <nav class="navbar sticky-top navbar-light bg-dark">
-    <a class="navbar-brand" href="index.html">
-      <span id="brand-name">WerToGo</span>
-    </a>
-    <!--The gouping for the buttons-->
-    <div class="btn-group" role="group" aria-label="Basic example">
-      <a><button type="button" class="btn btn-outline-light mr-3" id="home">
-          Home
-        </button>
+  <body>
+    <!--navbar-->
+    <nav class="navbar sticky-top navbar-light bg-dark">
+      <a class="navbar-brand" href="index.html">
+        <span id="brand-name">WerToGo</span>
       </a>
-      <!--Profile section for navbar-->
-      <div class="dropdown">
-        <button class="btn btn-outline-light mr-3 dropdown-toggle" type="button" id="dropdownMenu2"
-          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Account
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-          <button class="dropdown-item" type="button">Profile (COMING SOON)</button>
-          <button class="dropdown-item" type="button" id="logoutBtn">Logout</button>
-          <button class="dropdown-item" type="button">Badges (COMING SOON)</button>
-        </div>
+      <!--The gouping for the buttons-->
+      <div class="btn-group" role="group" aria-label="Basic example">
+        <a
+          ><button type="button" class="btn btn-outline-light mr-3" id="home">
+            Home
+          </button>
+        </a>
+        <!--Profile section for navbar-->
+        <!-- <div class="dropdown">
+          <button
+            class="btn btn-outline-light mr-3 dropdown-toggle"
+            type="button"
+            id="dropdownMenu2"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            Account
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+            <button class="dropdown-item" type="button">
+              Profile (COMING SOON)
+            </button>
+            <button class="dropdown-item" type="button" id="logoutBtn">
+              Logout
+            </button>
+            <button class="dropdown-item" type="button">
+              Badges (COMING SOON)
+            </button>
+          </div>
+        </div> -->
       </div>
+    </nav>
+    <br />
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-2">
+          <button id="restart" class="btn btn-light btn-lg">Restart</button>
+          <br />
+          <button id="more" class="btn btn-light btn-lg">Gimme more</button>
+          <!-- <button id="moreFood">Gimme more</button> -->
+        </div>
+
+        <div class="col-lg-6">
+          <h1 id="question"></h1>
+          <div id="answersDiv"></div>
+        </div>
+        <div class="col-md-4" id="pictures"></div>
+      </div>
+      <br />
+      <br />
+      <div class="row" id="apiDiv"></div>
     </div>
-  </nav>
-  <br>
-  <div class="container">
-    <div class="row">
-    
-    <div class="col-sm-2">
-      <button id="restart" class="btn btn-light btn-lg">Restart</button>
-      <br>
-      <button id="more" class="btn btn-light btn-lg">Gimme more</button>
-  <!-- <button id="moreFood">Gimme more</button> -->
-    </div>
+    <br />
+    <footer class="page-footer font-small bottom bg-dark">
+      <div class="footer-copyright text-white text-center py-3">
+        <i class="fab fa-instagram mr-5"></i>
+        <i class="fab fa-twitter mr-5"></i>
+        <i class="fab fa-facebook-f mr-5"></i>
+      </div>
+    </footer>
 
-  
-  <div class="col-lg-6">
-    
-    <h1 id="question"></h1>
-    <div id="answersDiv"></div>
-
-    
-
-    <div class="row" id="apiDiv"></div>
-  </div>
-  <div class="col-md-4" id="pictures">
-
-    </div>
-  </div>
-  </div>
-  
-  
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="assets/javascript/app.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-    crossorigin="anonymous"></script>
-  <script src="assets/javascript/login.js"></script>
-</body>
-
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="assets/javascript/app.js"></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <script src="assets/javascript/login.js"></script>
+  </body>
 </html>
