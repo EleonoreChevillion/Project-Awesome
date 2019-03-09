@@ -146,8 +146,6 @@ var question3 = {
 
 startQuestionnaire();
 
-
-
 //STYLING//
 // All answers elements have a class of answers
 // The questions are all appended to the element with id question
@@ -159,82 +157,106 @@ $("#home").on("click", function() {
 
 //first level of questions, does not append things to apiDiv
 function startQuestionnaire() {
+  $("#pictures").empty();
   $("#restart").css("display", "none");
   $("#more").css("display", "none");
   $("#question").text(question1.question);
   var firstQuestion = question1.answers;
-  // var eventImg = $("<img>");
-  //   eventImg.attr("src", "./assets/images/eventimg1.jpg");
-  //   eventImg.attr("class", "eventsImg");
-  //   $("#pictures").append(eventImg);
+  var eventImg = $("<img>");
+  eventImg.attr("src", "./assets/images/relaxImg.png");
+  eventImg.attr("class", "eventsImg");
+  $("#pictures").append(eventImg);
   for (var i = 0; i < firstQuestion.length; i++) {
     var answersDisplay = $("<button/>");
     // var answersbutton = $("<label/>");
     answersDisplay.attr("data-index", [i]);
     answersDisplay.text(firstQuestion[i]);
     // answersDisplay.text(firstQuestion[i]);
-    answersDisplay.addClass("startAnswers answers btn btn-secondary btn-lg btn-block");
+    answersDisplay.addClass(
+      "startAnswers answers btn btn-secondary btn-lg btn-block"
+    );
     $("#answersDiv").append(answersDisplay);
-
-    
   }
- 
+
   secondQuestion();
-  
 }
 
 //second level of questions, does not append things to apiDiv
 function secondQuestion() {
-  
- 
   $(".startAnswers").on("click", function(event) {
-  //   if (!$(this).hasClass("animated bounceOutRight")){
-  //     $(this).removeClass("animated bounceOutRight");
-  // } else {
-  //     $(this).addClass("animated bounceOutRight");
-  // }
+    //   if (!$(this).hasClass("animated bounceOutRight")){
+    //     $(this).removeClass("animated bounceOutRight");
+    // } else {
+    //     $(this).addClass("animated bounceOutRight");
+    // }
+
     $("#more").css("display", "none");
     $("#restart").css("display", "flex");
     $("#answersDiv").empty();
+    $("#pictures").empty();
     selectedAnswer = parseInt(event.currentTarget.dataset.index);
     if (selectedAnswer === 0) {
+      var eventImg = $("<img>");
+      eventImg.attr("src", "./assets/images/events.png");
+      eventImg.attr("class", "eventsImg");
+      $("#pictures").append(eventImg);
       // $(".eventsImg").attr("src", "./assets/images/relaxImg.jpg");
       $("#question").text(question2.question[0]);
       var activity1 = question2.answers.activity1;
       for (var j = 0; j < activity1.length; j++) {
         var activity1_answers = $("<button/>");
         activity1_answers.attr("data-index", [j]);
-        activity1_answers.addClass("firstActAnswers answers btn btn-secondary btn-lg btn-block");
+        activity1_answers.addClass(
+          "firstActAnswers answers btn btn-secondary btn-lg btn-block"
+        );
         activity1_answers.text(activity1[j]);
         $("#answersDiv").append(activity1_answers);
       }
     } else if (selectedAnswer === 1) {
+      var eventImg = $("<img>");
+      eventImg.attr("src", "./assets/images/turnup.png");
+      eventImg.attr("class", "eventsImg");
+      $("#pictures").append(eventImg);
       $("#question").text(question2.question[1]);
       var activity2 = question2.answers.activity2;
       for (var h = 0; h < activity2.length; h++) {
         var activity2_answers = $("<button/>");
         activity2_answers.attr("data-index", [h]);
-        activity2_answers.addClass("secondActAnswers answers btn btn-secondary btn-lg btn-block");
+        activity2_answers.addClass(
+          "secondActAnswers answers btn btn-secondary btn-lg btn-block"
+        );
         activity2_answers.text(activity2[h]);
         $("#answersDiv").append(activity2_answers);
       }
     } else if (selectedAnswer === 2) {
+      var eventImg = $("<img>");
+      eventImg.attr("src", "./assets/images/culture.png");
+      eventImg.attr("class", "eventsImg");
+      $("#pictures").append(eventImg);
       $("#question").text(question2.question[2]);
       var activity3 = question2.answers.activity3;
       for (var k = 0; k < activity3.length; k++) {
         var activity3_answers = $("<button/>");
         activity3_answers.attr("data-index", [k]);
-        activity3_answers.addClass("thirdActAnswers answers btn btn-secondary btn-lg btn-block");
+        activity3_answers.addClass(
+          "thirdActAnswers answers btn btn-secondary btn-lg btn-block"
+        );
         activity3_answers.text(activity3[k]);
         $("#answersDiv").append(activity3_answers);
       }
-    } else {
+    } else if (selectedAnswer === 3) {
+      var eventImg = $("<img>");
+      eventImg.attr("src", "./assets/images/food.png");
+      eventImg.attr("class", "eventsImg");
+      $("#pictures").append(eventImg);
       $("#question").text(question2.question[3]);
       var activity4 = question2.answers.activity4;
       for (var l = 0; l < activity4.length; l++) {
         var activity4_answers = $("<button/>");
         activity4_answers.attr("data-index", [l]);
-        activity4_answers.addClass("fourthActAnswers answers btn btn-secondary btn-lg btn-block");
+        activity4_answers.addClass(
+          "fourthActAnswers answers btn btn-secondary btn-lg btn-block"
+        );
         activity4_answers.text(activity4[l]);
         $("#answersDiv").append(activity4_answers);
       }
@@ -247,46 +269,70 @@ function secondQuestion() {
 function thirdQuestions() {
   //first set of questions that append to tryDiv
   $(".firstActAnswers").on("click", function(event) {
-    
+    $("#pictures").empty();
     $("#answersDiv").empty();
     selectedAnswer = parseInt(event.currentTarget.dataset.index);
     if (selectedAnswer === 0) {
+      var eventImg = $("<img>");
+      eventImg.attr("src", "./assets/images/outdoor.png");
+      eventImg.attr("class", "eventsImg");
+      $("#pictures").append(eventImg);
       $("#question").text(question3.activity1.question[0]);
       var prop1 = question3.activity1.answers.prop_1;
       for (var i = 0; i < prop1.length; i++) {
         var prop1_answers = $("<button/>");
         prop1_answers.attr("data-textue", prop1[i]);
-        prop1_answers.addClass("finalProp answers btn btn-secondary btn-lg btn-block");
+        prop1_answers.addClass(
+          "finalProp answers btn btn-secondary btn-lg btn-block"
+        );
         prop1_answers.text(prop1[i]);
         $("#answersDiv").append(prop1_answers);
       }
     } else if (selectedAnswer === 1) {
+      var eventImg = $("<img>");
+      eventImg.attr("src", "./assets/images/solo.png");
+      eventImg.attr("class", "eventsImg");
+      $("#pictures").append(eventImg);
       $("#question").text(question3.activity1.question[1]);
       var prop2 = question3.activity1.answers.prop_2;
       for (var h = 0; h < prop2.length; h++) {
         var prop2_answers = $("<button/>");
         prop2_answers.attr("data-textue", prop2[h]);
-        prop2_answers.addClass("finalProp answers btn btn-secondary btn-lg btn-block");
+        prop2_answers.addClass(
+          "finalProp answers btn btn-secondary btn-lg btn-block"
+        );
         prop2_answers.text(prop2[h]);
         $("#answersDiv").append(prop2_answers);
       }
     } else if (selectedAnswer === 2) {
+      var eventImg = $("<img>");
+      eventImg.attr("src", "./assets/images/relaxmusic.png");
+      eventImg.attr("class", "eventsImg");
+      $("#pictures").append(eventImg);
       $("#question").text(question3.activity1.question[2]);
       var prop3 = question3.activity1.answers.prop_3;
       for (var k = 0; k < prop3.length; k++) {
         var prop3_answers = $("<button/>");
         prop3_answers.attr("data-textue", prop3[k]);
-        prop3_answers.addClass("finalProp answers btn btn-secondary btn-lg btn-block");
+        prop3_answers.addClass(
+          "finalProp answers btn btn-secondary btn-lg btn-block"
+        );
         prop3_answers.text(prop3[k]);
         $("#answersDiv").append(prop3_answers);
       }
     } else {
+      var eventImg = $("<img>");
+      eventImg.attr("src", "./assets/images/yoga.png");
+      eventImg.attr("class", "eventsImg");
+      $("#pictures").append(eventImg);
       $("#question").text(question3.activity1.question[3]);
       var prop4 = question3.activity1.answers.prop_4;
       for (var l = 0; l < prop4.length; l++) {
         var prop4_answers = $("<button/>");
         prop4_answers.attr("data-textue", prop4[l]);
-        prop4_answers.addClass("finalProp answers btn btn-secondary btn-lg btn-block");
+        prop4_answers.addClass(
+          "finalProp answers btn btn-secondary btn-lg btn-block"
+        );
         prop4_answers.text(prop4[l]);
         $("#answersDiv").append(prop4_answers);
       }
@@ -296,45 +342,70 @@ function thirdQuestions() {
 
   //second set of questions that append info to the tryDiv
   $(".secondActAnswers").on("click", function(event) {
+    $("#pictures").empty();
     $("#answersDiv").empty();
     selectedAnswer = parseInt(event.currentTarget.dataset.index);
     if (selectedAnswer === 0) {
+      var eventImg = $("<img>");
+      eventImg.attr("src", "./assets/images/dance.png");
+      eventImg.attr("class", "eventsImg");
+      $("#pictures").append(eventImg);
       $("#question").text(question3.activity2.question[0]);
       var prop1 = question3.activity2.answers.prop_1;
       for (var i = 0; i < prop1.length; i++) {
         var prop1_answers = $("<button/>");
         prop1_answers.attr("data-textue", prop1[i]);
-        prop1_answers.addClass("finalProp answers btn btn-secondary btn-lg btn-block");
+        prop1_answers.addClass(
+          "finalProp answers btn btn-secondary btn-lg btn-block"
+        );
         prop1_answers.text(prop1[i]);
         $("#answersDiv").append(prop1_answers);
       }
     } else if (selectedAnswer === 1) {
+      var eventImg = $("<img>");
+      eventImg.attr("src", "./assets/images/game.png");
+      eventImg.attr("class", "eventsImg");
+      $("#pictures").append(eventImg);
       $("#question").text(question3.activity2.question[1]);
       var prop2 = question3.activity2.answers.prop_2;
       for (var h = 0; h < prop2.length; h++) {
         var prop2_answers = $("<button/>");
         prop2_answers.attr("data-textue", prop2[h]);
-        prop2_answers.addClass("finalProp answers btn btn-secondary btn-lg btn-block");
+        prop2_answers.addClass(
+          "finalProp answers btn btn-secondary btn-lg btn-block"
+        );
         prop2_answers.text(prop2[h]);
         $("#answersDiv").append(prop2_answers);
       }
     } else if (selectedAnswer === 2) {
+      var eventImg = $("<img>");
+      eventImg.attr("src", "./assets/images/concert.png");
+      eventImg.attr("class", "eventsImg");
+      $("#pictures").append(eventImg);
       $("#question").text(question3.activity2.question[2]);
       var prop3 = question3.activity2.answers.prop_3;
       for (var k = 0; k < prop3.length; k++) {
         var prop3_answers = $("<button/>");
         prop3_answers.attr("data-textue", prop3[k]);
-        prop3_answers.addClass("finalProp answers btn btn-secondary btn-lg btn-block");
+        prop3_answers.addClass(
+          "finalProp answers btn btn-secondary btn-lg btn-block"
+        );
         prop3_answers.text(prop3[k]);
         $("#answersDiv").append(prop3_answers);
       }
     } else {
+      var eventImg = $("<img>");
+      eventImg.attr("src", "./assets/images/comfort.png");
+      eventImg.attr("class", "eventsImg");
+      $("#pictures").append(eventImg);
       $("#question").text(question3.activity2.question[3]);
       var prop4 = question3.activity2.answers.prop_4;
       for (var l = 0; l < prop4.length; l++) {
         var prop4_answers = $("<button/>");
         prop4_answers.attr("data-textue", prop4[l]);
-        prop4_answers.addClass("finalProp answers btn btn-secondary btn-lg btn-block");
+        prop4_answers.addClass(
+          "finalProp answers btn btn-secondary btn-lg btn-block"
+        );
         prop4_answers.text(prop4[l]);
         $("#answersDiv").append(prop4_answers);
       }
@@ -344,45 +415,70 @@ function thirdQuestions() {
 
   //third set of answers that append to the tryDiv
   $(".thirdActAnswers").on("click", function(event) {
+    $("#pictures").empty();
     $("#answersDiv").empty();
     selectedAnswer = parseInt(event.currentTarget.dataset.index);
     if (selectedAnswer === 0) {
+      var eventImg = $("<img>");
+      eventImg.attr("src", "./assets/images/sound.png");
+      eventImg.attr("class", "eventsImg");
+      $("#pictures").append(eventImg);
       $("#question").text(question3.activity3.question[0]);
       var prop1 = question3.activity3.answers.prop_1;
       for (var i = 0; i < prop1.length; i++) {
         var prop1_answers = $("<button/>");
         prop1_answers.attr("data-textue", prop1[i]);
-        prop1_answers.addClass("finalProp answers btn btn-secondary btn-lg btn-block");
+        prop1_answers.addClass(
+          "finalProp answers btn btn-secondary btn-lg btn-block"
+        );
         prop1_answers.text(prop1[i]);
         $("#answersDiv").append(prop1_answers);
       }
     } else if (selectedAnswer === 1) {
+      var eventImg = $("<img>");
+      eventImg.attr("src", "./assets/images/ballet.png");
+      eventImg.attr("class", "eventsImg");
+      $("#pictures").append(eventImg);
       $("#question").text(question3.activity3.question[1]);
       var prop2 = question3.activity3.answers.prop_2;
       for (var h = 0; h < prop2.length; h++) {
         var prop2_answers = $("<button/>");
         prop2_answers.attr("data-textue", prop2[h]);
-        prop2_answers.addClass("finalProp answers btn btn-secondary btn-lg btn-block");
+        prop2_answers.addClass(
+          "finalProp answers btn btn-secondary btn-lg btn-block"
+        );
         prop2_answers.text(prop2[h]);
         $("#answersDiv").append(prop2_answers);
       }
     } else if (selectedAnswer === 2) {
+      var eventImg = $("<img>");
+      eventImg.attr("src", "./assets/images/nerd.png");
+      eventImg.attr("class", "eventsImg");
+      $("#pictures").append(eventImg);
       $("#question").text(question3.activity3.question[2]);
       var prop3 = question3.activity3.answers.prop_3;
       for (var k = 0; k < prop3.length; k++) {
         var prop3_answers = $("<button/>");
         prop3_answers.attr("data-textue", prop3[k]);
-        prop3_answers.addClass("finalProp answers btn btn-secondary btn-lg btn-block");
+        prop3_answers.addClass(
+          "finalProp answers btn btn-secondary btn-lg btn-block"
+        );
         prop3_answers.text(prop3[k]);
         $("#answersDiv").append(prop3_answers);
       }
     } else {
+      var eventImg = $("<img>");
+      eventImg.attr("src", "./assets/images/theatre.png");
+      eventImg.attr("class", "eventsImg");
+      $("#pictures").append(eventImg);
       $("#question").text(question3.activity3.question[3]);
       var prop4 = question3.activity3.answers.prop_4;
       for (var l = 0; l < prop4.length; l++) {
         var prop4_answers = $("<button/>");
         prop4_answers.attr("data-textue", prop4[l]);
-        prop4_answers.addClass("finalProp answers btn btn-secondary btn-lg btn-block");
+        prop4_answers.addClass(
+          "finalProp answers btn btn-secondary btn-lg btn-block"
+        );
         prop4_answers.text(prop4[l]);
         $("#answersDiv").append(prop4_answers);
       }
@@ -392,45 +488,70 @@ function thirdQuestions() {
 
   //fourth set of answers that appends to tryDiv
   $(".fourthActAnswers").on("click", function(event) {
+    $("#pictures").empty();
     $("#answersDiv").empty();
     selectedAnswer = parseInt(event.currentTarget.dataset.index);
     if (selectedAnswer === 0) {
+      var eventImg = $("<img>");
+      eventImg.attr("src", "./assets/images/spice.png");
+      eventImg.attr("class", "eventsImg");
+      $("#pictures").append(eventImg);
       $("#question").text(question3.activity4.question[0]);
       var prop1 = question3.activity4.answers.prop_1;
       for (var i = 0; i < prop1.length; i++) {
         var prop1_answers = $("<button/>");
         prop1_answers.attr("data-textue", prop1[i]);
-        prop1_answers.addClass("foodProp answers btn btn-secondary btn-lg btn-block");
+        prop1_answers.addClass(
+          "foodProp answers btn btn-secondary btn-lg btn-block"
+        );
         prop1_answers.text(prop1[i]);
         $("#answersDiv").append(prop1_answers);
       }
     } else if (selectedAnswer === 1) {
+      var eventImg = $("<img>");
+      eventImg.attr("src", "./assets/images/fat.png");
+      eventImg.attr("class", "eventsImg");
+      $("#pictures").append(eventImg);
       $("#question").text(question3.activity4.question[1]);
       var prop2 = question3.activity4.answers.prop_2;
       for (var h = 0; h < prop2.length; h++) {
         var prop2_answers = $("<button/>");
         prop2_answers.attr("data-textue", prop2[h]);
-        prop2_answers.addClass("foodProp answers btn btn-secondary btn-lg btn-block");
+        prop2_answers.addClass(
+          "foodProp answers btn btn-secondary btn-lg btn-block"
+        );
         prop2_answers.text(prop2[h]);
         $("#answersDiv").append(prop2_answers);
       }
     } else if (selectedAnswer === 2) {
+      var eventImg = $("<img>");
+      eventImg.attr("src", "./assets/images/european.png");
+      eventImg.attr("class", "eventsImg");
+      $("#pictures").append(eventImg);
       $("#question").text(question3.activity4.question[2]);
       var prop3 = question3.activity4.answers.prop_3;
       for (var k = 0; k < prop3.length; k++) {
         var prop3_answers = $("<button/>");
         prop3_answers.attr("data-textue", prop3[k]);
-        prop3_answers.addClass("foodProp answers btn btn-secondary btn-lg btn-block");
+        prop3_answers.addClass(
+          "foodProp answers btn btn-secondary btn-lg btn-block"
+        );
         prop3_answers.text(prop3[k]);
         $("#answersDiv").append(prop3_answers);
       }
     } else {
+      var eventImg = $("<img>");
+      eventImg.attr("src", "./assets/images/asian.png");
+      eventImg.attr("class", "eventsImg");
+      $("#pictures").append(eventImg);
       $("#question").text(question3.activity4.question[3]);
       var prop4 = question3.activity4.answers.prop_4;
       for (var l = 0; l < prop4.length; l++) {
         var prop4_answers = $("<button/>");
         prop4_answers.attr("data-textue", prop4[l]);
-        prop4_answers.addClass("foodProp answers btn btn-secondary btn-lg btn-block");
+        prop4_answers.addClass(
+          "foodProp answers btn btn-secondary btn-lg btn-block"
+        );
         prop4_answers.text(prop4[l]);
         $("#answersDiv").append(prop4_answers);
       }
@@ -442,6 +563,7 @@ function thirdQuestions() {
 //this function gives each endpoint an API path
 function callApi() {
   $(".finalProp").on("click", function(event) {
+    $("#pictures").empty();
     $("#more").css("display", "flex");
     $("#apiDiv").empty();
     console.log("You clicked");
@@ -536,6 +658,8 @@ function callApi() {
     }
   });
   $(".foodProp").on("click", function(event) {
+    $("#pictures").empty();
+
     $("#apiDiv").empty();
     $("#more").css("display", "flex");
     finalAnswer = event.currentTarget.dataset.textue;
@@ -568,8 +692,7 @@ function eventbriteApi(q) {
     )
 
     .then(function(result) {
-     
-        console.log(result.data);
+      console.log(result.data);
       var results = result.data;
       console.log(results.events[0].url);
       console.log(results.length);
@@ -581,19 +704,19 @@ function eventbriteApi(q) {
       // console.log(filtered);
       var i = 0;
       var m;
-      if (m>results.events.length){
+      if (m > results.events.length) {
         m = results.events.length;
       } else {
-        m = 4
+        m = 4;
       }
       loop();
       $("#more").on("click", function(event) {
-        if (m>results.events.length){
+        if (m > results.events.length) {
           m = results.events.length;
         } else {
-        $("#apiDiv").empty();
-        i += 4;
-        m = i + 4;
+          $("#apiDiv").empty();
+          i += 4;
+          m = i + 4;
         }
         loop();
       });
@@ -622,9 +745,6 @@ function eventbriteApi(q) {
           });
         }
       }
-      
-
-       
     });
 }
 
@@ -710,5 +830,3 @@ $("#restart").on("click", function(event) {
   $("#question").empty();
   startQuestionnaire();
 });
-
-

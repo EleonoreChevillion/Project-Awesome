@@ -1,20 +1,25 @@
 .answers {
-    position: relative;
-    display: block;
-    padding: .75rem 1.25rem;
-    background-color: lightgrey;
-    border-color: lightgrey;
-    color: black;
-    width: 50%;
-    
+  position: relative;
+  display: block;
+  padding: 0.75rem 1.25rem;
+  background-color: lightgrey;
+  border-color: lightgrey;
+  color: black;
+  width: 50%;
 }
 
 .animated {
-    animation-duration: 5s;
-    /* animation-delay: 4s; */
-    animation-iteration-count: infinite;
+  animation-duration: 5s;
+  /* animation-delay: 4s; */
+  animation-iteration-count: infinite;
 }
 
-/* .eventsImg {
-    width: 120%;
-} */
+.container {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.eventsImg {
+  width: 120%;
+  margin-right: 10px;
+}
