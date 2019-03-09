@@ -723,15 +723,17 @@ function eventbriteApi(q) {
       function loop() {
         for (i; i < m; i++) {
           var mainDiv = $("<div>");
+          mainDiv.attr("id", "randCard");
           mainDiv.addClass("col-md-3");
           console.log(results.events[i].url);
-          var a = $("<h4>");
+          var a = $("<h5>");
           a.text(results.events[i].name.text);
           $(mainDiv).append(a);
 
           var articleImg = $("<img>");
           articleImg.attr("src", results.events[i].logo.original.url);
           articleImg.attr("class", "card-img-top");
+          articleImg.attr("id", "randImg");
           $(mainDiv).append(articleImg);
           $("#apiDiv").append(mainDiv);
 
@@ -789,13 +791,15 @@ function zomatoApi(r) {
 
           var mainDiv = $("<div>");
           mainDiv.addClass("col-md-3");
-          var restName = $("<h4>");
+          mainDiv.attr("id", "randCard");
+          var restName = $("<h5>");
           restName.text(restaurants[i].restaurant.name);
           $(mainDiv).append(restName);
 
           var restImg = $("<img>");
           restImg.attr("src", restaurants[i].restaurant.featured_image);
           restImg.attr("class", "card-img-top");
+          restImg.attr("id", "randImg");
           $(mainDiv).append(restImg);
 
           var restLocation = $("<p>");
