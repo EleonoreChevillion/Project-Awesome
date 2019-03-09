@@ -3,6 +3,7 @@ $(document).ready(function() {
 
   //goes back to the random events and the quizz button
   $("#home").on("click", function() {
+    $("#description").css("display", "block");
     $("#apiDiv").css("display", "none");
     randomEvents();
     $("#randomDiv").css("display", "flex");
@@ -16,6 +17,7 @@ $(document).ready(function() {
 
   //click the restaurants button to get random selection of restaurants
   $("#restaurants").on("click", function() {
+    $("#description").css("display", "none");
     $("#apiDiv").empty();
     $("#randomDiv").css("display", "none");
     $("#quizz").css("display", "none");
@@ -24,6 +26,7 @@ $(document).ready(function() {
 
   //click the culture button to get random selection of cultural events
   $("#culture").on("click", function() {
+    $("#description").css("display", "none");
     $("#apiDiv").empty();
     $("#randomDiv").css("display", "none");
     $("#quizz").css("display", "none");
@@ -32,6 +35,7 @@ $(document).ready(function() {
 
   //click the sports button to get random selection of sports events
   $("#sports").on("click", function() {
+    $("#description").css("display", "none");
     $("#apiDiv").empty();
     $("#randomDiv").css("display", "none");
     $("#quizz").css("display", "none");
@@ -40,6 +44,7 @@ $(document).ready(function() {
 
   //click the music button to get random selection of sports events
   $("#music").on("click", function() {
+    $("#description").css("display", "none");
     $("#apiDiv").empty();
     $("#randomDiv").css("display", "none");
     $("#quizz").css("display", "none");
